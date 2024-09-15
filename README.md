@@ -1,29 +1,20 @@
 ## Hi there 👋
 # SGA-WEB
 
-Criação de uma versão web e mais moderna de uma API de gerenciamento de estoque.
+Modernizar o SGA da empresa Integra, torná-lo mais intuitivo, mais interativo, com a criação de uma versão web da SGA.
 
 ## Índice
 
 - [Instalação](#instalação)
+- [Tecnologias](#tecnologias)
 - [Uso](#uso)
 - [Funcionalidades](#funcionalidades)
-- [Contribuição](#contribuição)
 - [Licença](#licença)
 
 ## Instalação
 
-Passos para clonar o repositório e configurar o ambiente de desenvolvimento.
-
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/nome-do-projeto.git
+git clone https://github.com/SGA-WEB/SGA-WEB.git
 
-# Entre no diretório do projeto
-cd nome-do-projeto
+cd SGA-WEB
 
-# Instale as dependências
-npm install
-
-# Execute o projeto
-npm start
