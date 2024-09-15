@@ -1,16 +1,29 @@
 ## Hi there 👋
+# SGA-WEB
 
-<!--
-**SGA-WEB/SGA-WEB** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Criação de uma versão web e mais moderna de uma API de gerenciamento de estoque.
 
-Here are some ideas to get you started:
+## Índice
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Funcionalidades](#funcionalidades)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+
+## Instalação
+
+Passos para clonar o repositório e configurar o ambiente de desenvolvimento.
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/nome-do-projeto.git
+
+# Entre no diretório do projeto
+cd nome-do-projeto
+
+# Instale as dependências
+npm install
+
+# Execute o projeto
+npm start
