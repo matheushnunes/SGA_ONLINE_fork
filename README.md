@@ -1,7 +1,7 @@
 ## Hi there 👋
 # SGA-WEB
 
-Modernizar o SGA da empresa Integra, torná-lo mais intuitivo, mais interativo, com a criação de uma versão web da SGA.
+Modernizar o SGA da empresa Integra, torná-lo mais intuitivo e mais interativo, com a criação de uma versão web da SGA.
 
 ## Índice
 
@@ -18,3 +18,16 @@ git clone https://github.com/SGA-WEB/SGA-WEB.git
 
 cd SGA-WEB
 
+```
+## Tecnologias
+- HTML
+- CSS
+- JavaScript
+- React
+- node.js
+- PostgreSQL
+- Github Pages
+  
+## licence
+
+  
