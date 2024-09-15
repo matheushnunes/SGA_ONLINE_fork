@@ -1,4 +1,3 @@
-## Hi there 👋
 # SGA-WEB
 
 Modernizar o SGA da empresa Integra, torná-lo mais intuitivo e mais interativo, com a criação de uma versão web da SGA.
@@ -20,6 +19,7 @@ cd SGA-WEB
 
 ```
 ## Tecnologias
+
 - HTML
 - CSS
 - JavaScript
