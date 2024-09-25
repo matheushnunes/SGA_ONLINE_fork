@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+:root {
+    --cinza1: #F6F6F6;
+    --cinza2: #E8E8E8;
+    --azul1: #9CBBED;
+    --azul-1: #E9F0FF;
+}
+
+body {
+    background-color: var(--cinza1);
+}
+
+/* cabeçalho */
+
+header {
+    background-color: white;
+    width: 100%;
+    height: 82px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.10);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+header img#logo_sga {
+    max-height: 65px;
+    margin-right: 10px;
+}
+
+/* campo de busca */
+header #campo_busca {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    min-width: 335px;
+}
+header #btn_filtros {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    margin-right: 10px;
+}
+header #icone_filtro {
+    width: 30px;
+}
+header #campo_pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    min-width: 280px;
+    height: 45px;
+    padding: 14px 10px 14px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--cinza2);
+}
+header #campo_pesquisa input {
+    background-color: transparent;
+    border: none;
+    width: calc(100% - 30px);
+    height: 100%;
+    font: normal 14px arial;
+    color: #9F9F9F ;
+}
+header #campo_pesquisa input:focus {
+    outline: none;
+}
+header #campo_pesquisa input::placeholder {
+    color: #9F9F9F;
+}
+header #campo_pesquisa img {
+    width: 25px;
+}
+
+/* Campo do usuário */
+header #campo_usuario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 316px;
+}
+header #usuario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 232px;
+    height: 54px;
+    padding: 5px 13px;
+    gap: 12px;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+}
+header #usuario #logo_usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background-color: aqua;
+    border-radius: 50%;
+    font: bold 20px arial;
+}
+header #nome-empresa_usuario span#nome_usuario {
+    display: block;
+    font: bold 14px arial;
+}
+header #nome-empresa_usuario span#empresa_usuario {
+    display: block;
+    font: normal 11px arial;
+}
+header #usuario_seta {
+    width: 16px;
+}
+
+header #btn_sair {
+    width: 60px;   
+    padding: 5px;
+    background-color: #ffa7a7;
+    border: none;
+    border-radius: 15px;
+    font: bold 14px arial   ;
+}
+
+
+/* Menu lateral */
+
+nav {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    max-width: 274px;
+    height: calc(100vh - 97px);
+    background-color: white;
+    box-shadow: 2px -1px 6.4px rgba(0, 0, 0, 0.17);
+}
+#container_btn_fechar {
+    display: flex;
+    align-self: flex-end;
+    margin: 10px 9px 10px 0;
+
+}
+nav #btn_fechar_menu {
+    height: 13px;
+    border: none;
+    cursor: pointer;
+}
+nav #btn_fechar_menu img {
+    width: 17px;
+}
+nav .item_menu {
+    width: 100%;
+    max-width: 256px ;
+    height: 39px;
+    margin: 0 9px 10px 9px;
+}
+nav .item_menu .btn_menu {
+    height: 100%;
+}
+nav .btn_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 6px 12px 6px 6px;
+    border-radius: 5px;
+}
+nav .item_menu .btn_menu:hover {
+    background-color: var(--azul-1);
+}
+nav .btn {
+    width: 256px;
+    justify-content: start;
+    margin-bottom: 10px;
+    gap: 10px;
+    background-color: var(--azul-1);
+}
+nav .btn:hover {
+    background-color: var(--azul1);
+} 
+nav .btn_menu div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+nav .img_icone_menu {
+    width: 21px;
+}
+
+.seta_cima_baixo {
+    width: 13px;
+}
