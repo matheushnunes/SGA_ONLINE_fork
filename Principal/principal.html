@@ -8,16 +8,18 @@
 </head>
 <body>
     <header>
-        <img id="logo_sga" src="imagens/logo_sga.png" alt="Logo do sga online">
-        <div id="campo_busca">
-            <div id="campo_pesquisa">
-                <input type="text" placeholder="Digite aqui oque você está buscando">
-                <img id="icone_pesquisa" src="imagens/icone_pesquisa.png" alt="icone_pesquisa">
+        <div id="container_logo_busca">
+            <img id="logo_sga" src="imagens/logo_sga.png" alt="Logo do sga online">
+            <div id="campo_busca">
+                <div id="campo_pesquisa">
+                    <input type="text" placeholder="Digite aqui oque você está buscando">
+                    <img id="icone_pesquisa" src="imagens/icone_pesquisa.png" alt="icone_pesquisa">
+                </div>
+                <button id="btn_filtros">
+                    <img id="icone_filtro" src="imagens/icone_filtro.png" alt="icone_filtro">
+                    <span>Filtros</span>
+                </button>
             </div>
-            <button id="btn_filtros">
-                <img id="icone_filtro" src="imagens/icone_filtro.png" alt="icone_filtro">
-                <span>Filtros</span>
-            </button> 
         </div>
         <div id="campo_usuario">
             <div id="usuario">
@@ -28,10 +30,10 @@
                 </div>
                 <img id="usuario_seta" class="seta_cima_baixo" src="imagens/seta_baixo.png" alt="seta para baixo">
             </div>
-            <button id="btn_sair">Sair</button> 
+            <button id="btn_sair"><a href="../SGA online-login/index.html" onclick="alterarEstilo">Sair</a></button> 
         </div>
     </header>
-    <nav>
+    <nav id="menu_lateral">
         <div id="container_btn_fechar"> 
             <button id="btn_fechar_menu">
                 <img src="imagens/icone_fechar_aba.png" alt="icone_fechar_aba">
@@ -45,6 +47,12 @@
                 </div>
                 <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
             </button>
+            <div class="dropdown" id="dd_estoque" style="display: none;">
+                <a href="#" class="item_dropdown" id="btn_centro_de_estoque">Centro de estoque</a>
+                <a href="#" class="item_dropdown" id="btn_produto">Produto</a>
+                <a href="#" class="item_dropdown" id="btn_movimentacao_de_estoque">Movimentação de estoque</a>
+                <a href="#" class="item_dropdown" id="btn_cadastro_auxiliares">Cadastro auxiliares</a>
+            </div>
         </div>
         <div class="item_menu">
             <button class="btn_menu" id="btn_vendas">
@@ -53,7 +61,13 @@
                     <span>Vendas</span>
                 </div>
                 <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
-            </button> 
+            </button>
+            <div class="dropdown" id="dd_vendas" style="display: none;">
+                <a href="#" class="item_dropdown">Centro de estoque</a>
+                <a href="#" class="item_dropdown">Produto</a>
+                <a href="#" class="item_dropdown">Movimentação de estoque</a>
+                <a href="#" class="item_dropdown">Cadastro auxiliares</a>
+            </div>
         </div>
         <div class="item_menu">
             <button class="btn_menu" id="btn_relatorios">
@@ -63,6 +77,12 @@
                 </div>
                 <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
             </button>
+            <div class="dropdown" id="dd_relatorios" style="display: none;">
+                <a href="#" class="item_dropdown">Centro de estoque</a>
+                <a href="#" class="item_dropdown">Produto</a>
+                <a href="#" class="item_dropdown">Movimentação de estoque</a>
+                <a href="#" class="item_dropdown">Cadastro auxiliares</a>
+            </div>
         </div>
         <div class="item_menu">
             <button class="btn_menu" id="btn_financeiro">
@@ -72,6 +92,12 @@
                 </div>
                 <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
             </button>
+            <div class="dropdown" id="dd_financeiro" style="display: none;">
+                <a href="#" class="item_dropdown">Centro de estoque</a>
+                <a href="#" class="item_dropdown">Produto</a>
+                <a href="#" class="item_dropdown">Movimentação de estoque</a>
+                <a href="#" class="item_dropdown">Cadastro auxiliares</a>
+            </div>
         </div>
         <div class="item_menu">
             <button class="btn_menu" id="btn_administracao">
@@ -81,6 +107,12 @@
                 </div>
                 <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
             </button>
+            <div class="dropdown" id="dd_administracao" style="display: none;">
+                <a href="#" class="item_dropdown" >Centro de estoque</a>
+                <a href="#" class="item_dropdown" >Produto</a>
+                <a href="#" class="item_dropdown" >Movimentação de estoque</a>
+                <a href="#" class="item_dropdown" >Cadastro auxiliares</a>
+            </div>
         </div>
         <button class="btn btn_menu" id="btn_veiculo">
             <img class="img_icone_menu" src="imagens/icone_veiculo.png" alt="icone_veiculo">
@@ -98,5 +130,6 @@
     <main>
 
     </main>
+    <script src="javaScript.js"></script>
 </body>
 </html>
