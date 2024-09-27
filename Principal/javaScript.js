@@ -79,9 +79,43 @@ itens_dropdown.forEach(e=>{
 })
 
 // Fechar menu lateral:
+
+function minimizarMenu(status){
+    let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo")
+    mini.forEach(e => e.classList.toggle("mini"))
+
+    if (status == "fechar"){
+        document.querySelectorAll(".dropdown").forEach(e => e.style.display = "none")
+        btnMenu()
+    }
+    else {
+        // document.querySelectorAll(".dropdown").forEach((e)=>{
+        //     console.log(e.id)
+        // })
+    }
+}
+
+function btnMenu(){
+    let btn_menu = document.querySelectorAll(".btn_menu.mini")
+    console.log(btnMenu)
+    btn_menu.forEach((e)=>{
+        e.addEventListener("click", ()=>{
+            console.log(btn_menu)
+            minimizarMenu("abrir")
+        })
+    })
+}
 let btn_fechar_menu = document.querySelector("#btn_fechar_menu")
 btn_fechar_menu.addEventListener('click',()=>{
-    let menu_lateral = document.querySelector('#menu_lateral')
-    console.log(menu_lateral)
-    menu_lateral.style.display = "none"
+    let icone_aba = document.querySelector("#icone_aba")
+    if (icone_aba.classList[0] == "aba_fechar") {
+        icone_aba.src = "imagens/icone_abrir_aba.png"
+        icone_aba.className = "aba_abrir"
+    } else {
+        icone_aba.src = "imagens/icone_fechar_aba.png"
+        icone_aba.className = "aba_fechar"
+    }
+
+    minimizarMenu("fechar")
 })
+

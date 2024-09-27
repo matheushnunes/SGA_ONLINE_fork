@@ -22,7 +22,7 @@ a:visited{
 
 body {
     background-color: var(--cinza1);
-    font: normal 1em arial;
+    font: normal 1rem arial;
 }
 
 /* cabeçalho */
@@ -47,7 +47,7 @@ header #container_logo_busca {
 }
 header img#logo_sga {
     max-height: 65px;
-    margin-right: 10px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
@@ -92,7 +92,7 @@ header #campo_pesquisa input {
     border: none;
     width: calc(100% - 30px);
     height: 100%;
-    font: normal 14px arial;
+    font: normal 0.9rem arial;
     color: #9F9F9F ;
 }
 header #campo_pesquisa input:focus {
@@ -134,7 +134,7 @@ header #usuario #logo_usuario {
     flex-shrink: 0;
     background-color: aqua;
     border-radius: 50%;
-    font: bold 20px arial;
+    font: bold 18px arial;
 }
 header #nome-empresa_usuario span#nome_usuario {
     display: block;
@@ -154,7 +154,7 @@ header #btn_sair {
     background-color: #ffa7a7;
     border: none;
     border-radius: 15px;
-    font: bold 14px arial;
+    font: bold 0.9rem arial;
     cursor: pointer;
 }
 header #btn_sair a {
@@ -178,13 +178,18 @@ nav {
 #container_btn_fechar {
     display: flex;
     align-self: flex-end;
-    margin: 10px 9px 10px 0;
-
+    margin: 5px;
 }
 nav #btn_fechar_menu {
-    height: 13px;
+    width: 26px;
+    height: 26px;
     border: none;
+    border-radius: 5px;
+    background-color: transparent;
     cursor: pointer;
+}
+nav #btn_fechar_menu:hover {
+    background-color: var(--azul-1);
 }
 nav #btn_fechar_menu img {
     width: 17px;
@@ -192,7 +197,7 @@ nav #btn_fechar_menu img {
 nav .item_menu {
     width: 100%;
     max-width: 256px ;
-    margin: 0 9px 10px 9px;
+    margin-bottom: 10px;
 }
 nav .item_menu .btn_menu {
     height: 39px;
@@ -205,12 +210,15 @@ nav .btn_menu {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    padding: 6px 12px 6px 6px;
+    padding: 6px;
     border-radius: 5px;
-    font: normal 18px arial;
+    font: normal 1.1rem arial;
 }
 nav .item_menu .btn_menu:hover {
     background-color: var(--azul-1);
+}
+nav .btn_menu .seta_cima_baixo {
+    margin-right: 6px;
 }
 nav .btn {
     width: 256px;
@@ -232,10 +240,10 @@ nav .img_icone_menu {
 }
 nav #btn_configuracoes {
     width: 256px;
-    margin: auto 9px 20px 9px;
+    margin: auto 9px 10px 9px;
     justify-content: center;
     gap: 10px;
-    font: normal 18px arial;
+    font: normal 1.3rem arial;
 }
 nav #btn_configuracoes:hover {
     background-color: var(--azul-1);
@@ -276,3 +284,32 @@ nav #btn_configuracoes img {
     border-left: 2px solid var(--azul) !important;
     color: var(--azul) !important;
 }
+
+/* Estilos do menu minimizado */    
+
+header #container_logo_busca.mini {
+    justify-content: flex-start;
+}
+nav#menu_lateral.mini {
+    max-width: 36px;
+}
+nav .btn_menu.mini, #btn_configuracoes.mini {
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+}
+nav .btn.mini {
+    justify-content: center;
+    padding: 3px;
+}
+nav .item_menu.mini {
+    display: flex;
+    justify-content: center;
+}
+nav #container_btn_fechar.mini {
+    align-self: center;
+}
+nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
+    display: none;
+}
+
