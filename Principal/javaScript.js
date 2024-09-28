@@ -104,3 +104,16 @@ let btn_fechar_menu = document.querySelector("#btn_fechar_menu") // Botão fecha
 btn_fechar_menu.addEventListener('click',()=>{
     btnMenuLateral()
 })
+
+// Menu Usuário:
+
+let btnUsuario = document.querySelector("#usuario")
+let menu_usuario = document.querySelector("#menu_usuario")
+let usuario_seta
+btnUsuario.addEventListener("click",()=>{ 
+    if (menu_usuario.style.display == "none"){
+        menu_usuario.style.display = "block"
+    } else {
+        menu_usuario.style.display = "none"
+    }
+})

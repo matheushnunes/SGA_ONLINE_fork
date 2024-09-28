@@ -93,7 +93,7 @@ header #campo_pesquisa input {
     width: calc(100% - 30px);
     height: 100%;
     font: normal 0.9rem arial;
-    color: #9F9F9F ;
+    color: black
 }
 header #campo_pesquisa input:focus {
     outline: none;
@@ -147,6 +147,29 @@ header #nome-empresa_usuario span#empresa_usuario {
 header #usuario_seta {
     width: 16px;
 }
+
+/* Menu do usuário */
+
+#menu_usuario {
+    position: absolute;
+    top: 77px;
+    margin-left: 26px;
+    background-color: white;
+    padding: 10px 6px 30px 6px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.116);
+}
+#menu_usuario span {
+    padding: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+#menu_usuario span:hover {
+    background-color: var(--azul-1);
+    transition: .2s;
+}
+
+/* Botão de sair */
 
 header #btn_sair {
     width: 60px;   
@@ -312,4 +335,3 @@ nav #container_btn_fechar.mini {
 nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     display: none;
 }
-
