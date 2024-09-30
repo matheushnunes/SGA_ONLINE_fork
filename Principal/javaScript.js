@@ -30,6 +30,7 @@ function displayMenu(id, mini){
 function minimizarMenu(status){
     let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo") // Seleciona todos os elementos necessários 
     let modulo_selecionado = document.querySelector(".modulo_selecionado")
+    console.log(modulo_selecionado)
     mini.forEach(e => e.classList.toggle("mini")) // Adiciona ou retira a classe "mini" nos elementos
     if (status == "fechar"){
         document.querySelectorAll(".dropdown").forEach(e => e.style.display = "none") // Deixa invisível os itens do menu dropdown
@@ -41,12 +42,12 @@ function minimizarMenu(status){
 // Função que modifica o botão de abrir e fechar o menu lateral
 function btnMenuLateral(){
     let icone_aba = document.querySelector("#icone_aba")
-    if (icone_aba.classList[0] == "aba_fechar") {
+    if (icone_aba.classList[0] == "aba_fechar") { // Se o menu estiver maximizado 
         icone_aba.src = "imagens/icone_abrir_aba.png"
         icone_aba.className = "aba_abrir"
         icone_aba.alt = "Icone_abrir_aba_menu"
         minimizarMenu("fechar")
-    } else {
+    } else { // Se o menu estiver minimizado 
         icone_aba.src = "imagens/icone_fechar_aba.png"
         icone_aba.className = "aba_fechar"
         icone_aba.alt = "Icone_fechar_aba_menu"
@@ -59,12 +60,12 @@ btns_menu.forEach((e)=>{
     e.addEventListener("click",(e)=>{
         let modulo = e.currentTarget // Pega o modulo que foi clicado
         let btnMini = modulo.classList.contains("mini") // Verifica se o botão tem a classe "mini"
-        let btn = (modulo.id == "btn_veiculo" || modulo.id == "btn_contato" || modulo.id == "btn_configuracoes") // Verifica se a opção selecionada é um botão
+        let btn = (modulo.id == "btn_veiculo" || modulo.id == "btn_contato" || modulo.id == "btn_configuracoes") // Verifica se a opção selecionada é um botão que não tem um menu dropdown
 
         if(btnMini) { // Se o botão for apertado com o menu minimizado
             if(!btn){ // Se não for um botão
-                btnMenuLateral()
                 modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
+                btnMenuLateral()
             }else {
                 modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
             }
