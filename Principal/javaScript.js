@@ -9,7 +9,7 @@ function alterarEstilo() {
 // Configurações menu lateral:
 
 // Função trocar visibilidade do menu comforme for clicado
-function displayMenu(id){
+function displayMenu(id, mini){
     if(id) {
         let menu = id
         let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
@@ -29,9 +29,12 @@ function displayMenu(id){
 // Função que modifica a visibilidade e o estilo dos itens do menu lateral 
 function minimizarMenu(status){
     let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo") // Seleciona todos os elementos necessários 
+    let modulo_selecionado = document.querySelector(".modulo_selecionado")
     mini.forEach(e => e.classList.toggle("mini")) // Adiciona ou retira a classe "mini" nos elementos
     if (status == "fechar"){
         document.querySelectorAll(".dropdown").forEach(e => e.style.display = "none") // Deixa invisível os itens do menu dropdown
+    } else if (modulo_selecionado != null){
+        modulo_selecionado.nextElementSibling.style.display = "block"
     }
 }
 
@@ -54,39 +57,39 @@ function btnMenuLateral(){
 let btns_menu = document.querySelectorAll(".btn_menu") // Seleciona todos os botões dos modulos
 btns_menu.forEach((e)=>{
     e.addEventListener("click",(e)=>{
-        let modulo = e.currentTarget.id // Pega o id do modulo que foi clicado
-        let btnMini = e.currentTarget.classList.contains("mini") // Verifica se o botão tem a classe "mini"
-        let btn = (e.currentTarget.id == "btn_veiculo" || e.currentTarget.id == "btn_contato" || e.currentTarget.id == "btn_configuracoes") // Verifica se a opção selecionada é um botão
-        
+        let modulo = e.currentTarget // Pega o modulo que foi clicado
+        let btnMini = modulo.classList.contains("mini") // Verifica se o botão tem a classe "mini"
+        let btn = (modulo.id == "btn_veiculo" || modulo.id == "btn_contato" || modulo.id == "btn_configuracoes") // Verifica se a opção selecionada é um botão
+
         if(btnMini) { // Se o botão for apertado com o menu minimizado
             if(!btn){ // Se não for um botão
                 btnMenuLateral()
-                e.currentTarget.classList.add("modulo_selecionado") // Somente adiciona a classe
+                modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
             }else {
-                e.currentTarget.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
+                modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
             }
+        } else { // Se o botão for apertado com o menu maximizado:
+            btns_menu.forEach(el=>{
+                if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
+                    if(!btnMini) { // Se não for um botão minimizado
+                        el.classList.toggle("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
+                    }
+                    if(!btn){ // Se não for um botão
+                        displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
+                    }
+                } else {
+                    el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos
+                }
+            })
         }
-        // Se o botão for apertado com o menu maximizado:
-        btns_menu.forEach(el=>{
-            if(el.id == modulo){ // Se o elemento for igual o id do modulo clicado
-                if(!btnMini) { // Se não for um botão minimizado
-                    el.classList.toggle("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
-                }
-                if(!btn){ // Se não for um botão
-                    displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
-                }
-            } else {
-                el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos
-            }
-        })
-
+        
         document.querySelectorAll(".item_dropdown").forEach(e=>{ // Quando for selecionado um módulo é retirado a marcação de todos os itens do menu
             e.classList.remove("item_menu_selecionado")
         }) 
     })
 })
 
-// Comfigurações de estilo dos itens do menu dropdown: 
+// Configurações de estilo dos itens do menu dropdown: 
 let itens_dropdown = document.querySelectorAll(".item_dropdown") // Pega todos os itens de todos os módulos
 itens_dropdown.forEach(e=>{
     e.addEventListener("click",e=>{ // Adiciona a função de clicar em todos
