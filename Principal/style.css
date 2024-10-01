@@ -111,7 +111,7 @@ header #campo_usuario {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 316px;
+    width: 300px;
 }
 header #usuario {
     display: flex;
@@ -172,13 +172,19 @@ header #usuario_seta {
 /* Botão de sair */
 
 header #btn_sair {
-    width: 60px;   
-    padding: 5px;
-    background-color: #ffa7a7;
+    width: 50px;   
+    padding: 5px 0px;
+    margin-left: 5px;
+    background-color: #fdd1d1;
     border: none;
-    border-radius: 15px;
-    font: bold 0.9rem arial;
+    border-radius: 8px;
+    font: bold 0.85rem arial;
     cursor: pointer;
+    transition: .15s;
+}
+header #btn_sair:hover {
+    background-color: rgb(255, 147, 147);
+    transition: .15s;
 }
 header #btn_sair a {
     display: block;
@@ -204,18 +210,19 @@ nav {
     margin: 5px;
 }
 nav #btn_fechar_menu {
-    width: 26px;
+    width: 36px;
     height: 26px;
     border: none;
     border-radius: 5px;
     background-color: transparent;
     cursor: pointer;
-}
-nav #btn_fechar_menu:hover {
     background-color: var(--azul-1);
 }
+nav #btn_fechar_menu:hover {
+    background-color: var(--azul1);
+}
 nav #btn_fechar_menu img {
-    width: 17px;
+    width: 24px;
 }
 nav .item_menu {
     width: 100%;
@@ -278,7 +285,7 @@ nav #btn_configuracoes img {
 /* Menu dropdonw */
 
 .dropdown {
-    margin: 6px auto 25px 28px;
+    margin: 6px auto 6px 28px;
 }
 .dropdown a {
     display: block;
@@ -287,6 +294,7 @@ nav #btn_configuracoes img {
 }
 .dropdown a:hover {
     border-left: 2px solid var(--azul);
+    color: #09476b;
 }
 
 .seta_cima_baixo {
@@ -315,6 +323,9 @@ header #container_logo_busca.mini {
 }
 nav#menu_lateral.mini {
     max-width: 36px;
+}
+nav#menu_lateral.mini #btn_fechar_menu {
+    padding-left: 6px;
 }
 nav .btn_menu.mini, #btn_configuracoes.mini {
     justify-content: center;

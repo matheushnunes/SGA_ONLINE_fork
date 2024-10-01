@@ -112,11 +112,21 @@ btn_fechar_menu.addEventListener('click',()=>{
 
 let btnUsuario = document.querySelector("#usuario")
 let menu_usuario = document.querySelector("#menu_usuario")
-let usuario_seta
+let usuario_seta = document.querySelector("#usuario_seta")
 btnUsuario.addEventListener("click",()=>{ 
     if (menu_usuario.style.display == "none"){
         menu_usuario.style.display = "block"
+        usuario_seta.style.transform = "rotate(180deg)"
+        usuario_seta.style.transition = ".1s"
     } else {
         menu_usuario.style.display = "none"
+        usuario_seta.style.transform = "rotate(0deg)"
+        usuario_seta.style.transition = ".1s"
     }
+})
+
+// Fechar o menu quando clicar fora do menu:
+document.addEventListener("click",(e)=>{
+    if(!btnUsuario.contains(e.target) && !menu_usuario.contains(e.target))
+        menu_usuario.style.display = "none"
 })
