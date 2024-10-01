@@ -19,23 +19,23 @@ function displayMenu(id, mini){
             menu.style.display = "none"
         }
         menus.forEach(e=>{
+            if (e.id != menu.id) { 
+                e.previousElementSibling.classList.remove("modulo_selecionado") // Deixa todos os outros modulos que não foi o clicado sem a classe "modulo_selecionado"
+            }
             if (e.style.display == "block" && e.id != menu.id) {
                 e.style.display = "none"
             }
         }) // Deixa todos os outros menus que não foi o clicado com display none
+
     }
 }
 
 // Função que modifica a visibilidade e o estilo dos itens do menu lateral 
 function minimizarMenu(status){
     let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo") // Seleciona todos os elementos necessários 
-    let modulo_selecionado = document.querySelector(".modulo_selecionado")
-    console.log(modulo_selecionado)
     mini.forEach(e => e.classList.toggle("mini")) // Adiciona ou retira a classe "mini" nos elementos
     if (status == "fechar"){
         document.querySelectorAll(".dropdown").forEach(e => e.style.display = "none") // Deixa invisível os itens do menu dropdown
-    } else if (modulo_selecionado != null){
-        modulo_selecionado.nextElementSibling.style.display = "block"
     }
 }
 
@@ -62,27 +62,26 @@ btns_menu.forEach((e)=>{
         let btnMini = modulo.classList.contains("mini") // Verifica se o botão tem a classe "mini"
         let btn = (modulo.id == "btn_veiculo" || modulo.id == "btn_contato" || modulo.id == "btn_configuracoes") // Verifica se a opção selecionada é um botão que não tem um menu dropdown
 
-        if(btnMini) { // Se o botão for apertado com o menu minimizado
-            if(!btn){ // Se não for um botão
-                modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
-                btnMenuLateral()
-            }else {
-                modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
-            }
-        } else { // Se o botão for apertado com o menu maximizado:
-            btns_menu.forEach(el=>{
-                if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
-                    if(!btnMini) { // Se não for um botão minimizado
-                        el.classList.toggle("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
-                    }
+        btns_menu.forEach(el=>{
+            if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
+                if(!btnMini) { // Se for um botão maximizado
+                    el.classList.toggle("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
                     if(!btn){ // Se não for um botão
                         displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
                     }
-                } else {
-                    el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos
+                } else { // Se for um botão minimizado
+                    if(!btn){ // Se não for um botão
+                        modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
+                        btnMenuLateral()
+                        displayMenu(modulo.nextElementSibling)
+                    }else {
+                        modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
+                    }
                 }
-            })
-        }
+            } else {
+                el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos que não foram clicados 
+            }
+        })
         
         document.querySelectorAll(".item_dropdown").forEach(e=>{ // Quando for selecionado um módulo é retirado a marcação de todos os itens do menu
             e.classList.remove("item_menu_selecionado")
