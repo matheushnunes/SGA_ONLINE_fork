@@ -9,7 +9,7 @@ function alterarEstilo() {
 // Configurações menu lateral:
 
 // Função trocar visibilidade do menu comforme for clicado
-function displayMenu(id, mini){
+function displayMenu(id){
     if(id) {
         let menu = id
         let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
@@ -26,7 +26,6 @@ function displayMenu(id, mini){
                 e.style.display = "none"
             }
         }) // Deixa todos os outros menus que não foi o clicado com display none
-
     }
 }
 
@@ -40,7 +39,7 @@ function minimizarMenu(status){
 }
 
 // Função que modifica o botão de abrir e fechar o menu lateral
-function btnMenuLateral(){
+function btnMenuLateral(target){
     let icone_aba = document.querySelector("#icone_aba")
     if (icone_aba.classList[0] == "aba_fechar") { // Se o menu estiver maximizado 
         icone_aba.src = "imagens/icone_abrir_aba.png"
@@ -52,6 +51,13 @@ function btnMenuLateral(){
         icone_aba.className = "aba_fechar"
         icone_aba.alt = "Icone_fechar_aba_menu"
         minimizarMenu("abrir")
+        if(target == "btn_lateral") { // Se o botão apertado for o botão lateral:
+            // Se tiver um modulo selecionado e não for um botão é chamada a função para abrir as opções do modulo 
+            let modulo_selecionado = document.querySelector(".modulo_selecionado")
+            if(modulo_selecionado != null && modulo_selecionado.classList[0] == "btn_menu"){
+                displayMenu(modulo_selecionado.nextElementSibling)
+            }
+        }
     }
 }
 
@@ -105,7 +111,7 @@ itens_dropdown.forEach(e=>{
 
 let btn_fechar_menu = document.querySelector("#btn_fechar_menu") // Botão fechar e abrir o menu lateral
 btn_fechar_menu.addEventListener('click',()=>{
-    btnMenuLateral()
+    btnMenuLateral('btn_lateral')
 })
 
 // Menu Usuário:
