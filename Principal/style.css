@@ -346,3 +346,16 @@ nav #container_btn_fechar.mini {
 nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     display: none;
 }
+
+/* Estilo dos textos que aparece ao lado dos botões */
+.hide_text {
+    visibility: hidden;
+    position: absolute;
+    left: 43px;
+    font: normal 0.8em arial;
+    color: rgb(109, 109, 109);
+}
+
+.mini .btn_menu:hover .hide_text {
+    visibility: visible;
+}
