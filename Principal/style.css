@@ -361,8 +361,138 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     visibility: visible;
 }
 
-/* Main */
+/* Estilos gerais */
+@media (max-width: 768px) {
+    header {
+    
+        align-items: flex-start;
+        height: auto;
+        padding: 10px;
+    }
+    
+    header #container_logo_busca {
+        flex-direction: column;
+        align-items: center;
+        max-width: 22%;
+    }
+    
+    header #campo_usuario {
+        width: 13%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+    
+    nav {
+        max-width: 50%;
+        min-height: calc(100vh - 82px); /* Ajusta a altura */
+        align-items: flex-start;
+    }
 
-main {
-    margin-left: 294px;
+    nav .item_menu {
+        width: 100%;
+    }
+
+    nav .btn_menu {
+        padding: 10px; /* Aumenta o espaço para facilitar o toque em telas menores */
+    }
+
+    
+
+    nav #btn_configuracoes {
+        justify-content: flex-start;
+        margin: 10px 0; /* Espaçamento maior entre os botões */
+        font-size: 1em;
+        width: 160px;
+    }
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 480px) {
+    header {
+        padding: 5px;
+    }
+
+    header #logo_sga {
+        max-height: 44px !important; /* Reduz o logo em telas menores */
+    }
+
+    header #campo_busca {
+        max-width: 100%; /* Permite que o campo de busca ocupe a largura total */
+        display: none;
+    }
+
+    header #campo_usuario {
+        flex-direction: row; /* Empilha o nome e a empresa do usuário */
+        align-items: end;
+        width: 12%;
+        margin-top: 5px; /* Espaçamento ajustado */
+    }
+
+    header #btn_sair {
+        width: 100%; /* O botão de sair ocupa toda a largura */
+        display: none;
+    }
+
+    #nome-empresa_usuario {
+        display: none;
+    }
+
+    #btn_veiculo.btn_menu {
+        width: 160px;
+    }
+
+    nav .btn.mini {
+        width: 35px !important;
+    }
+
+    #btn_contato {
+        width: 160px;
+    }
+   
+    #usuario_seta {
+        display: none;
+    }
+
+   header #usuario {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 39px;
+    height: 39px;
+    background-color:white;
+    border-radius: 10px;
+    cursor: pointer;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+    }
+
+    #menu_usuario {
+        padding: 3px 0px 7px 0px;
+        top: 50px;
+    }
+    nav {
+        padding: 0px; /* Ajusta o padding do menu lateral */
+    }
+    nav .bnt {
+        width: 160px;
+    }
+
+    nav .item_menu {
+        margin-bottom: 5px; /* Reduz o espaçamento entre os itens do menu */
+        font-size: small;
+    }
+    
+    nav .btn_menu {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
+    }
+
+    
+    nav .dropdown {
+        margin-left: 0; /* Remove a margem esquerda em telas pequenas */
+    }
+
+    .seta_cima_baixo {
+        width: 10px; /* Reduz o tamanho das setas */
+    }
 }
