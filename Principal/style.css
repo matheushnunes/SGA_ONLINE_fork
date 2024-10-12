@@ -195,6 +195,7 @@ header #btn_sair a {
 /* Menu lateral */
 
 nav {
+    position: fixed;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -358,4 +359,10 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
 
 .mini .btn_menu:hover .hide_text {
     visibility: visible;
+}
+
+/* Main */
+
+main {
+    margin-left: 294px;
 }

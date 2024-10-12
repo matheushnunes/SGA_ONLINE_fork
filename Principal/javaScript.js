@@ -136,3 +136,28 @@ document.addEventListener("click",(e)=>{
     if(!btnUsuario.contains(e.target) && !menu_usuario.contains(e.target))
         menu_usuario.style.display = "none"
 })
+
+// DashBoard:
+const ctx = document.getElementById('myChart');
+let labels = [2020,2021,2022,2023]
+let data = [0, 10, 20, 30, 40]
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: '# of Votes',
+      data: data,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        label: labels
+      }
+    }
+  }
+});
