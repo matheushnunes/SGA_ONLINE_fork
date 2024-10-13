@@ -31,7 +31,7 @@ function displayMenu(id){
 
 // Função que modifica a visibilidade e o estilo dos itens do menu lateral 
 function minimizarMenu(status){
-    let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo") // Seleciona todos os elementos necessários 
+    let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo, #main") // Seleciona todos os elementos necessários 
     mini.forEach(e => e.classList.toggle("mini")) // Adiciona ou retira a classe "mini" nos elementos
     if (status == "fechar"){
         document.querySelectorAll(".dropdown").forEach(e => e.style.display = "none") // Deixa invisível os itens do menu dropdown
@@ -66,8 +66,8 @@ btns_menu.forEach((e)=>{
     e.addEventListener("click",(e)=>{
         let modulo = e.currentTarget // Pega o modulo que foi clicado
         let btnMini = modulo.classList.contains("mini") // Verifica se o botão tem a classe "mini"
-        let btn = (modulo.id == "btn_veiculo" || modulo.id == "btn_contato" || modulo.id == "btn_configuracoes") // Verifica se a opção selecionada é um botão que não tem um menu dropdown
-
+        let btn = (modulo.classList[0] == 'btn') // Verifica se a opção selecionada é um botão que não tem um menu dropdown
+        console.log(modulo.classList[0])
         btns_menu.forEach(el=>{
             if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
                 if(!btnMini) { // Se for um botão maximizado
@@ -138,25 +138,59 @@ document.addEventListener("click",(e)=>{
 })
 
 // DashBoard:
-const ctx = document.getElementById('myChart');
-let labels = [2020,2021,2022,2023]
-let data = [0, 10, 20, 30, 40]
+let cinza1 = "#F6F6F6";
+let cinza2 = "#E8E8E8";
+let azul = "#3964A8";
+let azul1 = "#9CBBED";
+let azul_1 = "#E9F0FF";
 
-new Chart(ctx, {
-  type: 'line',
+const ctx = document.getElementById('myChart').getContext('2d');
+const meuGrafico = new Chart(ctx, {
+  type: 'line', // Gráfico de linha (que pode ser usado para gráficos de área)
   data: {
-    labels: labels,
+    labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
     datasets: [{
-      label: '# of Votes',
-      data: data,
-      borderWidth: 1
-    }]
+      label: 'Entradas', // Legenda
+      data: [12, 18, 10, 35], // Valores no eixo Y
+      fill: true, // Preencher a área abaixo da linha
+      backgroundColor: 'rgb(0,0,0,0)', // Cor de fundo (azul claro)
+      borderColor: azul, // Cor da linha
+      tension: 0.1 // Suavizar a curva da linha
+    },
+    {
+        label: 'Saídas de Produtos', // Legenda da segunda linha
+        data: [5, 10, 24, 13], // Dados da segunda linha
+        fill: false, // Não preenche a área abaixo da linha
+        backgroundColor: 'rgba(168, 57, 57, 0.2)', // Cor de preenchimento, caso necessário
+        borderColor: '#A83939', // Cor da linha da segunda linha (vermelho)
+        tension: 0.1 // Suaviza a linha
+      }]
   },
   options: {
     scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Ano', // Rótulo do eixo X
+          font: {
+            size: 16
+          }
+        }
+      },
       y: {
         beginAtZero: true,
-        label: labels
+        title: {
+          display: true,
+          text: 'Entradas', // Rótulo do eixo Y
+          font: {
+            size: 16
+          }
+        }
+      },
+    },
+    plugins: {
+      legend: {
+        display: false // Ocultar a legenda
       }
     }
   }

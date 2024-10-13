@@ -348,6 +348,10 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     display: none;
 }
 
+#main.mini {
+    margin-left: 50px;
+}
+
 /* Estilo dos textos que aparece ao lado dos botões */
 .hide_text {
     visibility: hidden;
@@ -359,6 +363,41 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
 
 .mini .btn_menu:hover .hide_text {
     visibility: visible;
+}
+
+/* Main: */
+
+main {
+    margin-left: 290px;
+}
+
+/* Dashboard */
+
+.item_dashboard {
+    max-width: 500px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.144);
+}
+.header_grafico {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.filtro_grafico {
+    display: flex;
+    flex-flow: row;
+    gap: 15px;
+}
+
+.input_date {
+    background-color: var(--azul-1);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 /* Estilos gerais */

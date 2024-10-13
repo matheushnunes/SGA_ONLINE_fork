@@ -44,6 +44,11 @@
                 <img id="icone_aba" class="aba_fechar" src="imagens/icone_fechar_aba.png" alt="icone_fechar_aba">
             </button>
         </div>
+        <button class="btn btn_menu" id="btn_dashboard">
+            <img class="img_icone_menu" src="imagens/icone_dashboard.svg" alt="icone_dashboard">
+            <span class="span_modulo">Dashboard</span>
+            <div class="hide_text">Dashboard</div>
+        </button>
         <div class="item_menu">
             <button class="btn_menu" id="btn_estoque">
                 <div>
@@ -116,9 +121,23 @@
             <div class="hide_text">Configurações</div>
         </button>
     </nav>
-    <main>
-        <div style="width: 800px;"><canvas id="myChart"></canvas></div>
-        <h2>Teste</h2>
+    <main id="main">
+        <div style="width: 100%;" class="item_dashboard">
+            <div class="header_grafico">
+                <span>Entrada de produtos por periodo</span>
+                <div class="filtro_grafico">
+                    <div class="filtro">
+                        <input type="date" class="input_date">
+                    </div>
+                    
+                    <div class="filtro">
+                        <input type="date" class="input_date">
+                    </div>
+                </div>
+            </div>
+            <canvas id="myChart"></canvas>
+        </div>
+        
     </main>
     <script src="javaScript.js"></script>
     
