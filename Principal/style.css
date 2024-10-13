@@ -252,7 +252,8 @@ nav .btn_menu .seta_cima_baixo {
     margin-right: 6px;
 }
 nav .btn {
-    width: 256px;
+    max-width: 256px;
+    width: 90%;
     justify-content: start;
     margin-bottom: 10px;
     gap: 10px;
@@ -330,7 +331,7 @@ nav#menu_lateral.mini #btn_fechar_menu {
 }
 nav .btn_menu.mini, #btn_configuracoes.mini {
     justify-content: center;
-    width: 26px;
+    width: 35px;
     height: 26px;
 }
 nav .btn.mini {
@@ -368,6 +369,7 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
 /* Main: */
 
 main {
+    display: none;
     margin-left: 290px;
 }
 
@@ -403,12 +405,14 @@ main {
 /* Estilos gerais */
 @media (max-width: 768px) {
     header {
-    
         align-items: flex-start;
         height: auto;
         padding: 10px;
     }
     
+    header #campo_busca {
+        display: none;
+    }
     header #container_logo_busca {
         flex-direction: column;
         align-items: center;
@@ -416,7 +420,6 @@ main {
     }
     
     header #campo_usuario {
-        width: 13%;
         justify-content: flex-end;
         margin-top: 10px;
     }
@@ -424,7 +427,7 @@ main {
     nav {
         max-width: 50%;
         min-height: calc(100vh - 82px); /* Ajusta a altura */
-        align-items: flex-start;
+        align-items: center;
     }
 
     nav .item_menu {
@@ -435,13 +438,11 @@ main {
         padding: 10px; /* Aumenta o espaço para facilitar o toque em telas menores */
     }
 
-    
-
     nav #btn_configuracoes {
+        width: 100%;
         justify-content: flex-start;
-        margin: 10px 0; /* Espaçamento maior entre os botões */
+        margin: auto 0 25px 0; /* Espaçamento maior entre os botões */
         font-size: 1em;
-        width: 160px;
     }
 }
 
@@ -476,16 +477,15 @@ main {
         display: none;
     }
 
-    #btn_veiculo.btn_menu {
-        width: 160px;
+    nav {
+        min-height: calc(100vh - 70px);
+    }
+    nav .btn {
+        width: 100%;
     }
 
     nav .btn.mini {
         width: 35px !important;
-    }
-
-    #btn_contato {
-        width: 160px;
     }
    
     #usuario_seta {
@@ -493,17 +493,17 @@ main {
     }
 
    header #usuario {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    width: 39px;
-    height: 39px;
-    background-color:white;
-    border-radius: 10px;
-    cursor: pointer;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: stretch;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 39px;
+        height: 39px;
+        background-color:white;
+        border-radius: 10px;
+        cursor: pointer;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: stretch;
     }
 
     #menu_usuario {
@@ -526,6 +526,10 @@ main {
         font-size: 0.9rem; /* Ajusta o tamanho da fonte */
     }
 
+    nav #btn_configuracoes {
+        gap: 2px;
+        padding: 4px 2px;
+    }
     
     nav .dropdown {
         margin-left: 0; /* Remove a margem esquerda em telas pequenas */
