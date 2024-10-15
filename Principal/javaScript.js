@@ -144,8 +144,8 @@ let azul = "#3964A8";
 let azul1 = "#9CBBED";
 let azul_1 = "#E9F0FF";
 
-const ctx = document.getElementById('myChart').getContext('2d');
-const meuGrafico = new Chart(ctx, {
+const canva_grafico_entrada_produtos = document.getElementById('grafico_entrada_produtos').getContext('2d');
+const grafico_entrada_produtos = new Chart(canva_grafico_entrada_produtos, {
   type: 'line', // Gráfico de linha (que pode ser usado para gráficos de área)
   data: {
     labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
@@ -156,15 +156,7 @@ const meuGrafico = new Chart(ctx, {
       backgroundColor: 'rgb(0,0,0,0)', // Cor de fundo (azul claro)
       borderColor: azul, // Cor da linha
       tension: 0.1 // Suavizar a curva da linha
-    },
-    {
-        label: 'Saídas de Produtos', // Legenda da segunda linha
-        data: [5, 10, 24, 13], // Dados da segunda linha
-        fill: false, // Não preenche a área abaixo da linha
-        backgroundColor: 'rgba(168, 57, 57, 0.2)', // Cor de preenchimento, caso necessário
-        borderColor: '#A83939', // Cor da linha da segunda linha (vermelho)
-        tension: 0.1 // Suaviza a linha
-      }]
+    }]
   },
   options: {
     scales: {
@@ -195,3 +187,68 @@ const meuGrafico = new Chart(ctx, {
     }
   }
 });
+
+const canva_grafico_saida_produtos = document.getElementById('grafico_saida_produtos').getContext('2d');
+const grafico_saida_produtos = new Chart(canva_grafico_saida_produtos, {
+  type: 'line', // Gráfico de linha (que pode ser usado para gráficos de área)
+  data: {
+    labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
+    datasets: [{
+      label: 'Saídas', // Legenda
+      data: [12, 18, 10, 35], // Valores no eixo Y
+      fill: true, // Preencher a área abaixo da linha
+      backgroundColor: 'rgb(0,0,0,0)', // Cor de fundo (azul claro)
+      borderColor: azul, // Cor da linha
+      tension: 0.1 // Suavizar a curva da linha
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Ano', // Rótulo do eixo X
+          font: {
+            size: 16
+          }
+        }
+      },
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Entradas', // Rótulo do eixo Y
+          font: {
+            size: 16
+          }
+        }
+      },
+    },
+    plugins: {
+      legend: {
+        display: false // Ocultar a legenda
+      }
+    }
+  }
+});
+// Responsividade do gráfico:
+const pai = document.querySelector('.filtro_grafico');
+const filho = document.querySelectorAll('.filtro');
+
+const observer = new ResizeObserver(entries => {
+  entries.forEach(entry => {
+    console.log(entry.contentRect.width)
+    filho.forEach(e=>{
+        if (entry.contentRect.width > 445) {
+            e.style.justifyContent = 'center';
+            e.style.width = "min-content"
+        } else {
+            e.style.width = "100%"
+            e.style.justifyContent = 'space-between';
+        }
+    })
+    
+  });
+});
+
+observer.observe(pai);

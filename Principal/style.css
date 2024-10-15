@@ -201,6 +201,7 @@ nav {
     align-items: center;
     max-width: 274px;
     min-height: calc(100vh - 97px);
+    height: calc(100vh - 85px);
     background-color: white;
     box-shadow: 2px -1px 6.4px rgba(0, 0, 0, 0.17);
     border-radius: 0 5px 0 0;
@@ -375,32 +376,49 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
 /* Main: */
 
 main {
-    display: none;
-    margin-left: 290px;
+    flex-flow: row wrap;
+    margin: 0px 1rem 1rem 290px;
 }
 
 /* Dashboard */
 
 .item_dashboard {
-    max-width: 500px;
+    max-width: 520px;
     background-color: white;
-    padding: 10px;
+    padding: 0.8rem;
+    margin: 1rem;
     border-radius: 5px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.144);
 }
 .header_grafico {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
+    gap: 20px;
     justify-content: space-between;
     padding: 0 10px;
     margin-bottom: 10px;
 }
+.header_grafico h2 {
+    text-align: center;
+    font: 600 1em arial;
+}
 .filtro_grafico {
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
+    justify-content: space-between;
     gap: 15px;
 }
-
+.filtro {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    font-size: 0.9em;
+}
+.filtro span {
+    white-space: nowrap;
+}
 .input_date {
     background-color: var(--azul-1);
     border: none;
@@ -461,6 +479,10 @@ main {
         justify-content: center;
         margin: auto 0 25px 0; /* Espaçamento maior entre os botões */
         font-size: 1em;
+    }
+
+    main {
+        margin-left: 198px;
     }
 }
 

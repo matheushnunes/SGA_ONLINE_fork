@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br ">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +44,7 @@
                 <img id="icone_aba" class="aba_fechar" src="imagens/icone_fechar_aba.png" alt="icone_fechar_aba">
             </button>
         </div>
-        <button class="btn btn_menu" id="btn_dashboard">
+        <button class="btn btn_menu modulo_selecionado" id="btn_dashboard">
             <img class="img_icone_menu" src="imagens/icone_dashboard.svg" alt="icone_dashboard">
             <span class="span_modulo">Dashboard</span>
             <div class="hide_text">Dashboard</div>
@@ -122,22 +122,40 @@
         </button>
     </nav>
     <main id="main">
-        <div style="width: 100%;" class="item_dashboard">
+        <div class="item_dashboard">
             <div class="header_grafico">
-                <span>Entrada de produtos por periodo</span>
+                <h2>Entrada de produtos</h2>
                 <div class="filtro_grafico">
                     <div class="filtro">
+                        <span>Data de inicio:</span>
                         <input type="date" class="input_date">
                     </div>
                     
                     <div class="filtro">
+                        <span>Data do final:</span>
                         <input type="date" class="input_date">
                     </div>
                 </div>
             </div>
-            <canvas id="myChart"></canvas>
+            <canvas id="grafico_entrada_produtos"></canvas>
         </div>
-        
+        <div class="item_dashboard" style="display: none;">
+            <div class="header_grafico">
+                <h2>Saída de produtos</h2>
+                <div class="filtro_grafico">
+                    <div class="filtro">
+                        <span>Data de inicio:</span>
+                        <input type="date" class="input_date">
+                    </div>
+                    
+                    <div class="filtro">
+                        <span>Data do final:</span>
+                        <input type="date" class="input_date">
+                    </div>
+                </div>
+            </div>
+            <canvas id="grafico_saida_produtos"></canvas>
+        </div>
     </main>
     <script src="javaScript.js"></script>
     
