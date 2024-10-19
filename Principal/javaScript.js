@@ -31,7 +31,7 @@ function displayMenu(id){
 
 // Função que modifica a visibilidade e o estilo dos itens do menu lateral 
 function minimizarMenu(status){
-    let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo, #main") // Seleciona todos os elementos necessários 
+    let mini = document.querySelectorAll(".btn, .btn_menu, .item_menu, #container_btn_fechar, #container_logo_busca, #menu_lateral, .span_modulo, .seta_cima_baixo, .graficos") // Seleciona todos os elementos necessários 
     mini.forEach(e => e.classList.toggle("mini")) // Adiciona ou retira a classe "mini" nos elementos
     if (status == "fechar"){
         document.querySelectorAll(".dropdown").forEach(e => e.style.display = "none") // Deixa invisível os itens do menu dropdown
@@ -59,6 +59,7 @@ function btnMenuLateral(target){
             }
         }
     }
+    
 }
 
 let btns_menu = document.querySelectorAll(".btn_menu") // Seleciona todos os botões dos modulos
@@ -67,7 +68,7 @@ btns_menu.forEach((e)=>{
         let modulo = e.currentTarget // Pega o modulo que foi clicado
         let btnMini = modulo.classList.contains("mini") // Verifica se o botão tem a classe "mini"
         let btn = (modulo.classList[0] == 'btn') // Verifica se a opção selecionada é um botão que não tem um menu dropdown
-        console.log(modulo.classList[0])
+        let widthBody = document.body.offsetWidth // Pega o tamanho do body
         btns_menu.forEach(el=>{
             if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
                 if(!btnMini) { // Se for um botão maximizado
@@ -87,6 +88,10 @@ btns_menu.forEach((e)=>{
             } else {
                 el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos que não foram clicados 
             }
+
+            if (widthBody <= 480 && btn && !btnMini) {
+              btnMenuLateral()
+            }
         })
         
         document.querySelectorAll(".item_dropdown").forEach(e=>{ // Quando for selecionado um módulo é retirado a marcação de todos os itens do menu
@@ -94,6 +99,17 @@ btns_menu.forEach((e)=>{
         }) 
     })
 })
+
+let itemMenu = document.querySelectorAll(".item_dropdown")
+itemMenu.forEach((e)=>{
+  e.addEventListener("click",e=>{
+    let widthBody = document.body.offsetWidth // Pega o tamanho do body
+    if (widthBody <= 480){
+      btnMenuLateral()
+    }
+  })
+})
+
 
 // Configurações de estilo dos itens do menu dropdown: 
 let itens_dropdown = document.querySelectorAll(".item_dropdown") // Pega todos os itens de todos os módulos
@@ -110,9 +126,21 @@ itens_dropdown.forEach(e=>{
 })
 
 let btn_fechar_menu = document.querySelector("#btn_fechar_menu") // Botão fechar e abrir o menu lateral
+let click_btn_menu = false
 btn_fechar_menu.addEventListener('click',()=>{
-    btnMenuLateral('btn_lateral')
+  btnMenuLateral('btn_lateral')
+  click_btn_menu = true
+  
 })
+
+document.addEventListener("click",(e)=>{
+  let menuLateral = document.querySelector("#menu_lateral")
+  let widthBody = document.body.offsetWidth // Pega o tamanho do body
+  if (widthBody <= 480 && !menuLateral.classList.contains("mini") && !menuLateral.contains(e.target)) { // Clicar fora do menu com o body com menos de 480px fecha ele 
+    btnMenuLateral() 
+  }
+})
+
 
 // Menu Usuário:
 
@@ -138,6 +166,7 @@ document.addEventListener("click",(e)=>{
 })
 
 // DashBoard:
+
 let cinza1 = "#F6F6F6";
 let cinza2 = "#E8E8E8";
 let azul = "#3964A8";
@@ -188,8 +217,8 @@ const grafico_entrada_produtos = new Chart(canva_grafico_entrada_produtos, {
   }
 });
 
-const canva_grafico_saida_produtos = document.getElementById('grafico_saida_produtos').getContext('2d');
-const grafico_saida_produtos = new Chart(canva_grafico_saida_produtos, {
+const c_gfc_saida = document.getElementById('grafico_saida_produtos').getContext('2d');
+const gfc_saida = new Chart(c_gfc_saida, {
   type: 'line', // Gráfico de linha (que pode ser usado para gráficos de área)
   data: {
     labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
@@ -203,6 +232,7 @@ const grafico_saida_produtos = new Chart(canva_grafico_saida_produtos, {
     }]
   },
   options: {
+    responsive: true,
     scales: {
       x: {
         title: {
@@ -237,7 +267,6 @@ const filho = document.querySelectorAll('.filtro');
 
 const observer = new ResizeObserver(entries => {
   entries.forEach(entry => {
-    console.log(entry.contentRect.width)
     filho.forEach(e=>{
         if (entry.contentRect.width > 445) {
             e.style.justifyContent = 'center';
@@ -251,4 +280,46 @@ const observer = new ResizeObserver(entries => {
   });
 });
 
-observer.observe(pai);
+observer.observe(pai);  
+
+// Alterar gráficos e fechar menu quando o body for menor que 480px:
+function atualizarGraficos(graficos, width) {
+  graficos.forEach(grafico => { // Muda o tamanho da fonte dos gráficos
+    grafico.options.scales.x.title.font.size = fontSize;
+    grafico.options.scales.y.title.font.size = fontSize;
+    grafico.update(); // Atualiza o gráfico com as alterações
+  });
+
+  if (width <= 300) { // Retira e adiciona o texto produto e ano dos gráficos
+    graficos.forEach(e=>{
+      e.options.scales.x.title.display = false
+      e.options.scales.y.title.display = false
+    })
+  }
+  else {
+    graficos.forEach(e=>{
+      e.options.scales.x.title.display = true
+      e.options.scales.y.title.display = true
+    })
+  }
+}
+
+let fontSize = 16
+function fecharMenu(){
+  widthBody = document.body.offsetWidth
+  if (widthBody <= 480){
+    let nav = document.querySelector("#menu_lateral")
+    fontSize = 12
+    if (!nav.classList.contains("mini") && !click_btn_menu)
+      btnMenuLateral()
+  } else {
+    click_btn_menu = false
+    fontSize = 16
+  }
+  atualizarGraficos([grafico_entrada_produtos, gfc_saida], widthBody); // Adicione todos os gráficos aqui
+}
+fecharMenu()
+
+window.addEventListener('resize',(e)=>{
+  fecharMenu()
+})

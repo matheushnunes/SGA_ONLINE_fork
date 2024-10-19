@@ -28,6 +28,8 @@ body {
 /* cabeçalho */
 
 header {
+    position: fixed;
+    top: 0;
     background-color: white;
     width: 100%;
     height: 82px;
@@ -37,6 +39,7 @@ header {
     box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.10);
     padding: 15px;
     margin-bottom: 15px;
+    z-index: 2;
 }
 header #container_logo_busca {
     display: flex;
@@ -45,10 +48,11 @@ header #container_logo_busca {
     width: 100%;
     max-width: 710px;
 }
-header img#logo_sga {
+img#logo_sga {
     max-height: 65px;
     margin-right: 20px;
     cursor: pointer;
+    width: 70px;
 }
 
 /* campo de busca */
@@ -195,13 +199,11 @@ header #btn_sair a {
 /* Menu lateral */
 
 nav {
-    position: fixed;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     max-width: 274px;
     min-height: calc(100vh - 97px);
-    height: calc(100vh - 85px);
     background-color: white;
     box-shadow: 2px -1px 6.4px rgba(0, 0, 0, 0.17);
     border-radius: 0 5px 0 0;
@@ -356,9 +358,6 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     display: none;
 }
 
-#main.mini {
-    margin-left: 50px;
-}
 
 /* Estilo dos textos que aparece ao lado dos botões */
 .hide_text {
@@ -376,17 +375,26 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
 /* Main: */
 
 main {
+    display: flex;
+    margin-top: 95px;
+}
+.graficos {
+    display: flex;
     flex-flow: row wrap;
-    margin: 0px 1rem 1rem 290px;
+    width: 100%;
+    justify-content: start;
+    align-content: flex-start;
 }
 
 /* Dashboard */
 
 .item_dashboard {
     max-width: 520px;
+    width: 93%;
+    height: min-content;
     background-color: white;
     padding: 0.8rem;
-    margin: 1rem;
+    margin: 0 0 1rem 1rem;
     border-radius: 5px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.144);
 }
@@ -429,7 +437,6 @@ main {
 /* Estilos gerais */
 @media (max-width: 768px) {
     header {
-        align-items: flex-start;
         height: auto;
         padding: 10px;
     }
@@ -440,13 +447,10 @@ main {
 
     header #container_logo_busca {
         flex-direction: column;
-        align-items: center;
-        max-width: 22%;
     }
     
     header #campo_usuario {
         justify-content: flex-end;
-        margin-top: 10px;
     }
     
     nav {
@@ -472,7 +476,6 @@ main {
     nav .btn_menu div{
         gap: 5px;
     }
-    
    
     nav #btn_configuracoes {
         width: 100%;
@@ -481,9 +484,6 @@ main {
         font-size: 1em;
     }
 
-    main {
-        margin-left: 198px;
-    }
 }
 
 /* Estilos para dispositivos móveis */
@@ -493,7 +493,8 @@ main {
     }
 
     header #logo_sga {
-        max-height: 44px !important; /* Reduz o logo em telas menores */
+        width: 50px;
+        margin: 0;
     }
 
     header #campo_busca {
@@ -505,11 +506,10 @@ main {
         flex-direction: row; /* Empilha o nome e a empresa do usuário */
         align-items: end;
         width: 12%;
-        margin-top: 5px; /* Espaçamento ajustado */
+        margin-right: 5px;
     }
 
     header #btn_sair {
-        width: 100%; /* O botão de sair ocupa toda a largura */
         display: none;
     }
 
@@ -518,6 +518,7 @@ main {
     }
 
     nav {
+        position: fixed;
         min-height: calc(100vh - 70px);
     }
     nav .btn {
@@ -552,6 +553,7 @@ main {
     }
     nav {
         padding: 0px; /* Ajusta o padding do menu lateral */
+        opacity: 0.9;
     }
     nav .bnt {
         width: 160px;
@@ -560,7 +562,6 @@ main {
     nav .item_menu {
         margin-bottom: 10px; /* Reduz o espaçamento entre os itens do menu */
         font-size: small;
-        width: 106%;
     }
     
     nav .btn_menu {
@@ -582,5 +583,25 @@ main {
 
     #modulo_administracao {
         font-size: 13px;
+    }
+    .graficos {
+        font-size: 0.8rem;
+        width: calc(100% - 36px);
+        margin-left: 36px;
+    }
+    .item_dashboard {
+        margin: 0 0.7rem 0.7rem 0.7rem;
+        padding: 0.5rem;
+    }
+    canvas {
+        font-size: 0.8rem;
+    }
+    main {
+        margin-top: 65px;
+    }
+    .input_date {
+        font-size: 12px;
+        width: 95px;
+        padding: 3px;
     }
 }
