@@ -161,8 +161,11 @@ btnUsuario.addEventListener("click",()=>{
 
 // Fechar o menu quando clicar fora do menu:
 document.addEventListener("click",(e)=>{
-    if(!btnUsuario.contains(e.target) && !menu_usuario.contains(e.target))
-        menu_usuario.style.display = "none"
+    if(!btnUsuario.contains(e.target) && !menu_usuario.contains(e.target)){
+      menu_usuario.style.display = "none"
+      usuario_seta.style.transform = "rotate(0deg)"
+      usuario_seta.style.transition = ".1s"
+    }
 })
 
 // DashBoard:
@@ -170,97 +173,185 @@ document.addEventListener("click",(e)=>{
 let cinza1 = "#F6F6F6";
 let cinza2 = "#E8E8E8";
 let azul = "#3964A8";
-let azul1 = "#9CBBED";
+let azul1 = "#9CBBED50";
 let azul_1 = "#E9F0FF";
+let vermelho = 'rgba(255, 0, 0, 0.15)';
 
-const canva_grafico_entrada_produtos = document.getElementById('grafico_entrada_produtos').getContext('2d');
-const grafico_entrada_produtos = new Chart(canva_grafico_entrada_produtos, {
-  type: 'line', // Gráfico de linha (que pode ser usado para gráficos de área)
-  data: {
-    labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
-    datasets: [{
-      label: 'Entradas', // Legenda
-      data: [12, 18, 10, 35], // Valores no eixo Y
-      fill: true, // Preencher a área abaixo da linha
-      backgroundColor: 'rgb(0,0,0,0)', // Cor de fundo (azul claro)
-      borderColor: azul, // Cor da linha
-      tension: 0.1 // Suavizar a curva da linha
-    }]
-  },
-  options: {
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'Ano', // Rótulo do eixo X
-          font: {
-            size: 16
-          }
-        }
-      },
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Entradas', // Rótulo do eixo Y
-          font: {
-            size: 16
-          }
-        }
-      },
+// Dados dos gráficos:
+let dado_entrada = [4,12,15,8]
+let dado_saida = [2,16,4,9]
+let dado_diferenca = []
+dado_entrada.forEach((e,i) => { // Entrada - Saída
+  dado_diferenca.push(e - dado_saida[i])
+}) 
+
+// Gráfico Entrada de produtos:
+let gfc_entrada
+function criarGraficoEntrada(tipo) {
+  const c_gfc_entrada= document.getElementById('grafico_entrada_produtos').getContext('2d');
+  if (gfc_entrada) {
+    gfc_entrada.destroy()
+  }
+  gfc_entrada= new Chart(c_gfc_entrada, {
+    type: tipo, // Gráfico de linha (que pode ser usado para gráficos de área)
+    data: {
+      labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
+      datasets: [{
+        label: 'Entradas', // Legenda
+        data: dado_entrada, // Valores no eixo Y
+        fill: true, // Preencher a área abaixo da linha
+        backgroundColor: azul1, // Cor de fundo (azul claro)
+        borderColor: azul, // Cor da linha
+        tension: 0.1 // Suavizar a curva da linha
+      }]
     },
-    plugins: {
-      legend: {
-        display: false // Ocultar a legenda
+    options: {
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Ano', // Rótulo do eixo X
+            font: {
+              size: 16
+            }
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Entradas', // Rótulo do eixo Y
+            font: {
+              size: 16
+            }
+          }
+        },
+      },
+      plugins: {
+        legend: {
+          display: false // Ocultar a legenda
+        }
       }
     }
-  }
-});
+  });
+}
+criarGraficoEntrada('line') // Cria o primeiro gráfico quando a página é carregada
 
-const c_gfc_saida = document.getElementById('grafico_saida_produtos').getContext('2d');
-const gfc_saida = new Chart(c_gfc_saida, {
-  type: 'line', // Gráfico de linha (que pode ser usado para gráficos de área)
-  data: {
-    labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
-    datasets: [{
-      label: 'Saídas', // Legenda
-      data: [12, 18, 10, 35], // Valores no eixo Y
-      fill: true, // Preencher a área abaixo da linha
-      backgroundColor: 'rgb(0,0,0,0)', // Cor de fundo (azul claro)
-      borderColor: azul, // Cor da linha
-      tension: 0.1 // Suavizar a curva da linha
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'Ano', // Rótulo do eixo X
-          font: {
-            size: 16
-          }
-        }
-      },
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Entradas', // Rótulo do eixo Y
-          font: {
-            size: 16
-          }
-        }
-      },
+// Gráfico Saída de produtos:
+let gfc_saida
+function criarGraficoSaida(tipo) {
+  const c_gfc_saida = document.getElementById('grafico_saida_produtos').getContext('2d');
+  if (gfc_saida) { // Se o gráfico ja exister ele é destruido para poder ser criado outro
+    gfc_saida.destroy()
+  }
+  gfc_saida = new Chart(c_gfc_saida, {
+    type: tipo, // Gráfico de linha (que pode ser usado para gráficos de área)
+    data: {
+      labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
+      datasets: [{
+        label: 'Saídas', // Legenda
+        data: dado_saida, // Valores no eixo Y
+        fill: true, // Preencher a área abaixo da linha
+        backgroundColor: azul1, // Cor de fundo (azul claro)
+        borderColor: azul, // Cor da linha
+        tension: 0.1 // Suavizar a curva da linha
+      }]
     },
-    plugins: {
-      legend: {
-        display: false // Ocultar a legenda
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Ano', // Rótulo do eixo X
+            font: {
+              size: 16
+            }
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Entradas', // Rótulo do eixo Y
+            font: {
+              size: 16
+            }
+          }
+        },
+      },
+      plugins: {
+        legend: {
+          display: false // Ocultar a legenda
+        }
       }
     }
+  });
+}
+criarGraficoSaida('line')
+
+// Gráfico Diferença entre Entrada e Saída de produtos:
+let gfc_diferenca
+function criarGraficoDiferenca(tipo){
+  const c_gfc_diferenca = document.getElementById('grafico_diferenca_produtos').getContext('2d');
+  if (gfc_diferenca) {
+    gfc_diferenca.destroy()
   }
-});
+  gfc_diferenca = new Chart(c_gfc_diferenca, {
+    type: tipo,
+    data: {
+      labels: ['2020', '2021', '2022', '2023'], // Anos no eixo X
+      datasets: [{
+        label: 'Entradas - Saídas',
+        data: dado_diferenca, // Valores no eixo Y
+        fill: {
+          target: {
+            value: 0 // Define o valor de referência (eixo Y = 0)
+          },
+          above: '#e9f0ff73', // Preenchimento azul claro acima de 0
+          below: vermelho // Preenchimento vermelho claro abaixo de 0
+        },
+        backgroundColor: function(context) {
+          const value = context.dataset.data[context.dataIndex];
+          // Se o valor é negativo, retorna vermelho, senão retorna azul
+          return value < 0 ? vermelho : azul1;
+        },
+        borderColor: azul, // Cor da linha (azul)
+        tension: 0.1 // Suaviza a curva da linha
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Ano',
+            font: {
+              size: 16
+            }
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Fluxo total',
+            font: {
+              size: 16
+            }
+          }
+        },
+      },
+      plugins: {
+        legend: {
+          display: false // Ocultar a legenda
+        }
+      }
+    }
+  });
+}
+criarGraficoDiferenca('line')
 // Responsividade do gráfico:
 const pai = document.querySelector('.filtro_grafico');
 const filho = document.querySelectorAll('.filtro');
@@ -316,10 +407,25 @@ function fecharMenu(){
     click_btn_menu = false
     fontSize = 16
   }
-  atualizarGraficos([grafico_entrada_produtos, gfc_saida], widthBody); // Adicione todos os gráficos aqui
+  atualizarGraficos([gfc_entrada, gfc_saida, gfc_diferenca], widthBody); // Adicione todos os gráficos aqui
 }
 fecharMenu()
 
 window.addEventListener('resize',(e)=>{
   fecharMenu()
+})
+
+// Alterar tipo do gráfico: 
+let tipo_grafico_entrada = document.querySelector("#tipo_grafico_entrada")
+let tipo_grafico_saida = document.querySelector("#tipo_grafico_saida")
+let tipo_grafico_diferenca = document.querySelector("#tipo_grafico_diferenca")
+
+tipo_grafico_entrada.addEventListener('change',()=>{
+  criarGraficoEntrada(tipo_grafico_entrada.value)
+})
+tipo_grafico_saida.addEventListener('change',()=>{
+  criarGraficoSaida(tipo_grafico_saida.value)
+})
+tipo_grafico_diferenca.addEventListener('change',()=>{
+  criarGraficoDiferenca(tipo_grafico_diferenca.value)
 })
