@@ -10,22 +10,27 @@ function alterarEstilo() {
 
 // Função trocar visibilidade do menu comforme for clicado
 function displayMenu(id){
-    if(id) {
-        let menu = id
-        let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
-        if (menu.style.display == "none") { // Altera a visibilidade do menu clicado
-            menu.style.display = "block"
-        } else {
-            menu.style.display = "none"
+    if(id && id != "btn") {
+      let menu = id
+      let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
+      if (menu.style.display == "none") { // Altera a visibilidade do menu clicado
+          menu.style.display = "block"
+      } else {
+          menu.style.display = "none"
+      }
+      menus.forEach(e=>{
+        if (e.id != menu.id || id == "btn") { 
+          e.previousElementSibling.classList.remove("modulo_selecionado") // Deixa todos os outros modulos que não foi o clicado sem a classe "modulo_selecionado"
         }
-        menus.forEach(e=>{
-            if (e.id != menu.id) { 
-                e.previousElementSibling.classList.remove("modulo_selecionado") // Deixa todos os outros modulos que não foi o clicado sem a classe "modulo_selecionado"
-            }
-            if (e.style.display == "block" && e.id != menu.id) {
-                e.style.display = "none"
-            }
-        }) // Deixa todos os outros menus que não foi o clicado com display none
+        if (e.style.display == "block" && e.id != menu.id) {
+          e.style.display = "none"
+        }
+      }) // Deixa todos os outros menus que não foi o clicado com display none
+    } else { // Se o módulo clicado for um botão
+      let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
+      menus.forEach(e =>{
+        e.style.display = "none" // Some com todos os menus drop-down 
+      })
     }
 }
 
@@ -72,18 +77,21 @@ btns_menu.forEach((e)=>{
         btns_menu.forEach(el=>{
             if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
                 if(!btnMini) { // Se for um botão maximizado
-                    el.classList.toggle("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
-                    if(!btn){ // Se não for um botão
-                        displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
-                    }
+                  el.classList.toggle("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
+                  if(!btn){ // Se não for um botão
+                    displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
+                  } else {
+                    displayMenu("btn")
+                  }
                 } else { // Se for um botão minimizado
-                    if(!btn){ // Se não for um botão
-                        modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
-                        btnMenuLateral()
-                        displayMenu(modulo.nextElementSibling)
-                    }else {
-                        modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
-                    }
+                  if(!btn){ // Se não for um botão
+                    modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
+                    btnMenuLateral()
+                    displayMenu(modulo.nextElementSibling)
+                  }else {
+                    modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
+                    console.log(modulo)
+                  }
                 }
             } else {
                 el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos que não foram clicados 
@@ -187,7 +195,7 @@ dado_entrada.forEach((e,i) => { // Entrada - Saída
 
 // Gráfico Entrada de produtos:
 let gfc_entrada
-function criarGraficoEntrada(tipo) {
+function criarGraficoEntrada(tipo, font) {
   const c_gfc_entrada= document.getElementById('grafico_entrada_produtos').getContext('2d');
   if (gfc_entrada) {
     gfc_entrada.destroy()
@@ -212,7 +220,7 @@ function criarGraficoEntrada(tipo) {
             display: true,
             text: 'Ano', // Rótulo do eixo X
             font: {
-              size: 16
+              size: font
             }
           }
         },
@@ -222,7 +230,7 @@ function criarGraficoEntrada(tipo) {
             display: true,
             text: 'Entradas', // Rótulo do eixo Y
             font: {
-              size: 16
+              size: font
             }
           }
         },
@@ -239,7 +247,7 @@ criarGraficoEntrada('line') // Cria o primeiro gráfico quando a página é carr
 
 // Gráfico Saída de produtos:
 let gfc_saida
-function criarGraficoSaida(tipo) {
+function criarGraficoSaida(tipo, font) {
   const c_gfc_saida = document.getElementById('grafico_saida_produtos').getContext('2d');
   if (gfc_saida) { // Se o gráfico ja exister ele é destruido para poder ser criado outro
     gfc_saida.destroy()
@@ -265,7 +273,7 @@ function criarGraficoSaida(tipo) {
             display: true,
             text: 'Ano', // Rótulo do eixo X
             font: {
-              size: 16
+              size: font
             }
           }
         },
@@ -275,7 +283,7 @@ function criarGraficoSaida(tipo) {
             display: true,
             text: 'Entradas', // Rótulo do eixo Y
             font: {
-              size: 16
+              size: font
             }
           }
         },
@@ -292,7 +300,7 @@ criarGraficoSaida('line')
 
 // Gráfico Diferença entre Entrada e Saída de produtos:
 let gfc_diferenca
-function criarGraficoDiferenca(tipo){
+function criarGraficoDiferenca(tipo, font){
   const c_gfc_diferenca = document.getElementById('grafico_diferenca_produtos').getContext('2d');
   if (gfc_diferenca) {
     gfc_diferenca.destroy()
@@ -328,7 +336,7 @@ function criarGraficoDiferenca(tipo){
             display: true,
             text: 'Ano',
             font: {
-              size: 16
+              size: font
             }
           }
         },
@@ -338,7 +346,7 @@ function criarGraficoDiferenca(tipo){
             display: true,
             text: 'Fluxo total',
             font: {
-              size: 16
+              size: font
             }
           }
         },
@@ -421,11 +429,11 @@ let tipo_grafico_saida = document.querySelector("#tipo_grafico_saida")
 let tipo_grafico_diferenca = document.querySelector("#tipo_grafico_diferenca")
 
 tipo_grafico_entrada.addEventListener('change',()=>{
-  criarGraficoEntrada(tipo_grafico_entrada.value)
+  criarGraficoEntrada(tipo_grafico_entrada.value, fontSize)
 })
 tipo_grafico_saida.addEventListener('change',()=>{
-  criarGraficoSaida(tipo_grafico_saida.value)
+  criarGraficoSaida(tipo_grafico_saida.value, fontSize)
 })
 tipo_grafico_diferenca.addEventListener('change',()=>{
-  criarGraficoDiferenca(tipo_grafico_diferenca.value)
+  criarGraficoDiferenca(tipo_grafico_diferenca.value, fontSize)
 })
