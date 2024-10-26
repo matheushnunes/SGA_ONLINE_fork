@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGA ONLINE</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="imagens/icone_sga.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/principal.css">
+    <link rel="shortcut icon" href="../imagens/icone_sga.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagens/icone_sga.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
         <div id="container_logo_busca">
-            <img id="logo_sga" src="imagens/logo_sga.png" alt="Logo do sga online">
+            <img class="logo_sga" src="../imagens/logo_sga.png" alt="Logo do sga online">
             <div id="campo_busca">
                 <div id="campo_pesquisa">
                     <input type="text" placeholder="Digite aqui o que você está buscando">
-                    <img id="icone_pesquisa" src="imagens/icone_pesquisa.png" alt="icone_p  esquisa">
+                    <img id="icone_pesquisa" src="../imagens/icone_pesquisa.png" alt="icone_p  esquisa">
                 </div>
                 <button id="btn_filtros">
-                    <img id="icone_filtro" src="imagens/icone_filtro.png" alt="icone_filtro">
+                    <img id="icone_filtro" src="../imagens/icone_filtro.png" alt="icone_filtro">
                     <span>Filtros</span>
                 </button>
             </div>
@@ -30,7 +31,7 @@
                     <span id="nome_usuario">Nome do Usuário</span>
                     <span id="empresa_usuario">Global Diesel</span>
                 </div>
-                <img id="usuario_seta" src="imagens/seta_baixo.png" alt="seta para baixo">
+                <img id="usuario_seta" src="../imagens/seta_baixo.png" alt="seta para baixo">
             </div>
             <button id="btn_sair"><a href="../SGA online-login/index.html" onclick="alterarEstilo">Sair</a></button> 
             <div id="menu_usuario" style="display: none;">
@@ -42,21 +43,21 @@
         <nav id="menu_lateral">
             <div id="container_btn_fechar">
                 <button id="btn_fechar_menu">
-                    <img id="icone_aba" class="aba_fechar" src="imagens/icone_fechar_aba.png" alt="icone_fechar_aba">
+                    <img id="icone_aba" class="aba_fechar" src="../imagens/icone_fechar_aba.png" alt="icone_fechar_aba">
                 </button>
             </div>
             <button class="btn btn_menu modulo_selecionado" id="btn_dashboard">
-                <img class="img_icone_menu" src="imagens/icone_dashboard.svg" alt="icone_dashboard">
+                <img class="img_icone_menu" src="../imagens/icone_dashboard.svg" alt="icone_dashboard">
                 <span class="span_modulo">Dashboard</span>
                 <div class="hide_text">Dashboard</div>
             </button>
             <div class="item_menu">
                 <button class="btn_menu" id="btn_estoque">
                     <div>
-                        <img class="img_icone_menu" src="imagens/icone_estoque.png" alt="icone_estoque">
+                        <img class="img_icone_menu" src="../imagens/icone_estoque.png" alt="icone_estoque">
                         <span class="span_modulo">Estoque</span>
                     </div>
-                    <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
+                    <img class="seta_cima_baixo"  src="../imagens/seta_baixo.png" alt="seta_baixo">
                     <div class="hide_text">Estoque</div>
                 </button>
                 <div class="dropdown" id="dd_estoque" style="display: none;">
@@ -69,55 +70,55 @@
             <div class="item_menu">
                 <button class="btn_menu" id="btn_vendas">
                     <div>
-                        <img class="img_icone_menu" src="imagens/icone_vendas.png" alt="icone_vendas">
+                        <img class="img_icone_menu" src="../imagens/icone_vendas.png" alt="icone_vendas">
                         <span class="span_modulo">Vendas</span>
                     </div>
-                    <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
+                    <img class="seta_cima_baixo"  src="../imagens/seta_baixo.png" alt="seta_baixo">
                     <div class="hide_text">Vendas</div>
                 </button>
             </div>
             <div class="item_menu">
                 <button class="btn_menu" id="btn_relatorios">
                     <div>
-                        <img class="img_icone_menu" src="imagens/icone_relatorios.png" alt="icone_relatorios">
+                        <img class="img_icone_menu" src="../imagens/icone_relatorios.png" alt="icone_relatorios">
                         <span class="span_modulo">Relatórios</span>
                     </div>
-                    <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
+                    <img class="seta_cima_baixo"  src="../imagens/seta_baixo.png" alt="seta_baixo">
                     <div class="hide_text">Relatórios</div>
                 </button>
             </div>
             <div class="item_menu">
                 <button class="btn_menu" id="btn_financeiro">
                     <div>
-                        <img class="img_icone_menu" src="imagens/icone_financeiro.png" alt="icone_financeiro">
+                        <img class="img_icone_menu" src="../imagens/icone_financeiro.png" alt="icone_financeiro">
                         <span class="span_modulo">Financeiro</span>
                     </div>
-                    <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
+                    <img class="seta_cima_baixo"  src="../imagens/seta_baixo.png" alt="seta_baixo">
                     <div class="hide_text">Financeiro</div>
                 </button>
             </div>
             <div class="item_menu">
                 <button class="btn_menu" id="btn_administracao">
                     <div>
-                        <img class="img_icone_menu" src="imagens/icone_administracao.png" alt="icone_administracao">
+                        <img class="img_icone_menu" src="../imagens/icone_administracao.png" alt="icone_administracao">
                         <span class="span_modulo" id="modulo_administracao">Administração</span>
                     </div>
-                    <img class="seta_cima_baixo"  src="imagens/seta_baixo.png" alt="seta_baixo">
+                    <img class="seta_cima_baixo"  src="../imagens/seta_baixo.png" alt="seta_baixo">
                     <div class="hide_text">Administração</div>
                 </button>
             </div>
             <button class="btn btn_menu" id="btn_veiculo">
-                <img class="img_icone_menu" src="imagens/icone_veiculo.png" alt="icone_veiculo">
+                <img class="img_icone_menu" src="../imagens/icone_veiculo.png" alt="icone_veiculo">
                 <span class="span_modulo">Veículo</span>
                 <div class="hide_text">Veículo</div>
             </button>
             <button class="btn btn_menu" id="btn_contato">
-                <img class="img_icone_menu" src="imagens/icone_contato.png" alt="icone_contato">
+                <img class="img_icone_menu" src="../imagens/icone_contato.png" alt="icone_contato">
                 <span class="span_modulo">Contato</span>
                 <div class="hide_text">Contato</div>
             </button>
             <button class="btn btn_menu" id="btn_configuracoes">
-                <img class="img_icone_menu" src="imagens/icone_configuracoes.png" alt="icone_configuracoes">
+                <img class="img_icone_menu" src="../imagens/icone_configuracoes.png" alt="icone_configuracoes">
                 <span class="span_modulo">Configurações</span>
                 <div class="hide_text">Configurações</div>
             </button>

@@ -47,12 +47,12 @@ function minimizarMenu(status){
 function btnMenuLateral(target){
     let icone_aba = document.querySelector("#icone_aba")
     if (icone_aba.classList[0] == "aba_fechar") { // Se o menu estiver maximizado 
-        icone_aba.src = "imagens/icone_abrir_aba.png"
+        icone_aba.src = "../imagens/icone_abrir_aba.png"
         icone_aba.className = "aba_abrir"
         icone_aba.alt = "Icone_abrir_aba_menu"
         minimizarMenu("fechar")
     } else { // Se o menu estiver minimizado 
-        icone_aba.src = "imagens/icone_fechar_aba.png"
+        icone_aba.src = "../imagens/icone_fechar_aba.png"
         icone_aba.className = "aba_fechar"
         icone_aba.alt = "Icone_fechar_aba_menu"
         minimizarMenu("abrir")

@@ -49,7 +49,7 @@ header #container_logo_busca {
     width: 100%;
     max-width: 710px;
 }
-img#logo_sga {
+.logo_sga {
     max-height: 65px;
     margin-right: 20px;
     cursor: pointer;
