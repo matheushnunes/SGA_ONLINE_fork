@@ -14,19 +14,11 @@
         <section class="janela_redefinicao">
             <img class="ico_check" src="../../imagens/check.svg" alt="Icone check">
             <h1 class="titulo_redefinicao">Enviamos um código de 6 digitos para seu e-mail</h1>
-            <label class="campo_email" for="email">
+            <label class="campo" for="codigo">
                 <p>Insira o código de 6 digitos que você recebeu por e-mail no campo abaixo: </p>
-                <div class="digit-container" id="container_codigo">
-                    <input type="number" maxlength="1" class="digit" id="digit1" min="0" max="9">
-                    <input type="text" maxlength="1" class="digit" id="digit2" min="0" max="9">
-                    <input type="text" maxlength="1" class="digit" id="digit3" min="0" max="9">
-                    <input type="text" maxlength="1" class="digit" id="digit4" min="0" max="9">
-                    <input type="text" maxlength="1" class="digit" id="digit5" min="0" max="9">
-                    <input type="text" maxlength="1" class="digit" id="digit6" min="0" max="9">
-                </div>
-                <p class="alerta">(O e-mail pode demorar alguns minutos para chegar)</p>
-                <input type="number" name="" id="teste">
+                <input type="number" name="codigo" id="codigo" class="campo_input" min="0" max="9" maxlength="6" >
             </label>
+            <p class="alerta">(O e-mail pode demorar alguns minutos para chegar)</p>
             <p class="validador" id="feed_codigo"></p>
             <p class="paragrafo">Não recebeu o e-mail <a href="../envio_email/envio_email.html" target="_self">Reenviar email.</a></p>
         </section>

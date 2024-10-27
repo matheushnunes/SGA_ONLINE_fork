@@ -1,0 +1,32 @@
+.principal {
+    width: 100%;
+}
+.janela_redefinicao {
+    width: 100%;
+    max-width: 35rem;
+}
+.titulo_redefinicao {
+    margin-bottom: 4rem;
+}
+.campo p {
+    margin-bottom: .5rem;
+}
+.campo {
+    width: 100%;
+}
+.campo input {
+    margin-bottom: 3rem;
+}
+.btn {
+    margin-bottom: 0;
+}
+@media (max-width: 25rem) {
+    body {
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 20rem) {
+    .janela_redefinicao {
+        padding: 3rem 1rem;
+    }
+}
