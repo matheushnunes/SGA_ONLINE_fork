@@ -1,130 +1,193 @@
+/* Estilo base */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    height: 100vh;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Lado esquerdo - Imagem com overlay azul */
+.left-side {
+  width: 50%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.left-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left-side::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(57, 100, 168, 0.84);
+  z-index: 1;
+}
+
+/* Lado direito - Formulário */
+.logo {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.right-side {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.login-form {
+  width: 80%;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form a {
+  text-decoration: none;
+  color: #007BFF;
+  display: inline;
+  margin-bottom: 30px;
+}
+
+.login-form a:hover {
+  text-decoration: underline;
+}
+
+.login-form button {
+  width: 150px;
+  align-items: center;
+  padding: 10px;
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#botao-login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#conteiner-select {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+#selecione-a-empresa {
+  height: 20px;
+  align-items: end;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.logo-mobile {
+  display: none;
+}
+
+/* Media query para telas menores que 768px */
+@media (max-width: 768px) {
+  /* Define layout em coluna */
+  body {
+    flex-direction: column;
   }
-  
-  /* Lado esquerdo - Imagem com overlay azul */
+
   .left-side {
-    width: 50%;
-    height: 100vh; /* A imagem vai ocupar 100% da altura */
-    position: relative; /* Necessário para o overlay funcionar */
-    overflow: hidden;
+    width: 100%;
+    height: 35vh; /* A imagem ocupa 30% da altura */
   }
-  
+
   .left-side img {
-    width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz com que a imagem cubra todo o espaço mantendo a proporção */
   }
-  
-  /* Overlay azul */
-  .left-side::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(57, 100, 168, 0.84); /* Azul com 40% de opacidade */
-    z-index: 1; /* Coloca o overlay acima da imagem */
-  }
-  
-  /* Lado direito - Formulário */
+
+  /* Centraliza a logo sobre a imagem */
   .logo {
-    width: 400px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-  }
-  
-  .right-side {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 0%;
+    height: auto;
+    
   }
 
-
-  
-  .login-form {
-    width: 80%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    position: relative;
-    z-index: 2; /* Para garantir que o formulário apareça sobre o overlay */
-  }
-  
-  .login-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .login-form label {
+  .logo-mobile {
     display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .login-form a {
-    text-decoration: none;
-    color: #007BFF;
-    display: inline;
-    margin-bottom: 30px;
-  }
-  
-  .login-form a:hover {
-    text-decoration: underline;
-  }
-  
-  .login-form button {
-    width: 150px;
-   
-    align-items: center;
-    padding: 10px;
-    background-color: #007BFF;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
   }
 
-  #botao-login {
+  .logo-desktop {
+    display: none;
+  }
+
+  /* Ajusta o formulário para ficar abaixo da imagem */
+  .right-side {
     width: 100%;
+    height: auto;
     display: flex;
-
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    border-radius: 200px;
   }
-  #conteiner-select {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  
 
+  .login-form {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  #conteiner-select {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
   }
 
   #selecione-a-empresa {
-    height: 20px;
-    align-items: end;
+    width: 100%;
+    margin-top: 10px;
   }
-  
-
-  .login-form button:hover {
-    background-color: #0056b3;
-  }
+}
