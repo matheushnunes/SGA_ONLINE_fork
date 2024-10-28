@@ -15,13 +15,14 @@
             <h1 class="titulo_redefinicao">Redefinição de senha</h1>
             <form class="formulario" >
                 <label class="campo" for="email">
-                    <p>Informe o email que deseja redefinir a senha:</p>
-                    <input class="campo_input" type="email" name="email" id="email" placeholder="Digite o seu email" required>
+                    <p>Informe o e-mail que deseja redefinir a senha:</p>
+                    <input class="campo_input" type="email" name="email" id="email" placeholder="Digite o seu e-mail" required>
                 </label>
-                <input type="submit" value="Enviar" class="btn">
+            <input type="submit" value="Enviar" class="btn" id="btn_submit" href="../verificacao_email/verificacao.html">
             </form>
-            <p class="paragrafo">Já possue cadastro? <a href="../../SGA online-login/index.html" target="_self">Faça seu login.</a></p>
+            <p class="paragrafo"><a href="../../SGA online-login/index.html" target="_self"><img src="../../imagens/seta_baixo.png" alt="seta voltar" class="seta_voltar"> Voltar para página de login</a></p>
         </section>
     </main>
+    <script src="envio_email.js"></script>
 </body>
 </html>

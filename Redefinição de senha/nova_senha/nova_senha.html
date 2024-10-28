@@ -15,14 +15,22 @@
             <h1 class="titulo_redefinicao">Redefinição de senha</h1>
             <label class="campo" for="senha">
                 <p>Crie uma senha nova:</p>
-                <input class="campo_input" type="password" name="senha" id="senha" placeholder="Digite uma senha">
+                <div class="campo_senha" id="campo_senha">
+                    <input class="campo_input" type="password" name="senha" id="senha" placeholder="Digite uma senha">
+                    <img class="visibilidade" id="view_senha" src="../../imagens/visibility_on.png" alt="visibilidade da senha off">
+                </div>
             </label>
             <label class="campo" for="confirmacao_senha">
                 <p>Digite a senha novamente:</p>
-                <input class="campo_input" type="password" name="confirmacao_senha" id="confirmacao_senha" placeholder="Confirme a sua senha">
+                <div class="campo_senha" id="campo_confirmacao_senha">
+                    <input class="campo_input" type="password" name="confirmacao_senha" id="confirmacao_senha" placeholder="Confirme a sua senha">
+                    <img class="visibilidade" id="view_confirmacao" src="../../imagens/visibility_on.png" alt="visibilidade da senha off">
+                </div>
+                <p class="validador" id="validador_senhas"></p>
             </label>
-            <a class="btn" href="../../SGA online-login/index.html">Redefinir</a>
+            <a class="btn" id="btn_redefinir">Redefinir</a>
         </section>
     </main>
+    <script src="nova_senha.js"></script>
 </body>
 </html>
