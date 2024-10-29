@@ -29,7 +29,6 @@
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 320px;
     background-color: var(--cinza2);
     height: 5rem;
     border-radius: 5px;

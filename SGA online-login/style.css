@@ -111,12 +111,14 @@ body {
 
     justify-content: center;
   }
+  #botao-login a {
+    color: #fff;
+    text-decoration: none;
+  }
   #conteiner-select {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-  
-
   }
 
   #selecione-a-empresa {

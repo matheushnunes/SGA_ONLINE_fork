@@ -73,7 +73,6 @@ body {
 }
 .campo_input {
     width: 100%;
-    max-width: 320px;
     background-color: var(--cinza2);
     height: 5rem;
     padding: 10px;

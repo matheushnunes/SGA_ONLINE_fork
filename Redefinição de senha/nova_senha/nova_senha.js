@@ -15,10 +15,12 @@ function confirmacao() {
             validador.innerHTML = "As senhas não correspondem"
             validador.style.color = "rgb(100, 0, 0)"
             senhasOk = false
+            btn_redefinir.style.cursor = "not-allowed"
         } else {
             validador.innerHTML = "As senhas correspondem"
             validador.style.color = "rgb(0, 100, 0)"
             senhasOk = true
+            btn_redefinir.style.cursor = "pointer"
         }
     }
     
@@ -59,7 +61,9 @@ nova_senha.addEventListener("input",()=> {
 
 btn_redefinir.addEventListener("click", ()=> {
     if (senhasOk) {
-        alert("Senha redefinida com sucesso!")
+        alert("Senha redefinida com sucesso!\nClique em 'ok' e faça seu login com a nova senha.")
         window.location.href = "../../SGA online-login/index.html"
+    } else {
+        
     }
 })
