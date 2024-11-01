@@ -1,5 +1,8 @@
 // Modulos da tela principal:
+import dashBorad from "../modulos/dashboard/dashboard";
+console.log("sla")
 function carregarConteudo(url) {
+  console.log(dashBorad)
   let principal = document.querySelector(".principal")
   // Limpa o conteúdo atual antes de carregar o novo
   principal.innerHTML = "<p>Carregando...</p>";
@@ -188,7 +191,4 @@ document.addEventListener("click",(e)=>{
       usuario_seta.style.transition = ".1s"
     }
 })
-
-// DashBoard:
-
 
