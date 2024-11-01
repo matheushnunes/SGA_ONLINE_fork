@@ -385,19 +385,25 @@ main {
     display: flex;
     margin-top: 95px;
 }
+.principal {
+    width: calc(100% - 287px);
+    margin-left: 274px;
+}
 .graficos {
     display: flex;
     flex-flow: row wrap;
-    width: calc(100% - 287px);
     justify-content: start;
     align-content: flex-start;
     margin-right: 0.7rem;
-    margin-left: 274px; /* tamalho da barra lateral */
 }
-.graficos.mini {
+.principal.mini {
     width: calc(100% - 36px);
-    margin-left: 36px; /* tamalho da barra lateral */
+    margin-left: 36px;
 }
+/* .graficos.mini {
+    width: calc(100% - 36px);
+    margin-left: 36px; tamalho da barra lateral
+} */
 /* Dashboard */
 
 .item_dashboard {
