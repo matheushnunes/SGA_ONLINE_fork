@@ -1,38 +1,57 @@
 // Modulos da tela principal:
-import dashBorad from "../modulos/dashboard/dashboard";
-console.log("sla")
+import dashBorad from "../modulos/dashboard/dashboard.js";
+
+let btn_dashboard = document.querySelector("#btn_dashboard")
+let btn_contato = document.querySelector("#btn_contato")
+let btns_modulos = document.querySelectorAll(".btn, .item_dropdown")
+btns_modulos.forEach(e =>{
+  e.addEventListener("click",()=>{
+    // e.id.slice(4): remove o "btn_" do id
+    carregarConteudo(`${e.id.slice(4)}/${e.id.slice(4)}.html`)
+  })
+})
+
+carregarConteudo("dashboard/dashboard.html") // Carrega por padrão assim que a página for carregada o dashboard
+
+
+// Função carregar conteúdo html dos módulos
 function carregarConteudo(url) {
-  console.log(dashBorad)
   let principal = document.querySelector(".principal")
   // Limpa o conteúdo atual antes de carregar o novo
   principal.innerHTML = "<p>Carregando...</p>";
   url = "../modulos/"+url
   // Carrega o conteúdo do arquivo HTML usando fetch
   fetch(url)
-      .then(response => {
-          if (!response.ok) throw new Error('Erro ao carregar o conteúdo.');
-          return response.text();
-      })
-      .then(html => {
-          principal.innerHTML = html;
-      })
-      .catch(error => {
-          principal.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
-          console.error(error);
-      });
+    .then(response => {
+        if (!response.ok) throw new Error('Erro ao carregar o conteúdo.');
+        return response.text();
+    })
+    .then(html => {
+        principal.innerHTML = html;
+        // Chama a função dos gráficos somente quando o html for carregado:
+        if (url == "../modulos/dashboard/dashboard.html") {
+          setTimeout(function(){ // Espera alguns milissegundos para carregar o gráfico
+            dashBorad()
+          }, 10)
+        }
+    })
+    .catch(error => {
+        principal.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
+        console.error(error);
+    })
 }
 
 // Configurações menu lateral:
 
-// Função trocar visibilidade do menu comforme for clicado
+// Função trocar visibilidade do menu conforme for clicado
 function displayMenu(id){
     if(id && id != "btn") {
       let menu = id
       let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
       if (menu.style.display == "none") { // Altera a visibilidade do menu clicado
-          menu.style.display = "block"
+        menu.style.display = "block"
       } else {
-          menu.style.display = "none"
+        menu.style.display = "none"
       }
       menus.forEach(e=>{
         if (e.id != menu.id || id == "btn") { 
@@ -80,9 +99,7 @@ function btnMenuLateral(target){
             }
         }
     }
-    
 }
-
 let btns_menu = document.querySelectorAll(".btn_menu") // Seleciona todos os botões dos modulos
 btns_menu.forEach((e)=>{
     e.addEventListener("click",(e)=>{
@@ -93,7 +110,7 @@ btns_menu.forEach((e)=>{
         btns_menu.forEach(el=>{
             if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
                 if(!btnMini) { // Se for um botão maximizado
-                  el.classList.toggle("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
+                  el.classList.add("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
                   if(!btn){ // Se não for um botão
                     displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
                   } else {
@@ -154,7 +171,6 @@ let click_btn_menu = false
 btn_fechar_menu.addEventListener('click',()=>{
   btnMenuLateral('btn_lateral')
   click_btn_menu = true
-  
 })
 
 document.addEventListener("click",(e)=>{
@@ -192,3 +208,4 @@ document.addEventListener("click",(e)=>{
     }
 })
 
+export {carregarConteudo, btnMenuLateral, click_btn_menu }

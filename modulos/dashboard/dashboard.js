@@ -1,8 +1,7 @@
 // DashBoard:
-
-function dashBorad () {
-  
-  console.log("asdf")
+import { carregarConteudo, click_btn_menu, btnMenuLateral } from "../../scripts/javaScript.js";
+let local_click_btn_menu = click_btn_menu
+export default function dashBorad () {
   let cinza1 = "#F6F6F6";
   let cinza2 = "#E8E8E8";
   let azul = "#3964A8";
@@ -73,7 +72,6 @@ function dashBorad () {
   // Gráfico Saída de produtos:
   let gfc_saida
   function criarGraficoSaida(tipo, font) {
-    console.log("sdakfhasdlf")
     const c_gfc_saida = document.getElementById('grafico_saida_produtos').getContext('2d');
     if (gfc_saida) { // Se o gráfico ja exister ele é destruido para poder ser criado outro
       gfc_saida.destroy()
@@ -231,17 +229,17 @@ function dashBorad () {
   
   let fontSize = 16
   function fecharMenu(){
-    widthBody = document.body.offsetWidth
-    if (widthBody <= 480){
+    let widthGrafico = document.querySelector(".graficos").offsetWidth
+    if (widthGrafico <= 480){
       let nav = document.querySelector("#menu_lateral")
       fontSize = 12
-      if (!nav.classList.contains("mini") && !click_btn_menu)
+      if (!nav.classList.contains("mini") && !local_click_btn_menu)
         btnMenuLateral()
     } else {
-      click_btn_menu = false
+      local_click_btn_menu = false
       fontSize = 16
     }
-    atualizarGraficos([gfc_entrada, gfc_saida, gfc_diferenca], widthBody); // Adicione todos os gráficos aqui
+    atualizarGraficos([gfc_entrada, gfc_saida, gfc_diferenca], widthGrafico); // Adicione todos os gráficos aqui
   }
   fecharMenu()
   
@@ -264,5 +262,3 @@ function dashBorad () {
     criarGraficoDiferenca(tipo_grafico_diferenca.value, fontSize)
   })
 }
-
-export default dashBorad
