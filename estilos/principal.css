@@ -79,7 +79,7 @@ header #btn_filtros {
 header #icone_filtro {
     width: 30px;
 }
-header #campo_pesquisa {
+.campo_pesquisa {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -92,7 +92,7 @@ header #campo_pesquisa {
     border: none;
     background-color: var(--cinza2);
 }
-header #campo_pesquisa input {
+.campo_pesquisa input {
     background-color: transparent;
     border: none;
     width: calc(100% - 30px);
@@ -100,13 +100,13 @@ header #campo_pesquisa input {
     font: normal 0.9rem arial;
     color: var(--secundaria)
 }
-header #campo_pesquisa input:focus {
+.campo_pesquisa input:focus {
     outline: none;
 }
-header #campo_pesquisa input::placeholder {
+.campo_pesquisa input::placeholder {
     color: #9F9F9F;
 }
-header #campo_pesquisa img {
+.campo_pesquisa img {
     width: 25px;
     cursor:pointer;
 }
