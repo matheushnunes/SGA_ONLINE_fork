@@ -1,9 +1,7 @@
 // Modulos da tela principal:
 import dashBorad from "../modulos/dashboard/dashboard.js";
 
-let btn_dashboard = document.querySelector("#btn_dashboard")
-let btn_contato = document.querySelector("#btn_contato")
-let btns_modulos = document.querySelectorAll(".btn, .item_dropdown")
+let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
   e.addEventListener("click",()=>{
     // e.id.slice(4): remove o "btn_" do id
