@@ -1,5 +1,80 @@
-<section>  
-    <div>
-        <h1>Contatos</h1>
+<section class="modulo" id="section_contatos">  
+    <div class="header">
+        <select name="select_coluna" id="select_coluna">
+            <option value="default">Selecione a coluna que deseja pesquisar</option>
+            <option value="codigo">Código</option>
+            <option value="razao_social">Razão Social</option>
+            <option value="nome_fantasia">Nome Fantasia</option>
+            <option value="fone1">Fone 1</option>
+            <option value="categoria">Categoria</option>
+        </select>
+        <div class="campo_pesquisa">
+            <input type="text" placeholder="Digite aqui o que você está buscando">
+            <img id="icone_pesquisa" src="../imagens/icone_pesquisa.png" alt="icone_p  esquisa">
+        </div>
+    </div>
+    <div class="tabela">
+        <table class="tabela_produtos">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Razão Social</th>
+                    <th>Nome Fantasia</th>
+                    <th>Fone 1</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="codigo">1</td>
+                    <td class="razao_social">Miguel Augusto Barbosa</td>
+                    <td class="nome_fantasia">Miguel</td>
+                    <td class="fone1">(11) 94758-3621</td>
+                    <td class="categoria">Fornecedor</td>
+                </tr>
+                <tr>
+                    <td class="codigo">2</td>
+                    <td class="razao_social">Rafaela Helena Costa</td>
+                    <td class="nome_fantasia">Rafaela</td>
+                    <td class="fone1">(11) 98521-6543</td>
+                    <td class="categoria">Cliente</td>
+                </tr>
+                <tr>
+                    <td class="codigo">3</td>
+                    <td class="razao_social">Luiza Helena Ferreira</td>
+                    <td class="nome_fantasia">Luiza</td>
+                    <td class="fone1">(11) 97432-1234</td>
+                    <td class="categoria">Funcionário</td>
+                </tr>
+                <tr>
+                    <td class="codigo">4</td>
+                    <td class="razao_social">Felipe Nascimento</td>
+                    <td class="nome_fantasia">Felipe</td>
+                    <td class="fone1">(11) 96532-9876</td>
+                    <td class="categoria">Fornecedor</td>
+                </tr>
+                <tr>
+                    <td class="codigo">5</td>
+                    <td class="razao_social">Leticia Aparecida de Oliveira</td>
+                    <td class="nome_fantasia">Leticia</td>
+                    <td class="fone1">(11) 93214-5678</td>
+                    <td class="categoria">Cliente</td>
+                </tr>
+                <tr>
+                    <td class="codigo">6</td>
+                    <td class="razao_social">Guilherme Ferreira da Silva</td>
+                    <td class="nome_fantasia">Guilherme</td>
+                    <td class="fone1">(11) 98876-5432</td>
+                    <td class="categoria">Funcionário</td>
+                </tr>
+                <tr>
+                    <td class="codigo">7</td>
+                    <td class="razao_social">Eduarda Cristina de Almeida</td>
+                    <td class="nome_fantasia">Eduarda</td>
+                    <td class="fone1">(11) 95567-3211</td>
+                    <td class="categoria">Fornecedor</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
