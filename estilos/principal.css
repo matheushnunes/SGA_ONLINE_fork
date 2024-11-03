@@ -386,7 +386,7 @@ main {
     margin-top: 95px;
 }
 .principal {
-    width: calc(100% - 287px);
+    width: calc(100% - 274px);
     margin-left: 274px;
 }
 .graficos {
@@ -400,10 +400,7 @@ main {
     width: calc(100% - 36px);
     margin-left: 36px;
 }
-/* .graficos.mini {
-    width: calc(100% - 36px);
-    margin-left: 36px; tamalho da barra lateral
-} */
+
 /* Dashboard */
 
 .item_dashboard {
@@ -485,30 +482,30 @@ main {
 #div_produtos_mais_vendidos .header_grafico {
     padding: .8em;
 }
-.tabela_produtos {
+.tabela {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9em;
 }
 
-.tabela_produtos th, td {
+.tabela th, td {
     padding: 7px 15px;
     border-bottom: 1px solid #ddd;
 }
 
-.tabela_produtos td:first-child, th:first-child{
+.tabela td:first-child, th:first-child{
     text-align: left;
 }
-.tabela_produtos td:last-child, th:last-child{
+.tabela td:last-child, th:last-child{
     text-align: right;
 }
 
-.tabela_produtos th {
+.tabela th {
     background-color: var(--azul-1);
     font-weight: bold;
 }
 
-.tabela_produtos tr:hover {
+.tabela tr:hover {
     background-color: var(--cinza1);
 }
 @media (min-width: 1325px) {
@@ -789,4 +786,9 @@ main {
     .graficos {
         margin-top: 20px;
     }
+}
+
+.rodar {
+    transform: rotate(180deg);
+    transition: .2s;
 }

@@ -1,5 +1,6 @@
 // Modulos da tela principal:
 import dashBorad from "../modulos/dashboard/dashboard.js";
+import contato from "../modulos/contato/contato.js";
 
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
@@ -9,8 +10,7 @@ btns_modulos.forEach(e =>{
   })
 })
 
-carregarConteudo("dashboard/dashboard.html") // Carrega por padrão assim que a página for carregada o dashboard
-
+carregarConteudo("contato/contato.html") // Carrega por padrão assim que a página for carregada o dashboard
 
 // Função carregar conteúdo html dos módulos
 function carregarConteudo(url) {
@@ -30,6 +30,11 @@ function carregarConteudo(url) {
         if (url == "../modulos/dashboard/dashboard.html") {
           setTimeout(function(){ // Espera alguns milissegundos para carregar o gráfico
             dashBorad()
+          }, 10)
+        }
+        if (url == "../modulos/contato/contato.html") {
+          setTimeout(function(){ // Espera alguns milissegundos para carregar o gráfico
+            contato()
           }, 10)
         }
     })
