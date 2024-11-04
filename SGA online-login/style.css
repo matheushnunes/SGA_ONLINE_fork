@@ -178,16 +178,19 @@ body {
     width: 90%;
     max-width: 400px;
     padding: 20px;
+
   }
 
   #conteiner-select {
-    flex-direction: column;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   #selecione-a-empresa {
-    width: 100%;
-    margin-top: 10px;
+    width: 63%;
+    margin-top: 5px;
+    height: 22px;
   }
 }
