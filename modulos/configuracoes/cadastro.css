@@ -477,7 +477,7 @@ main {
     height: 500px;
     padding: 1em 1em;
     flex-direction: column;
-    margin: 0em 3em;
+    margin: 0em 1em;
     min-width: 100vh;
     box-sizing: border-box;
 }
@@ -531,8 +531,9 @@ main {
 
 .senha-container {
     display: flex;
-    gap: 130px;
     height: 80px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .email-container {
@@ -556,8 +557,9 @@ main {
 
 .fone-grupo-container {
     display: flex;
-    gap: 130px;
+    justify-content: space-between;
     height: 80px;
+    width: 100%;
 }
 
 .fone-grupo {
@@ -595,6 +597,7 @@ main {
 }
 .icone-salvar {
     display: flex;
+    cursor: pointer;
 
 }
 
