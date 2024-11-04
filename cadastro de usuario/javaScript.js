@@ -5,7 +5,7 @@ function alterarEstilo() {
     link.style.textDecoration = "none"; // Remove o sublinhado
 }
 
-
+console.log('qualquer coisa')
 // Configurações menu lateral:
 
 // Função trocar visibilidade do menu comforme for clicado
