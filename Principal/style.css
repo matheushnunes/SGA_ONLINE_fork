@@ -401,13 +401,9 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
         background-color: white;
     }
 
-    header #campo_pesquisa {
-        
-    }
+   
 }
 
-<<<<<<< Updated upstream
-=======
 .mini .btn_menu:hover .hide_text {
     visibility: visible;
 }
@@ -457,7 +453,6 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     }
 }
 
->>>>>>> Stashed changes
 /* Estilos para dispositivos móveis */
 @media (max-width: 480px) {
     header {
@@ -465,24 +460,19 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     }
 
     header #logo_sga {
-<<<<<<< Updated upstream
         max-height: 50px; /* Reduz o logo em telas menores */
         
-=======
         max-height: 44px !important; /* Reduz o logo em telas menores */
->>>>>>> Stashed changes
     }
 
     header #campo_busca {
         max-width: 100%; /* Permite que o campo de busca ocupe a largura total */
-<<<<<<< Updated upstream
     }
 
     header #campo_usuario {
         flex-direction: column; /* Empilha o nome e a empresa do usuário */
         align-items: flex-start;
         width: 100%;
-=======
         display: none;
     }
 
@@ -490,7 +480,6 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
         flex-direction: row; /* Empilha o nome e a empresa do usuário */
         align-items: end;
         width: 12%;
->>>>>>> Stashed changes
         margin-top: 5px; /* Espaçamento ajustado */
     }
 
@@ -499,10 +488,8 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
         display: none;
     }
 
-<<<<<<< Updated upstream
     nav {
         padding: 10px; /* Ajusta o padding do menu lateral */
-=======
     #nome-empresa_usuario {
         display: none;
     }
@@ -546,24 +533,17 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     }
     nav .bnt {
         width: 160px;
->>>>>>> Stashed changes
     }
 
     nav .item_menu {
         margin-bottom: 5px; /* Reduz o espaçamento entre os itens do menu */
-<<<<<<< Updated upstream
-=======
         font-size: small;
->>>>>>> Stashed changes
     }
     
     nav .btn_menu {
         font-size: 0.9rem; /* Ajusta o tamanho da fonte */
     }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
     
     nav .dropdown {
         margin-left: 0; /* Remove a margem esquerda em telas pequenas */
@@ -572,4 +552,5 @@ nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     .seta_cima_baixo {
         width: 10px; /* Reduz o tamanho das setas */
     }
+}
 }

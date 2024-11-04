@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGA ONLINE</title>
-    <link rel="stylesheet" href="../estilos/principal.css">
+    <link rel="stylesheet" href="cadastro.css">
     <link rel="shortcut icon" href="../imagens/icone_sga.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../imagens/icone_sga.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -123,154 +123,57 @@
                 <div  class="hide_text">Configurações</div>
             </button>
         </nav>
-        <section class="graficos">
-            <div class="item_dashboard">
-                <div class="header_grafico">
-                    <h2>Entrada de produtos</h2>
-                    <div class="filtro_grafico">
-                        <div class="filtro">
-                            <span>Data de inicio:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                        <div class="filtro">
-                            <span>Data do final:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                    </div>
-                    <div class="config_grafico">
-                        <span>Tipo de gráfico:</span>
-                        <select name="tipo_grafico" id="tipo_grafico_entrada">
-                            <option value="line">Linha</option>
-                            <option value="bar">Coluna</option>
-                        </select>
-                    </div>
-                </div>
-                <canvas id="grafico_entrada_produtos"></canvas>
+        <section class="cadastro-usuario">
+            <span class="voltar"><a href="../Principal/principal.html">Voltar</a></span>
+            <div class="tittle-cadastro">
+                <h2>Cadastro usuario</h2>
             </div>
-            <div class="item_dashboard" >
-                <div class="header_grafico">
-                    <h2>Saída de produtos</h2>
-                    <div class="filtro_grafico">
-                        <div class="filtro">
-                            <span>Data de inicio:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                        <div class="filtro">
-                            <span>Data do final:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                    </div>
-                    <div class="config_grafico">
-                        <span>Tipo de gráfico:</span>
-                        <select name="tipo_grafico" id="tipo_grafico_saida">
-                            <option value="line">Linha</option>
-                            <option value="bar">Coluna</option>
-                        </select>
-                    </div>
+            <div class="nome-usuario">
+                <span>Nome (Completo)</span>
+                <div class="Campo-nome">
+                    <input type="text" id="digite-nome" name="Nome-usuario" placeholder="Digite o Nome" required>
                 </div>
-                <canvas id="grafico_saida_produtos"></canvas>
-            </div>
-            <div class="item_dashboard" >
-                <div class="header_grafico">
-                    <h2>Diferença entre entrada e saída</h2>
-                    <div class="filtro_grafico">
-                        <div class="filtro">
-                            <span>Data de inicio:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                        <div class="filtro">
-                            <span>Data do final:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                    </div>
-                    <div class="config_grafico">
-                        <span>Tipo de gráfico:</span>
-                        <select name="tipo_grafico" id="tipo_grafico_diferenca">
-                            <option value="line">Linha</option>
-                            <option value="bar">Coluna</option>
-                        </select>
-                    </div>
+            </div>        
+            <div class="senha-container">
+                <div class="senha">
+                    <span>Senha</span>
+                    <input type="password" class="campo-senha" name="Senha" placeholder="Digite a Senha" required>
                 </div>
-                <canvas id="grafico_diferenca_produtos"></canvas>
-            </div>
-            <div class="item_dashboard" id="div_produtos_mais_vendidos">
-                <div class="header_grafico">
-                    <h2>Produtos mais vendidos</h2>
-                    <div class="filtro_grafico">
-                        <div class="filtro">
-                            <span>Data de inicio:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                        <div class="filtro">
-                            <span>Data do final:</span>
-                            <input type="date" class="input_date">
-                        </div>
-                    </div>
-                </div>
-                <div class="main_grafico">
-                    <table class="tabela_produtos">
-                        <thead>
-                            <tr>
-                                <th>Produto</th>
-                                <th>Quantidade</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Filtro de Oleo</td>
-                                <td>679</td>
-                            </tr>
-                            <tr>
-                                <td>Pastilha de freio</td>
-                                <td>545</td>
-                            </tr>
-                            <tr>
-                                <td>Vela de ignição</td>
-                                <td>521</td>
-                            </tr>
-                            <tr>
-                                <td>Bateria de carro</td>
-                                <td>499</td>
-                            </tr>
-                            <tr>
-                                <td>Amortecedor</td>
-                                <td>364</td>
-                            </tr>
-                            <tr>
-                                <td>Correa dentada</td>
-                                <td>265</td>
-                            </tr>
-                            <tr>
-                                <td>Parafuso de roda 24</td>
-                                <td>255</td>
-                            </tr>
-                            <tr>
-                                <td>Disco de freio</td>
-                                <td>231</td>
-                            </tr>
-                            <tr>
-                                <td>Amortecedor</td>
-                                <td>212</td>
-                            </tr>
-                            <tr>
-                                <td>Correa dentada</td>
-                                <td>142</td>
-                            </tr>
-                            <tr>
-                                <td>Parafuso de roda 24</td>
-                                <td>122</td>
-                            </tr>
-                            <tr>
-                                <td>Disco de freio</td>
-                                <td>99</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="senha">
+                    <span>Confirme a Senha</span>
+                    <input type="password" class="campo-senha" name="confirmar-senha" placeholder="Confirme a senha">
                 </div>
             </div>
+            <div class="email-container">
+                <div class="email">
+                    <span>Email</span>
+                    <input type="email" class="campo-email" name="email" placeholder="Digite o Email">
+                </div>
+                <div class="email">
+                    <span>Confirme mail</span>
+                    <input type="email" class="campo-email" name="confirme-email" placeholder="Confirme o email">
+                </div>
+            </div> 
+            <div class="fone-grupo-container">
+                <div class="fone-grupo">
+                    <span>Fone</span>
+                    <input type="tel" class="campo-fone" name="fone" placeholder="Digite o telefone">
+                </div>
+                <div class="fone-grupo">
+                    <span>Grupo</span>
+                    <select name="grupo" id="Selecione-o-grupo">
+                        <option value="default">Selecione o grupo</option>
+                    </select>
+                </div>
+            </div>
+           <div class="salvar-container">
+            <button class="button-salvar">
+                <img class="icone-salvar"  src="../imagens/salvar.png" alt="icone-salvar">
+                <span>Salvar</span>
+            </button>
+           </div>
         </section>
     </main>
     <script src="javaScript.js"></script>
-    
 </body>
-</html>
+</html>    
