@@ -1,0 +1,54 @@
+.principal {
+    width: 100%;
+}
+.janela_redefinicao {
+    width: 100%;
+    max-width: 35rem;
+}
+.titulo_redefinicao {
+    margin-bottom: 4rem;
+}
+.campo p {
+    margin-bottom: .5rem;
+}
+.campo {
+    width: 100%;
+}
+.campo_input {
+    border: 0;
+    margin: 0;
+    background-color: transparent;
+}
+.campo_input:focus-visible {
+    outline: none;
+}
+.btn {
+    margin-bottom: 0;
+}
+.campo_senha {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--cinza2);
+    height: 5rem;
+    border-radius: 5px;
+    border: 1px solid var(--cinza3);
+    font-size: 1em;
+    margin-bottom: 4rem;
+}
+#campo_confirmacao_senha {
+    margin-bottom: 0.5rem;
+}
+#validador_senhas {
+    margin-bottom: 3rem;
+}
+@media (max-width: 25rem) {
+    body {
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 20rem) {
+    .janela_redefinicao {
+        padding: 3rem 1rem;
+    }
+}

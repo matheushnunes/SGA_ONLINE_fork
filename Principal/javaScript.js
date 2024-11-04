@@ -1,11 +1,3 @@
-//Muda estilo do botão "sair" 
-function alterarEstilo() {
-    var link = document.getElementById("meuLink");
-    link.style.color = "gray"; // Altera a cor
-    link.style.textDecoration = "none"; // Remove o sublinhado
-}
-
-
 // Configurações menu lateral:
 
 // Função trocar visibilidade do menu comforme for clicado
@@ -157,7 +149,7 @@ let menu_usuario = document.querySelector("#menu_usuario")
 let usuario_seta = document.querySelector("#usuario_seta")
 btnUsuario.addEventListener("click",()=>{ 
     if (menu_usuario.style.display == "none"){
-        menu_usuario.style.display = "block"
+        menu_usuario.style.display = "flex"
         usuario_seta.style.transform = "rotate(180deg)"
         usuario_seta.style.transition = ".1s"
     } else {
