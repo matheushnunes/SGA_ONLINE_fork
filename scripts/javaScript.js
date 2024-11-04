@@ -27,16 +27,16 @@ function carregarConteudo(url) {
     .then(html => {
         principal.innerHTML = html;
         // Chama a função dos gráficos somente quando o html for carregado:
-        if (url == "../modulos/dashboard/dashboard.html") {
-          setTimeout(function(){ // Espera alguns milissegundos para carregar o gráfico
+        setTimeout(()=>{ // Espera alguns milissegundos para carregar o HTML
+          if (url == "../modulos/dashboard/dashboard.html") {
             dashBorad()
-          }, 10)
-        }
-        if (url == "../modulos/contato/contato.html") {
-          setTimeout(function(){ // Espera alguns milissegundos para carregar o gráfico
+          }
+          if (url == "../modulos/contato/contato.html") {
             contato()
-          }, 10)
-        }
+          }
+        }, 10)
+        
+        
     })
     .catch(error => {
         principal.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
@@ -126,7 +126,6 @@ btns_menu.forEach((e)=>{
                     displayMenu(modulo.nextElementSibling)
                   }else {
                     modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
-                    console.log(modulo)
                   }
                 }
             } else {

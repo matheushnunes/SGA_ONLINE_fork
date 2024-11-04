@@ -1,14 +1,17 @@
 <section class="modulo" id="section_contatos">  
     <div class="header">
-        <select id="select_coluna" class="campo_select">
-            <option value="codigo">Código</option>
-            <option value="razao_social">Razão Social</option>
-            <option value="nome_fantasia">Nome Fantasia</option>
-            <option value="fone1">Fone 1</option>
-            <option value="categoria">Categoria</option>
-        </select>
+        <div class="container_select">
+            <p>Selecione a coluna que deseja pesquisar:</p>
+            <select id="select_coluna" class="campo_select">
+                <option value="codigo">Código</option>
+                <option value="razao_social">Razão Social</option>
+                <option value="nome_fantasia">Nome Fantasia</option>
+                <option value="fone1">Fone 1</option>
+                <option value="categoria">Categoria</option>
+            </select>
+        </div>
         <div class="campo_pesquisa" id="campo_pesquisa_contato">
-            <input type="text" placeholder="Pesquisar por Código" class="input_pesquisa">
+            <input id="input_pesquisa_tabela" type="text" placeholder="Pesquisar por Código" class="input_pesquisa">
             <img id="icone_pesquisa" src="../imagens/icone_pesquisa.png" alt="icone_p  esquisa">
         </div>
     </div>

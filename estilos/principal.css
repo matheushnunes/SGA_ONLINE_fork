@@ -776,15 +776,10 @@ main {
         padding: 0px; /* Ajusta o padding do menu lateral */
         opacity: 0.9;
         min-height: calc(100vh - 66px);
-        margin-top: 20px;
     }
 
     main {
-        margin-top: 64px;
-    }
-
-    .graficos {
-        margin-top: 20px;
+        margin-top: 85px;
     }
 }
 

@@ -243,8 +243,11 @@ export default function dashBorad () {
   }
   fecharMenu()
   
+  
   window.addEventListener('resize',(e)=>{
-    fecharMenu()
+    if (document.querySelector(".graficos") !== null) { // So vai chamar a função se estiver na tela de dashboard
+      fecharMenu()
+    }
   })
   
   // Alterar tipo do gráfico: 
