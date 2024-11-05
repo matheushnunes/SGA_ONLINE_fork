@@ -7,17 +7,10 @@
 
 .header {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
     margin-bottom: 1rem;
-}
-.container_select {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
 #seta_select {
@@ -33,11 +26,9 @@
 
 #campo_pesquisa_contato {
     height: 1.7rem;
-    padding: 0 .8rem;
+    padding: 0 1rem;
     border-radius: 5px;
-    min-width: 160px;
-    max-width: 300px;
-    flex: 1 1 245px;
+    min-width: 100px;
 }
 
 #campo_pesquisa_contato img {
@@ -81,7 +72,7 @@
     .container_tabela {
         overflow-x: auto;
     }
-    #tabela_contatos {
+    .tabela {
         min-width: 491px;
     }
 }
