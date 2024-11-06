@@ -31,6 +31,18 @@
     background-color: var(--azul-1) !important;
 }
 
+.container_campo_pesquisa_btn {
+    display: flex;
+    align-items: center;
+}
+
+.add_person {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 9rem;
+    margin-left: 1rem;
+}
 #campo_pesquisa_contato {
     height: 1.7rem;
     padding: 0 .8rem;
@@ -38,6 +50,7 @@
     min-width: 160px;
     max-width: 300px;
     flex: 1 1 245px;
+    margin: auto;
 }
 
 #campo_pesquisa_contato img {

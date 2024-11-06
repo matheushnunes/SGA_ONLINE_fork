@@ -12,6 +12,11 @@
     padding: 0px;
     margin: 0px;
 }
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
 a {
     color: var(--secundaria);
     text-decoration: none;
