@@ -206,7 +206,7 @@ header #btn_sair a {
 
 /* Menu lateral */
 
-nav {
+#menu_lateral {
     position: fixed;
     overflow-y: auto;
     overflow-x: hidden;
@@ -224,7 +224,7 @@ nav {
     align-self: flex-end;
     margin: 5px 5px 10px 5px;
 }
-nav #btn_fechar_menu {
+#menu_lateral #btn_fechar_menu {
     width: 36px;
     height: 26px;
     border: none;
@@ -233,13 +233,13 @@ nav #btn_fechar_menu {
     cursor: pointer;
     background-color: var(--azul-1);
 }
-nav #btn_fechar_menu:hover {
+#menu_lateral #btn_fechar_menu:hover {
     background-color: var(--azul1);
 }
-nav #btn_fechar_menu img {
+#menu_lateral #btn_fechar_menu img {
     width: 24px;
 }
-nav .item_menu {
+#menu_lateral .item_menu {
     width: 94%;
     max-width: 256px ;
     margin-bottom: 10px;
@@ -248,10 +248,10 @@ nav .item_menu {
     align-items: center;
     flex-direction: column;
 }
-nav .item_menu .btn_menu {
+#menu_lateral .item_menu .btn_menu {
     height: 39px;
 }
-nav .btn_menu {
+#menu_lateral .btn_menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -264,13 +264,13 @@ nav .btn_menu {
     font: normal 1.1rem arial;
     color: var(--secundaria);
 }
-nav .item_menu .btn_menu:hover {
+#menu_lateral .item_menu .btn_menu:hover {
     background-color: var(--azul-1);
 }
 .seta_cima_baixo {
     margin-right: 6px;
 }
-nav .btn {
+#menu_lateral .btn {
     max-width: 256px;
     width: 94%;
     height: 39px;
@@ -279,28 +279,28 @@ nav .btn {
     gap: 10px;
     background-color: var(--azul-1);
 }
-nav .btn:hover {
+#menu_lateral .btn:hover {
     background-color: var(--azul1);
 } 
-nav .btn_menu div {
+#menu_lateral .btn_menu div {
     display: flex;
     gap: 10px;
     align-items: center;
 }
-nav .img_icone_menu {
+#menu_lateral .img_icone_menu {
     width: 21px;
 }
-nav #btn_configuracoes {
+#menu_lateral #btn_configuracoes {
     width: 256px;
     margin: auto 9px 10px 9px;
     justify-content: center;
     gap: 10px;
     font: normal 1.3rem arial;
 }
-nav #btn_configuracoes:hover {
+#menu_lateral #btn_configuracoes:hover {
     background-color: var(--azul-1);
 }
-nav #btn_configuracoes img {
+#menu_lateral #btn_configuracoes img {
     width: 30px ;
 }
 
@@ -343,7 +343,7 @@ nav #btn_configuracoes img {
 header #container_logo_busca.mini {
     justify-content: flex-start;
 }
-nav#menu_lateral.mini {
+#menu_lateral.mini {
     max-width: 36px;
     min-width: 36px;
 }

@@ -1,5 +1,5 @@
 // Função que minimiza o menu lateral:
-import { btnMenuLateral } from "../../scripts/javaScript.js"
+import { btnMenuLateral, carregarConteudo } from "../../scripts/javaScript.js"
 
 export default function contato() {
     let input_pesquisa = document.querySelector(".input_pesquisa")
@@ -39,4 +39,10 @@ export default function contato() {
             minimumResultsForSearch: Infinity,
         });
     });
+
+    // Botão criar contato:
+    let btn_criar_contato = document.querySelector("#btn_criar_contato")
+    btn_criar_contato.addEventListener("click",()=>{
+        carregarConteudo("contato/criar_contato/criar_contato.html")
+    })
 }
