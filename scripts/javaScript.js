@@ -11,7 +11,7 @@ btns_modulos.forEach(e =>{
   })
 })
 
-carregarConteudo("contato/contato.html") // Carrega por padrão assim que a página for carregada o dashboard
+carregarConteudo("dashboard/dashboard.html") // Carrega por padrão assim que a página for carregada o dashboard
 
 // Função carregar conteúdo html dos módulos
 function carregarConteudo(url) {
