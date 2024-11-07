@@ -347,26 +347,26 @@ header #container_logo_busca.mini {
     max-width: 36px;
     min-width: 36px;
 }
-nav#menu_lateral.mini #btn_fechar_menu {
+#menu_lateral.mini #btn_fechar_menu {
     padding-left: 6px;
 }
-nav .btn_menu.mini, #btn_configuracoes.mini {
+#menu_lateral .btn_menu.mini, #btn_configuracoes.mini {
     justify-content: center;
     width: 35px;
     height: 26px;
 }
-nav .btn.mini {
+#menu_lateral .btn.mini {
     justify-content: center;
     padding: 3px;
 }
-nav .item_menu.mini {
+#menu_lateral .item_menu.mini {
     display: flex;
     justify-content: center;
 }
-nav #container_btn_fechar.mini {
+#menu_lateral #container_btn_fechar.mini {
     align-self: center;
 }
-nav .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
+#menu_lateral .dropdown.mini, .span_modulo.mini, .seta_cima_baixo.mini {
     display: none;
 }
 
@@ -543,27 +543,27 @@ main {
         justify-content: flex-end;
     }
     
-    nav {
+    #menu_lateral {
         max-width: 50%;
         min-width: 196px;
         min-height: calc(100vh - 82px); /* Ajusta a altura */
         align-items: center;
     }
 
-    nav .dropdown {
+    #menu_lateral .dropdown {
         margin-left: 8px;
     }
 
-    nav .dropdown a {
+    #menu_lateral .dropdown a {
         padding: 5px 5px;
         font-size: 0.9em;
     }
 
-    nav .item_menu {
+    #menu_lateral .item_menu {
         width: 100%;
     }
 
-    nav .btn_menu {
+    #menu_lateral .btn_menu {
         padding: 10px; /* Aumenta o espaço para facilitar o toque em telas menores */
         width: 94%;
     }
@@ -572,11 +572,11 @@ main {
         margin: 0 0 0 5px;
     }
 
-    nav .btn_menu div{
+    #menu_lateral .btn_menu div{
         gap: 5px;
     }
    
-    nav #btn_configuracoes {
+    #menu_lateral #btn_configuracoes {
         width: 100%;
         justify-content: center;
         margin: auto 0 25px 0; /* Espaçamento maior entre os botões */
@@ -627,11 +627,11 @@ main {
         display: none;
     }
 
-    nav .btn {
+    #menu_lateral .btn {
         width: 100%;
     }
 
-    nav .btn.mini {
+    #menu_lateral .btn.mini {
         width: 35px !important;
     }
    
@@ -657,32 +657,32 @@ main {
         padding: 3px 0px 7px 0px;
         top: 50px;
     }
-    nav {
+    #menu_lateral {
         padding: 0px; /* Ajusta o padding do menu lateral */
         opacity: 0.9;
         position: fixed;
         min-height: calc(100vh - 66px);
         margin-top: 20px;
     }
-    nav .bnt {
+    #menu_lateral .bnt {
         width: 160px;
     }
 
-    nav .item_menu {
+    #menu_lateral .item_menu {
         margin-bottom: 10px; /* Reduz o espaçamento entre os itens do menu */
         font-size: small;
     }
     
-    nav .btn_menu {
+    #menu_lateral .btn_menu {
         font-size: 0.9rem; /* Ajusta o tamanho da fonte */
     }
 
-    nav #btn_configuracoes {
+    #menu_lateral #btn_configuracoes {
         gap: 2px;
         padding: 4px 2px;
     }
     
-    nav .dropdown {
+    #menu_lateral .dropdown {
         margin: 6px 0px 6px 0px; /* Remove a margem esquerda em telas pequenas */
     }
 
@@ -777,7 +777,7 @@ main {
         top: 50px;
     }
 
-    nav {
+    #menu_lateral {
         padding: 0px; /* Ajusta o padding do menu lateral */
         opacity: 0.9;
         min-height: calc(100vh - 66px);

@@ -40,8 +40,11 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    width: 9rem;
+    width: 10rem;
     margin-left: 1rem;
+    background-color: var(--azul-1);
+    padding: .25rem .5rem;
+    border-radius: 5px;
 }
 #campo_pesquisa_contato {
     height: 1.7rem;

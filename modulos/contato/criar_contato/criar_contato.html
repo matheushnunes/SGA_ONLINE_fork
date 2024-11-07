@@ -1,10 +1,10 @@
+<nav class="nav_contato">
+    <a id="link_contato" class="link_nav" href="#">Contato</a>
+    <a id="link_endereco" class="link_nav" href="#">Endereço</a>
+    <a id="link_configuracoes" class="link_nav" href="#">Configurações</a>
+</nav>
 <section class="modulo">
     <div class="header">
-        <nav>
-            <a href="#">Contato</a>
-            <a href="#">Endereço</a>
-            <a href="#">Configurações</a>
-        </nav>
         <div>
             <h2>Cadastro de contato</h2>
             <div>
@@ -15,20 +15,132 @@
     </div>
     <div class="main">
         <div class="campo_contato">
-            <label for="cadastro_usuario">Usuário (cadastro):</label>
+            <label for="cadastro_usuario">Usuário (Cadastro):</label>
             <input type="text" name="cadastro_usuario" id="cadastro_usuario">
         </div>
+
         <div class="campo_contato">
-            <label for="tipo_pessoa">Tipo pessoa:</label>
+            <p>Tipo Pessoa:</p>
             <div class="container_radio">
-                <input type="radio" name="contato_juridico" id="contato_juridico">
-                <label for="contato_juridico">Jurídica</label>
-            </div>
-            <div class="container_radio">
-                <input type="radio" name="contato_situacao" id="contato_situacao">
-                <label for="contato_situacao">Situação</label>
+                <input type="radio" name="juridica" id="juridica">
+                <label for="juridica">Jurídica</label>
+                <input type="radio" name="fisica" id="fisica">
+                <label for="fisica">Física</label>
             </div>
         </div>
-       
-    </div>    
+
+        <div class="campo_contato">
+            <p>Situação:</p>
+            <div class="container_radio">
+                <input type="radio" name="ativo" id="ativo">
+                <label for="ativo">Ativo</label>
+                <input type="radio" name="Inativo" id="inativo">
+                <label for="inativo">Inativo</label>
+            </div>
+        </div>
+
+        <div class="campo_contato">
+            <label for="nome_razao_social">Nome (Razão Social):</label>
+            <input type="text" name="nome_razao_social" id="nome_razao_social">
+        </div>
+
+        <div class="campo_contato">
+            <label for="nome_fantasia">Nome Fantasia:</label>
+            <input type="text" name="nome_fantasia" id="nome_fantasia">
+        </div>
+
+        <div class="campo_contato">
+            <p>Classificação do contato:</p>
+            <div class="container_checkbox">
+                <input type="checkbox" name="classificacao" id="cliente">
+                <label for="cliente">Cliente</label>
+                <input type="checkbox" name="classificacao" id="fornecedor">
+                <label for="fornecedor">Fornecedor</label>
+                <input type="checkbox" name="classificacao" id="funcionario">
+                <label for="funcionario">Funcionário</label>
+            </div>
+        </div>
+
+        <div class="campo_contato">
+            <label for="fone1">Fone 1:</label>
+            <input type="tel                    " name="fone1" id="fone1">
+        </div>
+
+        <div class="campo_contato">
+            <label for="fone2">Fone 2:</label>
+            <input type="tel                    " name="fone2" id="fone2">
+        </div>
+
+        <div class="campo_contato">
+            <label for="contato">Contato:</label>
+            <input type="text" name="contato" id="contato">
+        </div>
+
+        <div class="campo_contato">
+            <label for="fone_contato">Fone Contato:</label>
+            <input type="tel" name="fone_contato" id="fone_contato">
+        </div>
+
+        <div class="campo_contato">
+            <label for="insc_municipal">Insc. Municipal:</label>
+            <input type="text" name="insc_municipal" id="insc_municipal">
+        </div>
+
+        <div class="campo_contato">
+            <label for="insc_estadual">Insc. Estadual:</label>
+            <input type="text" name="insc_estadual" id="insc_estadual">
+        </div>
+
+        <div class="campo_contato">
+            <input type="checkbox" name="aplica_ret_issqn" id="aplica_ret_issqn">
+            <label for="aplica_ret_issqn">Aplica Ret. ISSQN?</label>
+            <input type="checkbox" name="aplica_ret_federais" id="aplica_ret_federais">
+            <label for="aplica_ret_federais">Aplica Ret. Federais?</label>
+        </div>
+
+        <div class="campo_contato">
+            <label for="cnpj">CNPJ:</label>
+            <input type="number" name="cnpj" id="cnpj">
+        </div>
+
+        <div class="campo_contato">
+            <label for="rg">RG:</label>
+            <input type="number" name="rg" id="rg">
+        </div>
+
+        <div class="campo_contato">
+            <label for="cpf">CPF:</label>
+            <input type="number" name="cpf" id="cpf">
+        </div>
+
+        <div class="campo_contato">
+            <label for="data_nascimento">Data de nascimento:</label>
+            <input type="date" name="data_nascimento" id="data_nascimento">
+        </div>
+
+        <div class="campo_contato">
+            <label for="observacao">Observação:</label>
+            <textarea name="observacao" id="observacao"></textarea>
+        </div>
+
+        <div class="campo_contato">
+            <label for="email_padrao">E-mail Padrão:</label>
+            <input type="email" name="email_padrao" id="email_padrao">
+        </div>
+
+        <div class="campo_contato">
+            <label for="email_nfe">E-mail para NFe:</label>
+            <input type="email" name="email_nfe" id="email_nfe">
+        </div>
+
+        <div class="campo_contato">
+            <label for="email_financeiro">E-mail para Financeiro:</label>
+            <input type="email" name="email_financeiro" id="email_financeiro">
+        </div>
+
+        <div class="campo_contato">
+            <label for="site">Site:</label>
+            <input type="url" name="site" id="site">
+        </div>
+    </div>
 </section>
