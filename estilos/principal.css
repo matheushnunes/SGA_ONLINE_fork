@@ -1,6 +1,7 @@
 :root {
     --cinza1: #F6F6F6;
     --cinza2: #E8E8E8;
+    --cinza3: #BFBFBF;
     --azul: #3964A8;
     --azul1: #9CBBED;
     --azul-1: #E9F0FF;
@@ -45,7 +46,7 @@ header {
     box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.10);
     padding: 15px;
     margin-bottom: 15px;
-    z-index: 2;
+    z-index: 3;
 }
 header #container_logo_busca {
     display: flex;
@@ -218,6 +219,7 @@ header #btn_sair a {
     background-color: var(--principal);
     box-shadow: 2px -1px 6.4px rgba(0, 0, 0, 0.17);
     border-radius: 0 5px 0 0;
+    z-index: 3;
 }
 #container_btn_fechar {
     display: flex;
@@ -792,3 +794,5 @@ main {
     transform: rotate(180deg);
     transition: .2s;
 }
+
+

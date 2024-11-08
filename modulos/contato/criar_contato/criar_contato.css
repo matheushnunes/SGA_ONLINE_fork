@@ -1,6 +1,6 @@
 .modulo {
     z-index: 2;
-    position: relative;
+    padding: 1.25rem;
 }
 .nav_contato {
     margin-left: 20px;
@@ -17,5 +17,94 @@
 a.link_nav_selecionado {
     position: relative;
     z-index: 1;
-    box-shadow: 0 -4px 13px rgba(0, 0, 0, 0.19);
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.11);
+}
+
+.header_cadastro {  
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: .625rem 0 3rem .625rem;
+}
+
+.h2_titulo {
+    margin-bottom: 1rem;
+}
+
+.container_codigo_data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.p_codigo_contato { 
+    background-color: var(--azul-1);
+    padding: 0.2rem .5rem;
+    border-radius: 5px;
+}
+
+#data_cadastro {
+    background-color: var(--azul-1);
+    border: none;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.campo_contato {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem 2rem 0;
+}
+
+.normal_width {
+    width: 100%;
+    max-width: 18.75rem; /* 300px */
+}
+
+.small_width {
+    width: 100%;
+    max-width: 10.9375rem; /* 175px */
+}
+
+.container_checkbox {
+    max-width: 400px;
+}
+
+.campo_contato label, p {
+    margin: 0 0 .3rem .625rem;
+}
+
+.campo_input {
+    height: 2.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--cinza3);
+    padding: 0.5rem .625rem;
+    font-size: 1rem;
+}
+
+.container_radios, .container_checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: .625rem;
+    border: 1px solid var(--cinza3);
+    height: 2.5rem;
+    border-radius: 5px;
+}
+
+.container_radio, .campo_checkbox {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.container_radio label, .campo_checkbox label {
+    margin: 0;
 }

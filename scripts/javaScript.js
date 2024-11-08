@@ -11,7 +11,7 @@ btns_modulos.forEach(e =>{
   })
 })
 
-carregarConteudo("dashboard/dashboard.html") // Carrega por padrão assim que a página for carregada o dashboard
+carregarConteudo("contato/criar_contato/criar_contato.html") // Carrega por padrão assim que a página for carregada o dashboard
 
 // Função carregar conteúdo html dos módulos
 function carregarConteudo(url) {
@@ -27,7 +27,7 @@ function carregarConteudo(url) {
     })
     .then(html => {
         principal.innerHTML = html;
-        setTimeout(()=>{ // Espera alguns milissegundos para carregar o HTML
+        setTimeout(()=>{ // Espera alguns milissegundos para carregar o HTML e então chamar a função
           if (url == "../modulos/dashboard/dashboard.html"){
             dashBorad()
           }

@@ -42,11 +42,12 @@ export default function contato() {
     });
 
     // Botão criar contato:
-    criar_contato()
 
     let btn_criar_contato = document.querySelector("#btn_criar_contato")
     btn_criar_contato.addEventListener("click",()=>{
         carregarConteudo("contato/criar_contato/criar_contato.html")
-        criar_contato()
+        setTimeout(() => {
+            criar_contato()
+        }, 10);
     })
 }
