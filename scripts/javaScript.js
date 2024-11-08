@@ -7,6 +7,7 @@ let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Selecion
 btns_modulos.forEach(e =>{
   e.addEventListener("click",()=>{
     // e.id.slice(4): remove o "btn_" do id
+    console.log(`${e.id.slice(4)}/${e.id.slice(4)}.html`) 
     carregarConteudo(`${e.id.slice(4)}/${e.id.slice(4)}.html`)
   })
 })
