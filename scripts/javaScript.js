@@ -116,20 +116,24 @@ btns_menu.forEach((e)=>{
         let widthBody = document.body.offsetWidth // Pega o tamanho do body
         btns_menu.forEach(el=>{
             if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
-                if(!btnMini) { // Se for um botão maximizado
+                if(!btnMini && btn) { // Se for um modulo maximizado e for um botão
                   el.classList.add("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
                   if(!btn){ // Se não for um botão
                     displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
                   } else {
                     displayMenu("btn")
                   }
-                } else { // Se for um botão minimizado
+                } else if (!btnMini) { // Se não for um botão e não estiver minimizado
+                  el.classList.toggle("modulo_selecionado")
+                  displayMenu(el.nextElementSibling)
+                }
+                 else { // Se for um botão minimizado
                   if(!btn){ // Se não for um botão
                     modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
                     btnMenuLateral()
                     displayMenu(modulo.nextElementSibling)
                   }else {
-                    modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
+                    modulo.classList.add("modulo_selecionado") // Se for um botão adiciona a classe
                   }
                 }
             } else {

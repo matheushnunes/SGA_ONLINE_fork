@@ -515,7 +515,7 @@ main {
 }
 @media (min-width: 1325px) {
     .item_dashboard {
-        min-width: 500px;
+        min-width: 495px;
     }
 }
 @media (min-width: 1295px) {
