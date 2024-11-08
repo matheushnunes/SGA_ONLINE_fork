@@ -1,3 +1,7 @@
+.modulo {
+    z-index: 2;
+    position: relative;
+}
 .nav_contato {
     margin-left: 20px;
 }
@@ -13,6 +17,5 @@
 a.link_nav_selecionado {
     position: relative;
     z-index: 1;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.12);
-
+    box-shadow: 0 -4px 13px rgba(0, 0, 0, 0.19);
 }

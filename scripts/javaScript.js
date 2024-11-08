@@ -1,7 +1,7 @@
 // Modulos da tela principal:
 import dashBorad from "../modulos/dashboard/dashboard.js";
 import contato from "../modulos/contato/contato.js";
-import criar_contato from "../modulos/contato/criar_contato.js";
+import criar_contato from "../modulos/contato/criar_contato/criar_contato.js";
 
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
