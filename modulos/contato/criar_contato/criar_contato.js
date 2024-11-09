@@ -1,3 +1,5 @@
+import { fecharMenu } from "../../../scripts/javaScript.js"
+
 export default function criar_contato() {
 
     // Mudar de tela ao clicar no menu superior da tela de contato:
@@ -32,4 +34,11 @@ export default function criar_contato() {
         mes = "0" + mes
     }
     input_data_cadastro.value = `${data.getFullYear()}-${mes}-${dia}`
+
+    fecharMenu(document.querySelector(".modulo").offsetWidth, 584)
+    window.addEventListener('resize', (e) => { 
+        if(document.querySelector(".modulo") != null){
+            fecharMenu(document.querySelector(".modulo").offsetWidth, 421)
+        } 
+    })
 }

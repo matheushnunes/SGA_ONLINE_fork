@@ -1,30 +1,21 @@
 // Função que minimiza o menu lateral:
-import { btnMenuLateral, carregarConteudo } from "../../scripts/javaScript.js"
-import criar_contato from "../contato/criar_contato/criar_contato.js"
+import { btnMenuLateral, carregarConteudo, fecharMenu } from "../../../scripts/javaScript.js"
+import criar_contato from "../../contato/criar_contato/criar_contato.js"
 
 export default function contato() {
     let input_pesquisa = document.querySelector(".input_pesquisa")
-
     /**
      * Função que fecha o menu lateral se a tela tiver menos de 480px de largura
      * e muda o nome da coluna de código na tabela
      */
-    function fecharMenu() {
-        let widthTabela = document.querySelector(".tabela").offsetWidth
-        if (widthTabela <= 480) {
-            if (!document.querySelector("#menu_lateral").classList.contains("mini"))
-                btnMenuLateral()
 
-            document.querySelector("#tabela_codigo").innerHTML = "Cod"
-        } 
-    }
-
-    // Fecha o menu lateral se a tela tiver menos de 480px de largura
-    fecharMenu()
-
+    
     // Fecha o menu lateral se a tela tiver menos de 480px de largura no resize
+    fecharMenu(document.querySelector(".tabela").offsetWidth,480)
     window.addEventListener('resize', (e) => {
-        fecharMenu()
+        if (document.querySelector(".tabela") != null){
+            fecharMenu(document.querySelector(".tabela").offsetWidth, 480)
+        } 
     })
 
     // Adiciona evento de mudança de seleção no select2
@@ -42,10 +33,9 @@ export default function contato() {
     });
 
     // Botão criar contato:
-
     let btn_criar_contato = document.querySelector("#btn_criar_contato")
     btn_criar_contato.addEventListener("click",()=>{
-        carregarConteudo("contato/criar_contato/criar_contato.html")
+        carregarConteudo("../modulos/contato/criar_contato/criar_contato.html")
         setTimeout(() => {
             criar_contato()
         }, 10);

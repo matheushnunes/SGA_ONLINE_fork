@@ -1,6 +1,6 @@
 // Modulos da tela principal:
 import dashBorad from "../modulos/dashboard/dashboard.js";
-import contato from "../modulos/contato/contato.js";
+import contato from "../modulos/contato/lista_contatos/contato.js";
 import criar_contato from "../modulos/contato/criar_contato/criar_contato.js";
 
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
@@ -19,6 +19,9 @@ function carregarConteudo(url) {
   // Limpa o conteúdo atual antes de carregar o novo
   principal.innerHTML = "<p>Carregando...</p>";
   url = "../modulos/"+url
+  if (url == "../modulos/contato/contato.html") {
+    url = "../modulos/contato/lista_contatos/contato.html"
+  }
   // Carrega o conteúdo do arquivo HTML usando fetch
   fetch(url)
     .then(response => {
@@ -31,7 +34,7 @@ function carregarConteudo(url) {
           if (url == "../modulos/dashboard/dashboard.html"){
             dashBorad()
           }
-          if (url == "../modulos/contato/contato.html") {
+          if (url == "../modulos/contato/lista_contatos/contato.html") {
             contato()
           }
           if (url == "../modulos/contato/criar_contato/criar_contato.html") {
@@ -39,13 +42,19 @@ function carregarConteudo(url) {
           }
           
         }, 10)
-        
-        
     })
     .catch(error => {
         principal.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
         console.error(error);
     })
+}
+
+// Função que fecha o menu lateral se a tela tiver menos de um determinado width de largura
+function fecharMenu(width, minWidth) {
+  if (width <= minWidth) {
+      if (!document.querySelector("#menu_lateral").classList.contains("mini"))
+          btnMenuLateral()
+  } 
 }
 
 // Configurações menu lateral:
@@ -218,4 +227,4 @@ document.addEventListener("click",(e)=>{
     }
 })
 
-export {carregarConteudo, btnMenuLateral, click_btn_menu }
+export {carregarConteudo, btnMenuLateral, click_btn_menu,fecharMenu }

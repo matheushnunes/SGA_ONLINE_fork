@@ -3,7 +3,7 @@
     padding: 1.25rem;
 }
 .nav_contato {
-    margin-left: 20px;
+    margin-left: 35px;
 }
 
 .nav_contato a {
@@ -50,30 +50,60 @@ a.link_nav_selecionado {
     border-radius: 5px;
 }
 
-.main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+.modulo_main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(377px, 1fr));
+    gap: 16px;
+    width: 100%;
+    padding: 16px;
 }
 
 .campo_contato {
     display: flex;
     flex-direction: column;
-    margin: 0 2rem 2rem 0;
+    margin: 0 1rem 2rem 0;
 }
 
-.normal_width {
+.container_small_width {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
     width: 100%;
-    max-width: 18.75rem; /* 300px */
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0;
 }
 
 .small_width {
     width: 100%;
-    max-width: 10.9375rem; /* 175px */
+    max-width: 250px;
+    min-width: 150px;
+    flex: 1 1 0;
+    margin: 0;
+}
+
+.small_width input {
+    width: 100%;
+}
+
+.normal_width {
+    width: 100%;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.radio_contato {
+    width: 100%;
+    max-width: 250px;
+    min-width: 150px;
+    flex: 1 1 0;
+    margin: 0;
 }
 
 .container_checkbox {
-    max-width: 400px;
+    flex-wrap: wrap;
 }
 
 .campo_contato label, p {
@@ -92,10 +122,9 @@ a.link_nav_selecionado {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
-    padding: .625rem;
+    gap: .5rem;
+    padding: .625rem 1.2rem;
     border: 1px solid var(--cinza3);
-    height: 2.5rem;
     border-radius: 5px;
 }
 
@@ -107,4 +136,49 @@ a.link_nav_selecionado {
 
 .container_radio label, .campo_checkbox label {
     margin: 0;
+}
+
+.textarea {
+    border: 1px solid var(--cinza3);
+    border-radius: 5px;
+    padding: .625rem;
+    font-size: 1rem;
+}
+
+.modulo_footer {
+    display: flex;
+    justify-content: end;
+}
+
+.container_proximo {
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width: 900px) {
+    .modulo {
+        padding: 0.5rem;
+    }
+    .modulo_main {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .normal_width {
+        min-width: 0;
+    }
+    .modulo_main {
+        grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+    }
+    .container_small_width {
+        min-width: 0;
+    }
+    .campo_contato {
+        margin-bottom: 0.5rem;
+    }
+    .small_width {
+        max-width: 100%;
+    }
 }

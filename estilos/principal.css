@@ -407,6 +407,13 @@ main {
     width: calc(100% - 36px);
     margin-left: 36px;
 }
+.modulo {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.144);
+    background-color: var(--principal);
+    border-radius: 5px;
+    padding: 1.25rem;
+    margin: 0 0 1rem 1rem;
+}
 
 /* Dashboard */
 
@@ -609,50 +616,12 @@ main {
         margin: 0;
     }
 
-    header #campo_busca {
-        max-width: 100%; /* Permite que o campo de busca ocupe a largura total */
-        display: none;
-    }
-
-    header #campo_usuario {
-        flex-direction: row; /* Empilha o nome e a empresa do usuário */
-        align-items: end;
-        width: 12%;
-        margin-right: 5px;
-    }
-
-    header #btn_sair {
-        display: none;
-    }
-
-    #nome-empresa_usuario {
-        display: none;
-    }
-
     #menu_lateral .btn {
         width: 100%;
     }
 
     #menu_lateral .btn.mini {
         width: 35px !important;
-    }
-   
-    #usuario_seta {
-        display: none;
-    }
-
-    header #usuario {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        width: 39px;
-        height: 39px;
-        background-color:var(--principal);
-        border-radius: 10px;
-        cursor: pointer;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-items: stretch;
     }
 
     #menu_usuario {
@@ -795,4 +764,9 @@ main {
     transition: .2s;
 }
 
-
+.seta_direita {
+    margin-left: .5rem;
+    transform: rotate(-90deg);
+    width: 10px;
+    height: 10px;
+}
