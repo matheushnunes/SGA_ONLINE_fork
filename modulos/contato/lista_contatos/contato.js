@@ -1,6 +1,5 @@
 // Função que minimiza o menu lateral:
 import { btnMenuLateral, carregarConteudo, fecharMenu } from "../../../scripts/javaScript.js"
-import criar_contato from "../../contato/criar_contato/criar_contato.js"
 
 export default function contato() {
     let input_pesquisa = document.querySelector(".input_pesquisa")
@@ -35,9 +34,6 @@ export default function contato() {
     // Botão criar contato:
     let btn_criar_contato = document.querySelector("#btn_criar_contato")
     btn_criar_contato.addEventListener("click",()=>{
-        carregarConteudo("../modulos/contato/criar_contato/criar_contato.html")
-        setTimeout(() => {
-            criar_contato()
-        }, 10);
+        carregarConteudo("contato/cadastro_contato/criar_contato/criar_contato.html",document.querySelector(".principal"))
     })
 }

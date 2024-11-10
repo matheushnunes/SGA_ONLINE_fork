@@ -1,5 +1,5 @@
 // DashBoard:
-import { carregarConteudo, click_btn_menu, btnMenuLateral } from "../../scripts/javaScript.js";
+import { click_btn_menu, btnMenuLateral } from "../../scripts/javaScript.js";
 let local_click_btn_menu = click_btn_menu
 export default function dashBorad () {
   let cinza1 = "#F6F6F6";

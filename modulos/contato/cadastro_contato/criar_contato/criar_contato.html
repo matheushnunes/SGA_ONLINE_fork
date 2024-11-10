@@ -8,7 +8,10 @@
         <h2 class="h2_titulo">Cadastro de contato</h2>
         <div class="container_codigo_data">
             <p class="p_codigo_contato">Codigo: <span class="codigo_contato">1</span></p>
-            <p class="p_data_cadastro">Data de cadastro: <input type="date" name="data_cadastro" id="data_cadastro"></p>
+            <div class="div_data_cadastro">
+                <p class="p_data_cadastro">Data de cadastro:</p>
+                <p id="data_cadastro"></p>
+            </div>
         </div>
     </div>
     <div class="modulo_main">
@@ -22,11 +25,11 @@
                 <p>Tipo Pessoa:</p>
                 <div class="container_radios small_width">
                     <div class="container_radio">
-                        <input type="radio" name="juridica" id="juridica">
+                        <input type="radio" name="tipo" id="juridica">
                         <label for="juridica">Jurídica</label>
                     </div>
                     <div class="container_radio">
-                        <input type="radio" name="fisica" id="fisica">
+                        <input type="radio" name="tipo" id="fisica">
                         <label for="fisica">Física</label>
                     </div>
                 </div>
@@ -35,11 +38,11 @@
                 <p>Situação:</p>
                 <div class="container_radios small_width">
                     <div class="container_radio">
-                        <input type="radio" name="ativo" id="ativo">
+                        <input type="radio" name="situacao" id="ativo">
                         <label for="ativo">Ativo</label>
                     </div>
                     <div class="container_radio">
-                        <input type="radio" name="Inativo" id="inativo">
+                        <input type="radio" name="situacao" id="inativo">
                         <label for="inativo">Inativo</label>
                     </div>
                 </div>
@@ -170,9 +173,9 @@
         </div>
     </div>
     <div class="modulo_footer">
-        <div class="container_proximo">
-            <a href="#" class="btn_proximo">Proximo</a>
+        <button class="btn_nav" id="btn_link_endereco">
+            <p class="btn_proximo">Proximo</a>
             <img src="../../../imagens/seta_baixo.png" alt="Seta_direita" class="seta_direita">
-        </div>
+        </button>
     </div>
 </section>

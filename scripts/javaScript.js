@@ -1,52 +1,56 @@
 // Modulos da tela principal:
 import dashBorad from "../modulos/dashboard/dashboard.js";
 import contato from "../modulos/contato/lista_contatos/contato.js";
-import criar_contato from "../modulos/contato/criar_contato/criar_contato.js";
-
+import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cadastro_contato.js";
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
   e.addEventListener("click",()=>{
     // e.id.slice(4): remove o "btn_" do id
-    carregarConteudo(`${e.id.slice(4)}/${e.id.slice(4)}.html`)
+    carregarConteudo(`${e.id.slice(4)}/${e.id.slice(4)}.html`, document.querySelector(".principal"))
   })
 })
 
-carregarConteudo("contato/criar_contato/criar_contato.html") // Carrega por padrão assim que a página for carregada o dashboard
+carregarConteudo("dashboard/dashboard.html", document.querySelector(".principal")) // Carrega por padrão assim que a página for carregada o dashboard
 
 // Função carregar conteúdo html dos módulos
-function carregarConteudo(url) {
-  let principal = document.querySelector(".principal")
+function carregarConteudo(url, elemento, modulo_contato) {
+
   // Limpa o conteúdo atual antes de carregar o novo
-  principal.innerHTML = "<p>Carregando...</p>";
-  url = "../modulos/"+url
-  if (url == "../modulos/contato/contato.html") {
-    url = "../modulos/contato/lista_contatos/contato.html"
+  elemento.innerHTML = "<p>Carregando...</p>";
+  url = "../modulos/" + url;
+  if (url === "../modulos/contato/contato.html") {
+    url = "../modulos/contato/lista_contatos/contato.html";
   }
+
   // Carrega o conteúdo do arquivo HTML usando fetch
   fetch(url)
-    .then(response => {
-        if (!response.ok) throw new Error('Erro ao carregar o conteúdo.');
-        return response.text();
-    })
-    .then(html => {
-        principal.innerHTML = html;
-        setTimeout(()=>{ // Espera alguns milissegundos para carregar o HTML e então chamar a função
-          if (url == "../modulos/dashboard/dashboard.html"){
-            dashBorad()
-          }
-          if (url == "../modulos/contato/lista_contatos/contato.html") {
-            contato()
-          }
-          if (url == "../modulos/contato/criar_contato/criar_contato.html") {
-            criar_contato()
-          }
-          
-        }, 10)
-    })
-    .catch(error => {
-        principal.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
-        console.error(error);
-    })
+  .then(response => {
+    if (!response.ok) throw new Error('Erro ao carregar o conteúdo.');
+    return response.text();
+  })
+  .then(html => {
+    elemento.innerHTML = html;
+    requestAnimationFrame(() => { // Aguarda o carregamento completo do conteúdo HTML antes de executar as funções do JavaScript
+      if (url === "../modulos/dashboard/dashboard.html") {
+        dashBorad();
+      }
+      if (url === "../modulos/contato/lista_contatos/contato.html") {
+        contato();
+      }
+      if (url === "../modulos/contato/cadastro_contato/criar_contato/criar_contato.html") {
+        cadastro_contato();
+        btnNav();
+      }
+      if (modulo_contato) { // Se for um dos modulos do contato
+        btnNav();
+      }
+    });
+  })
+  .catch(error => {
+    elemento.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
+    console.error(error);
+  });
+
 }
 
 // Função que fecha o menu lateral se a tela tiver menos de um determinado width de largura

@@ -6,7 +6,7 @@
     margin-left: 35px;
 }
 
-.nav_contato a {
+.link_nav {
     background-color: var(--principal);
     padding: .2rem 0.9rem;
     border-radius: 5px;
@@ -34,20 +34,35 @@ a.link_nav_selecionado {
 .container_codigo_data {
     display: flex;
     flex-wrap: wrap;
+    align-items: end;
     gap: 1rem;
 }
 
 .p_codigo_contato { 
     background-color: var(--azul-1);
-    padding: 0.2rem .5rem;
+    padding: 0.4rem .5rem;
     border-radius: 5px;
+    height: fit-content;
+}
+
+.div_data_cadastro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.p_data_cadastro {
+    margin: 0 0 .3rem .3rem
 }
 
 #data_cadastro {
     background-color: var(--azul-1);
     border: none;
-    padding: 0.2rem 0.5rem;
+    padding: 0.4rem 0.6rem;
     border-radius: 5px;
+    width: fit-content;
+    letter-spacing: 1.5px;
 }
 
 .modulo_main {
@@ -79,7 +94,7 @@ a.link_nav_selecionado {
 .small_width {
     width: 100%;
     max-width: 250px;
-    min-width: 150px;
+    min-width: 153px;
     flex: 1 1 0;
     margin: 0;
 }
@@ -102,11 +117,15 @@ a.link_nav_selecionado {
     margin: 0;
 }
 
+.container_radios {
+    max-height: 2.5rem;
+}
+
 .container_checkbox {
     flex-wrap: wrap;
 }
 
-.campo_contato label, p {
+.campo_contato label, .campo_contato p {
     margin: 0 0 .3rem .625rem;
 }
 
@@ -150,9 +169,10 @@ a.link_nav_selecionado {
     justify-content: end;
 }
 
-.container_proximo {
+.btn_nav{
     display: flex;
     align-items: center;
+    margin: 1rem .3rem;
 }
 
 
@@ -180,5 +200,23 @@ a.link_nav_selecionado {
     }
     .small_width {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    html {
+        font-size: 14px;
+    }
+    .nav_contato {
+        margin-left: 0.5rem;
+    }
+    .link_nav {
+        padding: .2rem .4rem;
+    }
+    .modulo_main {
+        grid-template-columns: repeat(auto-fit, minmax(137px, 1fr));
+    }
+    .radio_contato {
+        max-width: none;
     }
 }

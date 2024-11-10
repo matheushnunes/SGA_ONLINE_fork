@@ -770,3 +770,10 @@ main {
     width: 10px;
     height: 10px;
 }
+
+.seta_esquerda {
+    margin-right: .5rem;
+    transform: rotate(90deg);
+    width: 10px;
+    height: 10px;
+}
