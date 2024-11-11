@@ -2,6 +2,7 @@
 import dashBorad from "../modulos/dashboard/dashboard.js";
 import contato from "../modulos/contato/lista_contatos/contato.js";
 import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cadastro_contato.js";
+import configuracoes_contato from "../modulos/contato/cadastro_contato/configuracoes_contato/configuracoes_contato.js";
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
   e.addEventListener("click",()=>{
@@ -41,6 +42,9 @@ function carregarConteudo(url, elemento, modulo_contato) {
         cadastro_contato();
         btnNav();
       }
+      if (url === "../modulos/contato/cadastro_contato/configuracoes_contato/configuracoes_contato.html") {
+        configuracoes_contato();
+      }
       if (modulo_contato) { // Se for um dos modulos do contato
         btnNav();
       }
@@ -60,6 +64,8 @@ function fecharMenu(width, minWidth) {
           btnMenuLateral()
   } 
 }
+
+fecharMenu(document.body.offsetWidth, 640); // Chama a função no load da página para fechar o menu lateral se a tela tiver menos de 640px
 
 // Configurações menu lateral:
 
