@@ -1,6 +1,8 @@
 :root {
     --cinza1: #F6F6F6;
     --cinza2: #E8E8E8;
+    --cinza3: #BFBFBF;
+    --cinza4: #686868;
     --azul: #3964A8;
     --azul1: #9CBBED;
     --azul-1: #E9F0FF;
@@ -45,7 +47,7 @@ header {
     box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.10);
     padding: 15px;
     margin-bottom: 15px;
-    z-index: 2;
+    z-index: 3;
 }
 header #container_logo_busca {
     display: flex;
@@ -218,6 +220,7 @@ header #btn_sair a {
     background-color: var(--principal);
     box-shadow: 2px -1px 6.4px rgba(0, 0, 0, 0.17);
     border-radius: 0 5px 0 0;
+    z-index: 3;
 }
 #container_btn_fechar {
     display: flex;
@@ -405,6 +408,13 @@ main {
     width: calc(100% - 36px);
     margin-left: 36px;
 }
+.modulo {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.144);
+    background-color: var(--principal);
+    border-radius: 5px;
+    padding: 1.25rem;
+    margin: 0 0 1rem 1rem;
+}
 
 /* Dashboard */
 
@@ -515,7 +525,7 @@ main {
 }
 @media (min-width: 1325px) {
     .item_dashboard {
-        min-width: 500px;
+        min-width: 495px;
     }
 }
 @media (min-width: 1295px) {
@@ -607,50 +617,12 @@ main {
         margin: 0;
     }
 
-    header #campo_busca {
-        max-width: 100%; /* Permite que o campo de busca ocupe a largura total */
-        display: none;
-    }
-
-    header #campo_usuario {
-        flex-direction: row; /* Empilha o nome e a empresa do usuário */
-        align-items: end;
-        width: 12%;
-        margin-right: 5px;
-    }
-
-    header #btn_sair {
-        display: none;
-    }
-
-    #nome-empresa_usuario {
-        display: none;
-    }
-
     #menu_lateral .btn {
         width: 100%;
     }
 
     #menu_lateral .btn.mini {
         width: 35px !important;
-    }
-   
-    #usuario_seta {
-        display: none;
-    }
-
-    header #usuario {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        width: 39px;
-        height: 39px;
-        background-color:var(--principal);
-        border-radius: 10px;
-        cursor: pointer;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-items: stretch;
     }
 
     #menu_usuario {
@@ -791,4 +763,18 @@ main {
 .rodar {
     transform: rotate(180deg);
     transition: .2s;
+}
+
+.seta_direita {
+    margin-left: .5rem;
+    transform: rotate(-90deg);
+    width: 10px;
+    height: 10px;
+}
+
+.seta_esquerda {
+    margin-right: .5rem;
+    transform: rotate(90deg);
+    width: 10px;
+    height: 10px;
 }

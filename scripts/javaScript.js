@@ -1,53 +1,71 @@
 // Modulos da tela principal:
 import dashBorad from "../modulos/dashboard/dashboard.js";
-import contato from "../modulos/contato/contato.js";
-import criar_contato from "../modulos/contato/criar_contato.js";
-
+import contato from "../modulos/contato/lista_contatos/contato.js";
+import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cadastro_contato.js";
+import configuracoes_contato from "../modulos/contato/cadastro_contato/configuracoes_contato/configuracoes_contato.js";
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
   e.addEventListener("click",()=>{
     // e.id.slice(4): remove o "btn_" do id
-    console.log(`${e.id.slice(4)}/${e.id.slice(4)}.html`) 
-    carregarConteudo(`${e.id.slice(4)}/${e.id.slice(4)}.html`)
+    carregarConteudo(`${e.id.slice(4)}/${e.id.slice(4)}.html`, document.querySelector(".principal"))
   })
 })
 
-carregarConteudo("dashboard/dashboard.html") // Carrega por padrão assim que a página for carregada o dashboard
+carregarConteudo("dashboard/dashboard.html", document.querySelector(".principal")) // Carrega por padrão assim que a página for carregada o dashboard
 
 // Função carregar conteúdo html dos módulos
-function carregarConteudo(url) {
-  let principal = document.querySelector(".principal")
+function carregarConteudo(url, elemento, modulo_contato) {
+
   // Limpa o conteúdo atual antes de carregar o novo
-  principal.innerHTML = "<p>Carregando...</p>";
-  url = "../modulos/"+url
+  elemento.innerHTML = "<p>Carregando...</p>";
+  url = "../modulos/" + url;
+  if (url === "../modulos/contato/contato.html") {
+    url = "../modulos/contato/lista_contatos/contato.html";
+  }
+
   // Carrega o conteúdo do arquivo HTML usando fetch
   fetch(url)
-    .then(response => {
-        if (!response.ok) throw new Error('Erro ao carregar o conteúdo.');
-        return response.text();
-    })
-    .then(html => {
-        principal.innerHTML = html;
-        setTimeout(()=>{ // Espera alguns milissegundos para carregar o HTML
-          if (url == "../modulos/dashboard/dashboard.html"){
-            dashBorad()
-          }
-          if (url == "../modulos/contato/contato.html") {
-            contato()
-          }
-          if (url == "../modulos/contato/criar_contato/criar_contato.html") {
-            criar_contato()
-          }
-          
-        }, 10)
-        
-        
-    })
-    .catch(error => {
-        principal.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
-        console.error(error);
-    })
+  .then(response => {
+    if (!response.ok) throw new Error('Erro ao carregar o conteúdo.');
+    return response.text();
+  })
+  .then(html => {
+    elemento.innerHTML = html;
+    requestAnimationFrame(() => { // Aguarda o carregamento completo do conteúdo HTML antes de executar as funções do JavaScript
+      if (url === "../modulos/dashboard/dashboard.html") {
+        dashBorad();
+      }
+      if (url === "../modulos/contato/lista_contatos/contato.html") {
+        contato();
+      }
+      if (url === "../modulos/contato/cadastro_contato/criar_contato/criar_contato.html") {
+        cadastro_contato();
+        btnNav();
+      }
+      if (url === "../modulos/contato/cadastro_contato/configuracoes_contato/configuracoes_contato.html") {
+        configuracoes_contato();
+      }
+      if (modulo_contato) { // Se for um dos modulos do contato
+        btnNav();
+      }
+    });
+  })
+  .catch(error => {
+    elemento.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
+    console.error(error);
+  });
+
 }
+
+// Função que fecha o menu lateral se a tela tiver menos de um determinado width de largura
+function fecharMenu(width, minWidth) {
+  if (width <= minWidth) {
+      if (!document.querySelector("#menu_lateral").classList.contains("mini"))
+          btnMenuLateral()
+  } 
+}
+
+fecharMenu(document.body.offsetWidth, 640); // Chama a função no load da página para fechar o menu lateral se a tela tiver menos de 640px
 
 // Configurações menu lateral:
 
@@ -117,20 +135,24 @@ btns_menu.forEach((e)=>{
         let widthBody = document.body.offsetWidth // Pega o tamanho do body
         btns_menu.forEach(el=>{
             if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
-                if(!btnMini) { // Se for um botão maximizado
+                if(!btnMini && btn) { // Se for um modulo maximizado e for um botão
                   el.classList.add("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
                   if(!btn){ // Se não for um botão
                     displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
                   } else {
                     displayMenu("btn")
                   }
-                } else { // Se for um botão minimizado
+                } else if (!btnMini) { // Se não for um botão e não estiver minimizado
+                  el.classList.toggle("modulo_selecionado")
+                  displayMenu(el.nextElementSibling)
+                }
+                 else { // Se for um botão minimizado
                   if(!btn){ // Se não for um botão
                     modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
                     btnMenuLateral()
                     displayMenu(modulo.nextElementSibling)
                   }else {
-                    modulo.classList.toggle("modulo_selecionado") // Se for um botão adiciona e remove a classe
+                    modulo.classList.add("modulo_selecionado") // Se for um botão adiciona a classe
                   }
                 }
             } else {
@@ -215,4 +237,4 @@ document.addEventListener("click",(e)=>{
     }
 })
 
-export {carregarConteudo, btnMenuLateral, click_btn_menu }
+export {carregarConteudo, btnMenuLateral, click_btn_menu,fecharMenu }
