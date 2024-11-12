@@ -63,29 +63,6 @@ header #container_logo_busca {
     width: 70px;
 }
 
-/* campo de busca */
-header #campo_busca {
-    display: flex;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-items: center;
-    width: 100%;
-    max-width: 450px;
-    min-width: 335px;
-}
-header #btn_filtros {
-    display: flex;
-    flex-shrink: 0;
-    flex-basis: content;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    margin: 10px;
-    cursor: pointer;
-}
-header #icone_filtro {
-    width: 30px;
-}
 .campo_pesquisa {
     display: flex;
     align-items: center;
@@ -119,13 +96,13 @@ header #icone_filtro {
 }
 
 /* Campo do usuário */
-header #campo_usuario {
+#campo_usuario {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 300px;
 }
-header #usuario {
+#usuario {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -137,7 +114,7 @@ header #usuario {
     border-radius: 10px;
     cursor: pointer;
 }
-header #usuario #logo_usuario {
+#usuario #logo_usuario {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,15 +125,15 @@ header #usuario #logo_usuario {
     border-radius: 50%;
     font: bold 18px arial;
 }
-header #nome-empresa_usuario span#nome_usuario {
+#nome-empresa_usuario span#nome_usuario {
     display: block;
     font: bold 14px arial;
 }
-header #nome-empresa_usuario span#empresa_usuario {
+#nome-empresa_usuario span#empresa_usuario {
     display: block;
     font: normal 11px arial;
 }
-header #usuario_seta {
+#usuario_seta {
     width: 16px;
 }
 
@@ -181,29 +158,6 @@ header #usuario_seta {
 #menu_usuario span:hover {
     background-color: var(--azul-1);
     transition: .2s;
-}
-
-/* Botão de sair */
-
-header #btn_sair {
-    width: 50px;   
-    padding: 5px 0px;
-    margin-left: 5px;
-    background-color: #fdd1d1;
-    border: none;
-    border-radius: 8px;
-    font: bold 0.85rem arial;
-    cursor: pointer;
-    transition: .15s;
-}
-header #btn_sair:hover {
-    background-color: rgb(255, 147, 147);
-    transition: .15s;
-}
-header #btn_sair a {
-    display: block;
-    width: 100%;
-    height: 100%;
 }
 
 /* Menu lateral */
@@ -759,6 +713,19 @@ main {
         margin-top: 85px;
     }
 }
+
+@media (max-width: 350px) {
+    #usuario {
+        width: fit-content;
+        background-color: transparent;
+    }
+    #nome-empresa_usuario {
+        display: none;
+    }
+    #usuario_seta {
+        display: none;
+    }
+} 
 
 .rodar {
     transform: rotate(180deg);

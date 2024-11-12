@@ -14,22 +14,31 @@ function navLink (link) {
     }
 }
 
+function estilo_nav (e) {
+    let link = e
+    if (typeof(e) == "string") {
+        link = document.getElementById(e)
+    }
+    link.classList.add("link_nav_selecionado") // Adiciona a classe ao link clicado
+
+    let links_selecionado = document.querySelectorAll(".link_nav_selecionado") // Seleciona todos os links selecionados
+    links_selecionado.forEach(e=>{
+        if (e.id != link.id){ // Se o link selecionado for diferente do link clicado
+            e.classList.remove("link_nav_selecionado") // Retira a classe
+        } else { // Se o link selecionado for o link clicado
+            e.classList.add("link_nav_selecionado") // Adiciona a classe
+        }
+    })
+    navLink(link.id)
+}
+
 function cadastro_contato(link) {
     // Mudar de tela ao clicar no menu superior da tela de contato:
     let links_nav = document.querySelectorAll(".link_nav") // seleciona todos os links do menu superior
+    links_nav[0].classList.add("link_nav_selecionado") // Adiciona a classe ao primeiro link assim que o modulo for carregado
     links_nav.forEach(link=>{
         link.addEventListener("click",(e)=>{ // Adiciona o evento de clicar em todos os links 
-            e.target.classList.add("link_nav_selecionado") // Adiciona a classe ao link clicado
-
-            let links_selecionado = document.querySelectorAll(".link_nav_selecionado") // Seleciona todos os links selecionados
-            links_selecionado.forEach(e=>{
-                if (e.id != link.id){ // Se o link selecionado for diferente do link clicado
-                    e.classList.remove("link_nav_selecionado") // Retira a classe
-                } else { // Se o link selecionado for o link clicado
-                    e.classList.add("link_nav_selecionado") // Adiciona a classe
-                }
-            })
-            navLink(e.target.id)
+           estilo_nav(e.target)
         })
     })
 
@@ -61,8 +70,8 @@ function btnNav() {
     let btn_nav = document.querySelectorAll(".btn_nav")
     btn_nav.forEach(e=>{
         e.addEventListener("click", (e)=>{
-            let btn = e.target.closest(".btn_nav").id.slice(4) // Pega o botão que foi clicado
-            navLink(btn)
+            let btn = e.target.closest(".btn_nav").id.slice(4) // Pega o id do botão que foi clicado e retira o "btn_"
+            estilo_nav(btn)
         })
     })
 }

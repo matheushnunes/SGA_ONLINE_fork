@@ -7,7 +7,7 @@
 }
 
 .link_nav {
-    background-color: var(--principal);
+    background-color: var(--cinza1);
     padding: .2rem 0.9rem;
     border-radius: 5px;
     margin-right: -5px;
@@ -15,9 +15,10 @@
 }
 
 a.link_nav_selecionado {
+    background-color: var(--principal);
     position: relative;
     z-index: 1;
-    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.11);
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .header_cadastro {  
@@ -172,7 +173,7 @@ a.link_nav_selecionado {
 .btn_nav{
     display: flex;
     align-items: center;
-    margin: 1rem .3rem;
+    margin: 0 0 1rem .3rem;
 }
 
 
