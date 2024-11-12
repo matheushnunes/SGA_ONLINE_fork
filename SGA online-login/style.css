@@ -88,10 +88,6 @@ body {
     margin-bottom: 30px;
   }
   
-  .login-form a:hover {
-    text-decoration: underline;
-  }
-  
   .login-form button {
     width: 150px;
    
