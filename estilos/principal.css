@@ -8,6 +8,7 @@
     --azul-1: #E9F0FF;
     --principal: #ffffff;
     --secundaria: #000000;
+    --amarelo: #fcf2bc;
 }
 * {
     box-sizing: border-box;
@@ -18,6 +19,20 @@ button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+.btn_salvar {
+    display: flex;
+    background-color: var(--azul1);
+    color: var(--secundaria);
+    height: 1.9rem;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 .5rem;
+    border-radius: 5px;
+}
+.btn_salvar img {
+    fill: white;
 }
 a {
     color: var(--secundaria);

@@ -37,6 +37,7 @@ a.link_nav_selecionado {
     flex-wrap: wrap;
     align-items: end;
     gap: 1rem;
+    width: 100%;
 }
 
 .p_codigo_contato { 
@@ -64,6 +65,10 @@ a.link_nav_selecionado {
     border-radius: 5px;
     width: fit-content;
     letter-spacing: 1.5px;
+}
+
+.btn_salvar {
+    margin: 0 1rem 0 auto;
 }
 
 .modulo_main {
