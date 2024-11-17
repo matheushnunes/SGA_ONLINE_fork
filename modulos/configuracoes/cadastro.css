@@ -601,6 +601,10 @@ main {
 
 }
 
+#digite-nome {
+    width: 100%;
+}
+
 /* Tabela dashboard: */
 #div_produtos_mais_vendidos {
     padding: 0;
@@ -715,17 +719,7 @@ main {
     .mini.item_dashboard {
         min-width: 365px;
     }
-    .senha-container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-       }
 
-    .cadastro-usuario {
-        display: flex;
-        height: 600px;
-        gap: 40px;
-    }
 }
 
 /* Estilos para dispositivos móveis */
@@ -856,6 +850,23 @@ main {
 
    
 }
+
+@media (max-height: 600px) {
+    .senha-container {
+        height: 120px;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .fone-grupo-container {
+        flex-wrap: wrap;
+        height: 120px;
+        gap: 20px;
+    }
+
+
+}
+
 /* Estilos para dispositivos com altura pequena ex: celular deitado */
 @media (max-height: 400px){ 
    header {
