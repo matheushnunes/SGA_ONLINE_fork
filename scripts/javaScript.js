@@ -2,7 +2,6 @@
 import dashBorad from "../modulos/dashboard/dashboard.js";
 import contato from "../modulos/contato/lista_contatos/contato.js";
 import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cadastro_contato.js";
-import configuracoes_contato from "../modulos/contato/cadastro_contato/configuracoes_contato/configuracoes_contato.js";
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
   e.addEventListener("click",()=>{
@@ -11,7 +10,7 @@ btns_modulos.forEach(e =>{
   })
 })
 
-carregarConteudo("dashboard/dashboard.html", document.querySelector(".principal")) // Carrega por padrão assim que a página for carregada o dashboard
+carregarConteudo("contato/cadastro_contato/criar_contato/criar_contato.html", document.querySelector(".principal")) // Carrega por padrão assim que a página for carregada o dashboard
 
 // Função carregar conteúdo html dos módulos
 function carregarConteudo(url, elemento, modulo_contato) {
