@@ -33,6 +33,7 @@ button {
 }
 .btn_salvar img {
     fill: white;
+    width: 1rem;
 }
 a {
     color: var(--secundaria);
