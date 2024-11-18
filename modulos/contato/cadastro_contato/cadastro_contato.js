@@ -103,7 +103,11 @@ function btnNav() {
     btn_nav.forEach(e=>{
         e.addEventListener("click", (e)=>{
             let btn = e.target.closest(".btn_nav").id.slice(4) // Pega o id do botão que foi clicado e retira o "btn_"
-            estilo_nav(btn)
+            if (btn == "voltar_contatos") {
+                carregarConteudo("contato/contato.html", document.querySelector(".principal")) // Volta para a tela de contatos
+            } else {
+                estilo_nav(btn)
+            }
         })
     })
 }
