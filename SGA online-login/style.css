@@ -88,10 +88,6 @@ body {
     margin-bottom: 30px;
   }
   
-  .login-form a:hover {
-    text-decoration: underline;
-  }
-  
   .login-form button {
     width: 150px;
    
@@ -105,11 +101,20 @@ body {
     cursor: pointer;
   }
 
-  #botao-login {
-    width: 100%;
+  .container_btn_login {
     display: flex;
-
     justify-content: center;
+  }
+
+  #botao-login {
+    display: flex;
+    width: 10rem;
+    height: 3rem;
+    background-color: #3964A8;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
   }
   #botao-login a {
     color: #fff;
