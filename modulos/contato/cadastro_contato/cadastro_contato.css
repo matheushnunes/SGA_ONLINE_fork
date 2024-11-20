@@ -25,7 +25,7 @@ a.link_nav_selecionado {
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin: .625rem 0 3rem .625rem;
+    margin: .625rem 0 1rem .625rem;
 }
 
 .h2_titulo {
@@ -37,6 +37,7 @@ a.link_nav_selecionado {
     flex-wrap: wrap;
     align-items: end;
     gap: 1rem;
+    width: 100%;
 }
 
 .p_codigo_contato { 
@@ -66,12 +67,19 @@ a.link_nav_selecionado {
     letter-spacing: 1.5px;
 }
 
+.btn_salvar {
+    margin: 0 1rem 0 auto;
+}
+
 .modulo_main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(377px, 1fr));
     gap: 16px;
     width: 100%;
     padding: 16px;
+}
+
+#container_data_rg {
 }
 
 .campo_contato {
@@ -165,6 +173,24 @@ a.link_nav_selecionado {
     font-size: 1rem;
 }
 
+.select_conainer .select2-selection {
+    display: flex !important;
+    background-color: transparent !important;
+    border: 1px solid var(--cinza3) !important;
+    height: 2.5rem !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 250px !important;
+    min-width: 153px !important;
+    flex: 1 1 0 !important;
+}
+.select_conainer .select2-selection__arrow {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+
 .modulo_footer {
     display: flex;
     justify-content: end;
@@ -201,6 +227,9 @@ a.link_nav_selecionado {
     }
     .small_width {
         max-width: 100%;
+    }
+    .select_conainer {
+        max-width: 250px !important;
     }
 }
 

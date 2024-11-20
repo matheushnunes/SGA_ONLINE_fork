@@ -2,7 +2,16 @@
 import dashBorad from "../modulos/dashboard/dashboard.js";
 import contato from "../modulos/contato/lista_contatos/contato.js";
 import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cadastro_contato.js";
-import configuracoes_contato from "../modulos/contato/cadastro_contato/configuracoes_contato/configuracoes_contato.js";
+import select2 from "./select.js";
+
+$(document).ready(function () {
+  $('.campo_select').select2({
+      placeholder: 'Selecione a coluna',
+      width: '140px',
+      minimumResultsForSearch: Infinity,
+  });
+});
+
 let btns_modulos = document.querySelectorAll(".btn, .item_dropdown") // Seleciona todos os botões dos modulos
 btns_modulos.forEach(e =>{
   e.addEventListener("click",()=>{
@@ -15,7 +24,6 @@ carregarConteudo("dashboard/dashboard.html", document.querySelector(".principal"
 
 // Função carregar conteúdo html dos módulos
 function carregarConteudo(url, elemento, modulo_contato) {
-
   // Limpa o conteúdo atual antes de carregar o novo
   elemento.innerHTML = "<p>Carregando...</p>";
   url = "../modulos/" + url;
@@ -32,6 +40,7 @@ function carregarConteudo(url, elemento, modulo_contato) {
   .then(html => {
     elemento.innerHTML = html;
     requestAnimationFrame(() => { // Aguarda o carregamento completo do conteúdo HTML antes de executar as funções do JavaScript
+      select2()
       if (url === "../modulos/dashboard/dashboard.html") {
         dashBorad();
       }

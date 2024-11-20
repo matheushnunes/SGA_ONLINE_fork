@@ -63,6 +63,38 @@ function cadastro_contato(link) {
         } 
     })
 
+    // Adiciona o framework select2 ao campo de seleção
+    $(document).ready(function () {
+        $('.campo_select').select2({
+            placeholder: 'Selecione a coluna',
+            width: '100%',
+            minimumResultsForSearch: Infinity,
+        });
+    });
+
+    document.getElementsByName("tipo_contato").forEach(e=>{
+        e.addEventListener('change', (e) => {
+            if(e.target.id == "contato_fisico") {
+                let container_radios = document.querySelector("#container_radios");
+                let container_data_rg = document.createElement("div");
+                container_data_rg.id = "container_data_rg";
+                container_data_rg.classList.add("container_small_width");
+                container_radios.after(container_data_rg);
+                container_data_rg.innerHTML = `
+                    <div class="campo_contato small_width">
+                        <label for="data_nascimento">Data de nascimento:</label>
+                        <input type="date" name="data_nascimento" id="data_nascimento" class="campo_input">
+                    </div>
+                    <div class="campo_contato small_width">
+                        <label for="rg">RG:</label>
+                        <input type="number" name="rg" id="rg" class="campo_input">
+                    </div>
+                `;
+            }else {
+                container_data_rg.remove()
+            }
+        })
+    })
 }
 
 
@@ -71,7 +103,11 @@ function btnNav() {
     btn_nav.forEach(e=>{
         e.addEventListener("click", (e)=>{
             let btn = e.target.closest(".btn_nav").id.slice(4) // Pega o id do botão que foi clicado e retira o "btn_"
-            estilo_nav(btn)
+            if (btn == "voltar_contatos") {
+                carregarConteudo("contato/contato.html", document.querySelector(".principal")) // Volta para a tela de contatos
+            } else {
+                estilo_nav(btn)
+            }
         })
     })
 }
