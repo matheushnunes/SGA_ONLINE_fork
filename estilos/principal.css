@@ -88,7 +88,7 @@ header #container_logo_busca {
     max-width: 300px;
     height: 1.7rem;
     padding: 0 .8rem;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     background-color: var(--cinza2);
     flex: 1 1 245px;
