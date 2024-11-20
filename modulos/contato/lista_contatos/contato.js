@@ -22,15 +22,6 @@ export default function contato() {
         input_pesquisa.placeholder = "Pesquisar por " + e.params.data.text
     })
 
-    // Inicializa o select2
-    $(document).ready(function () {
-        $('.campo_select').select2({
-            placeholder: 'Selecione a coluna',
-            width: '140px',
-            minimumResultsForSearch: Infinity,
-        });
-    });
-
     // Botão criar contato:
     let btn_criar_contato = document.querySelector("#btn_criar_contato")
     btn_criar_contato.addEventListener("click",()=>{
