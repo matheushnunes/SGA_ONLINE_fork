@@ -1,0 +1,70 @@
+.select_conainer .select2-selection {
+    display: flex !important;
+    background-color: transparent !important;
+    border: 1px solid var(--cinza3) !important;
+    height: 2.5rem !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 250px !important;
+    min-width: 153px !important;
+    flex: 1 1 0 !important;
+}
+.select_conainer .select2-selection__arrow {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+#container_permite_venda {
+    max-width: 10.0625rem;
+}
+
+.radio_contato {
+    max-width: 255px;
+}
+
+.smaller_width {
+    max-width: 9.375rem;
+}
+
+.modulo_main.small{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+#container_descricao_carga {
+    grid-column: 1 / -1;
+    max-width: 420px;
+}
+
+#container_carga_media {
+    max-width: fit-content;
+}
+
+.campo_porcemtagem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: end;
+}
+
+#carga_media {
+    text-align: end;
+    padding-right: 2rem;
+}
+
+#porcemtagem_carga {
+    position: absolute;
+    color: var(--cinza4);
+    right: .9rem;
+}
+
+#container_enviar_descricao {
+    align-self: flex-end;
+    max-width: 300px;
+}
+
+@media (max-width: 480px) {
+    .select_conainer {
+        max-width: 250px !important;
+    }
+}

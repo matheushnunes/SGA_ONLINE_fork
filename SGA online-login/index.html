@@ -17,12 +17,12 @@
 
   <!-- Lado Direito com o Formulário de Login -->
   <div class="right-side">
-    <div class="login-form">
+    <form class="login-form" id="loginForm">
       <div class="logo">
         <img src="imagens do site/Logo.png" alt="logo e nome">
       </div>
       <label for="usuario">Usuário:</label>
-      <input type="email" id="usuario" placeholder="Digite seu usuário">
+      <input type="email" id="email" placeholder="Digite seu usuário">
       
       <label for="senha">Senha:</label>
       <input type="password" id="senha" placeholder="Digite sua senha">
@@ -31,16 +31,19 @@
         <select name="Selecione a empresa" id="selecione-a-empresa"> 
   
           <option value="default">Selecione a empresa</option>
+          <option>Empresa 1</option>
   
         </select> 
         
       </div>
       
-      <div class="container_btn_login">
-        <a id="botao-login" href="../Principal/principal.html">Entrar</a>
+      <div id="botao-login">
+        
+        <button type="submit">Entrar</button>
       </div>
-    </div>
+    </form>
   </div>
-
+  <script src="script.js"></script>
+  <script type="MIME/javascript" src="../../SGA_ONLINE/Back_end/Banco de Dados/login/login.js"></script>
 </body>
 </html>
