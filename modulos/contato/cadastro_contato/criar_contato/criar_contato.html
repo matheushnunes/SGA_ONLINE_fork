@@ -1,12 +1,9 @@
 <nav class="nav_contato">
     <a id="link_contato" class="link_nav" href="#">Contato</a>
     <a id="link_endereco" class="link_nav" href="#">Endereço</a>
+    <a id="link_configuracoes" class="link_nav" href="#">Configurações</a>
 </nav>
 <section class="modulo" id="modulo_criar_contato">
-    <button class="btn_nav" id="btn_voltar_contatos">
-        <img src="../../../imagens/seta_baixo.png" alt="Seta_direita" class="seta_esquerda">
-        <p class="btn_voltar">Voltar</p>
-    </button>
     <div class="modulo_header header_cadastro">
         <h2 class="h2_titulo">Cadastro de contato</h2>
         <div class="container_codigo_data">
@@ -15,24 +12,25 @@
                 <p class="p_data_cadastro">Data de cadastro:</p>
                 <p id="data_cadastro"></p>
             </div>
-            <button class="btn_salvar">
-                <img src="../../../imagens/icone_salvar.png" alt="Icone Salvar">
-                <p>Salvar</p>
-            </button>
         </div>
     </div>
     <div class="modulo_main">
-        <div class="container_small_width" id="container_radios"> 
+        <div class="campo_contato normal_width">
+            <label for="cadastro_usuario">Usuário (Cadastro):</label>
+            <input type="text" name="cadastro_usuario" id="cadastro_usuario" class="campo_input">
+        </div>
+
+        <div class="container_small_width">
             <div class="campo_contato radio_contato">
                 <p>Tipo Pessoa:</p>
                 <div class="container_radios small_width">
                     <div class="container_radio">
-                        <input type="radio" name="tipo_contato" id="contato_juridico">
-                        <label for="contato_juridico">Jurídica</label>
+                        <input type="radio" name="tipo" id="juridica">
+                        <label for="juridica">Jurídica</label>
                     </div>
                     <div class="container_radio">
-                        <input type="radio" name="tipo_contato" id="contato_fisico">
-                        <label for="contato_fisico">Física</label>
+                        <input type="radio" name="tipo" id="fisica">
+                        <label for="fisica">Física</label>
                     </div>
                 </div>
             </div>
@@ -91,6 +89,16 @@
         </div>
 
         <div class="campo_contato normal_width">
+            <label for="contato">Contato:</label>
+            <input type="text" name="contato" id="contato" class="campo_input">
+        </div>
+
+        <div class="campo_contato normal_width">
+            <label for="fone_contato">Fone Contato:</label>
+            <input type="tel" name="fone_contato" id="fone_contato" class="campo_input">
+        </div>
+
+        <div class="campo_contato normal_width">
             <label for="insc_municipal">Insc. Municipal:</label>
             <input type="text" name="insc_municipal" id="insc_municipal" class="campo_input">
         </div>
@@ -98,6 +106,33 @@
         <div class="campo_contato normal_width">
             <label for="insc_estadual">Insc. Estadual:</label>
             <input type="text" name="insc_estadual" id="insc_estadual" class="campo_input">
+        </div>
+
+        <div class="campo_contato normal_width">
+            <p>Retenção de Impostos:</p>
+            <div class="container_checkbox">
+                <div class="campo_checkbox">
+                    <input type="checkbox" name="aplica_ret_issqn" id="aplica_ret_issqn">
+                    <label for="aplica_ret_issqn">Aplica Ret. ISSQN?</label>
+                </div>
+                <div class="campo_checkbox">
+                    <input type="checkbox" name="aplica_ret_federais" id="aplica_ret_federais">
+                    <label for="aplica_ret_federais">Aplica Ret. Federais?</label>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="container_small_width">
+            <div class="campo_contato small_width">
+                <label for="data_nascimento">Data de nascimento:</label>
+                <input type="date" name="data_nascimento" id="data_nascimento" class="campo_input">
+            </div>
+            
+            <div class="campo_contato small_width">
+                <label for="rg">RG:</label>
+                <input type="number" name="rg" id="rg" class="campo_input">
+            </div>
         </div>
         
         <div class="campo_contato container_small_width">
@@ -111,35 +146,31 @@
             </div>
         </div>
 
+
         <div class="campo_contato normal_width">
             <label for="email_padrao">E-mail Padrão:</label>
             <input type="email" name="email_padrao" id="email_padrao" class="campo_input">
         </div>
+
+        <div class="campo_contato normal_width">
+            <label for="email_nfe">E-mail para NFe:</label>
+            <input type="email" name="email_nfe" id="email_nfe" class="campo_input">
+        </div>
         
-        <div class="container_small_width">
-            <div class="campo_contato small_width select_conainer">
-                <p>Perfil Tributário:</p>
-                <select id="perfil_tributario" class="campo_select">
-                    <option value="padrão">Padrão</option>
-                    <option value="tipo1">Tipo 1</option>
-                    <option value="tipo2">Tipo 2</option>
-                </select>
-            </div>
-            <div class="campo_contato small_width select_conainer">
-                <p>Tipo consumidor:</p>
-                <select id="tipo_consumidor" class="campo_select">
-                    <option value="padrão">Padrão</option>
-                    <option value="tipo1">Tipo 1</option>
-                    <option value="tipo2">Tipo 2</option>
-                </select>
-            </div>
+        <div class="campo_contato normal_width">
+            <label for="email_financeiro">E-mail para Financeiro:</label>
+            <input type="email" name="email_financeiro" id="email_financeiro" class="campo_input">
+        </div>
+        
+        <div class="campo_contato normal_width">
+            <label for="site">Site:</label>
+            <input type="url" name="site" id="site" class="campo_input">
         </div>
 
         <div class="campo_contato normal_width">
             <label for="observacao">Observação:</label>
             <textarea name="observacao" id="observacao" class="textarea" rows="4"></textarea>
         </div>
-
     </div>
     <div class="modulo_footer">
         <button class="btn_nav" id="btn_link_endereco">
