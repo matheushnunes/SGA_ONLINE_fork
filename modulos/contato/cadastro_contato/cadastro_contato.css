@@ -28,6 +28,15 @@ a.link_nav_selecionado {
     margin: .625rem 0 1rem .625rem;
 }
 
+.btns_nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_nav p {
+    font: bold 1rem arial;
+}
+
 .h2_titulo {
     margin-bottom: 1rem;
 }
@@ -77,9 +86,6 @@ a.link_nav_selecionado {
     gap: 16px;
     width: 100%;
     padding: 16px;
-}
-
-#container_data_rg {
 }
 
 .campo_contato {

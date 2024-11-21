@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../estilos/principal.css">
 
     <!-- Modulos -->
+    <!-- Configuração do usuário -->
+     <link rel="stylesheet" href="../modulos/configuracao_usuario/configuracao_usuario.css">
 
     <!-- Modolo Contato -->
     <link rel="stylesheet" href="../modulos/contato/lista_contatos/contato.css">
@@ -33,7 +35,7 @@
         </div>
         <div id="campo_usuario">
             <div id="usuario">
-                <div id="logo_usuario">NU</div>
+                <div id="logo_usuario_header" class="logo_usuario">NU</div>
                 <div id="nome-empresa_usuario">
                     <span id="nome_usuario">Nome do Usuário</span>
                     <span id="empresa_usuario">Global Diesel</span>
@@ -41,8 +43,8 @@
                 <img id="usuario_seta" src="../imagens/seta_baixo.png" alt="seta para baixo">
             </div>
             <div id="menu_usuario" style="display: none;">
-                <span>Configurações do usuário</span>
-                <span><a href="../SGA online-login/index.html">Sair do sistema</a></span>
+                <a id="btn_configuracao_usuario" class="btn_menu_usuario">Configurações do usuário</a>
+                <a href="../SGA online-login/index.html"  class="btn_menu_usuario">Sair do sistema</a>
             </div>
         </div>
     </header>
