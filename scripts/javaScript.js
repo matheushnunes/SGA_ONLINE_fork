@@ -2,6 +2,7 @@
 import dashBorad from "../modulos/dashboard/dashboard.js";
 import contato from "../modulos/contato/lista_contatos/contato.js";
 import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cadastro_contato.js";
+import configuracao_usuario from "../modulos/configuracao_usuario/configuracao_usuario.js";
 import select2 from "./select.js";
 
 $(document).ready(function () {
@@ -54,6 +55,10 @@ function carregarConteudo(url, elemento, modulo_contato) {
       if (url === "../modulos/contato/cadastro_contato/configuracoes_contato/configuracoes_contato.html") {
         configuracoes_contato();
       }
+      if (url === "../modulos/configuracao_usuario/configuracao_usuario.html") {
+        configuracao_usuario();
+      }
+
       if (modulo_contato) { // Se for um dos modulos do contato
         btnNav();
       }
@@ -214,11 +219,19 @@ btn_fechar_menu.addEventListener('click',()=>{
 document.addEventListener("click",(e)=>{
   let menuLateral = document.querySelector("#menu_lateral")
   let widthBody = document.body.offsetWidth // Pega o tamanho do body
-  if (widthBody <= 480 && !menuLateral.classList.contains("mini") && !menuLateral.contains(e.target)) { // Clicar fora do menu com o body com menos de 480px fecha ele 
+  if (widthBody <= 640 && !menuLateral.classList.contains("mini") && !menuLateral.contains(e.target)) { // Clicar fora do menu com o body com menos de 640px fecha ele 
     btnMenuLateral() 
   }
 })
 
+// Sempre que a pagina for redimensionada e a tela for menor que 640px ele fecha o menu lateral
+window.addEventListener("resize",()=>{
+  let widthBody = document.body.offsetWidth // Pega o tamanho do body
+  let menu_lateral = document.querySelector("#menu_lateral")
+  if (widthBody <= 640 && !menu_lateral.classList.contains("mini")) {
+    btnMenuLateral()
+  }
+});
 
 // Menu Usuário:
 
