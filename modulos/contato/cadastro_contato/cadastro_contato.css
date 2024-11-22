@@ -28,6 +28,15 @@ a.link_nav_selecionado {
     margin: .625rem 0 3rem .625rem;
 }
 
+.btns_nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_nav p {
+    font: bold 1rem arial;
+}
+
 .h2_titulo {
     margin-bottom: 1rem;
 }
