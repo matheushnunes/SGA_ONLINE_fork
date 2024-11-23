@@ -259,4 +259,15 @@ document.addEventListener("click",(e)=>{
     }
 })
 
-export {carregarConteudo, btnMenuLateral, click_btn_menu,fecharMenu }
+// Função visualizar senha:
+function visibilidadeSenha(senha, img) {
+  if (senha.type === 'password') {
+      senha.type = 'text';
+      img.src = "../../imagens/visibility_off.png"
+  } else {
+      senha.type = 'password';
+      img.src = "../../imagens/visibility_on.png"
+  }
+}  
+
+export {carregarConteudo, btnMenuLateral, click_btn_menu,fecharMenu, visibilidadeSenha}

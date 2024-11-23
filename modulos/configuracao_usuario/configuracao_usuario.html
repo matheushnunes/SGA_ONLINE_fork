@@ -7,15 +7,17 @@
     </div>
     <div class="main">
         <div id="container_logo_usuario">
-            <div id="logo_usuario_config" class="logo_usuario">NU</div>
-            <div class="editar_foto click">
-                <a id="btn_editar_foto" class="item_editar_foto">Mudar Foto</a>
+            <div id="logo_usuario_config" class="logo_usuario">
+                NU
+            </div>
+            <button class="btn_editar_foto">
+                <img src="../../imagens/editar_foto.png" alt="icone editar foto" class="icone_editar_foto">
+            </button>
+            <div class="editar_foto hide">
+                <a id="btn_mudar_foto" class="item_editar_foto">Mudar Foto</a>
                 <a id="btn_ver_foto" class="item_editar_foto">Ver Foto</a>
                 <a id="btn_remover_foto" class="item_editar_foto">Remover Foto</a>
             </div>
-            <button class="btn_editar_foto">
-                <img src="../../imagens/editar_foto.png" alt="icone editar foto" class="icone_editar_foto click">
-            </button>
         </div>
         <div class="container_dados_usuario">
             <div class="campo_usuario">
@@ -45,7 +47,7 @@
                     <input type="password" name="nome_razao_social" id="nome_razao_social" class="campo_input_noborder" value="123456">
                     <img src="../../imagens/visibility_on.png" alt="icone visualizar senha" class="icone_editar" >
                 </div>
-                <button class="btn btn_alterar_senha">Alterar senha</button>
+                <button class="btn btn_alterar_senha" >Alterar senha</button>
             </div>
         </div> 
     </div>
@@ -54,5 +56,23 @@
             <img src="../../../imagens/icone_salvar.png" alt="Icone Salvar">
             <p>Salvar</p>
         </button>
+    </div>
+</section>
+<section class="container_popup" id="popup_alterar_foto">
+    <div class="popup">
+        <button class="btn_fechar_popup" id="btn_fechar_popup_alterar_foto">
+            <img src="../../imagens/icone_fechar.svg" alt="">
+        </button>        
+        <div class="popup_header">
+            <h2 class="h2_titulo">Alterar foto de perfil</h2>
+        </div>
+        <div class="popup_main">
+            <button class="btn_upload_img">
+                <img src="../../imagens/icone_upload.svg" alt="icone_upload" class="img_upload">
+            </button>
+            <p class="p_upload">Click ou arraste a imagem</p>
+            <p class="p_info">Tipos de arquivo permitidos: (jpeg, jpg, png, gif, webp)</p>
+            <p class="p_info">Tamanho máximo: 2 MB</p>
+        </div>
     </div>
 </section>

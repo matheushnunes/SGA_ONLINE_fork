@@ -1,13 +1,4 @@
-function visibilidadeSenha(senha, img) {
-    if (senha.type === 'password') {
-        senha.type = 'text';
-        img.src = "../../imagens/visibility_off.png"
-    } else {
-        senha.type = 'password';
-        img.src = "../../imagens/visibility_on.png"
-    }
-}  
-
+import { visibilidadeSenha } from "../../scripts/javaScript.js";
 let nova = false
 function confirmacao() {
     function htmlValid() {

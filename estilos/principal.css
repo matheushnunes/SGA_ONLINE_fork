@@ -750,6 +750,10 @@ main {
     transition: .2s;
 }
 
+.hide {
+    display: none !important;
+}
+
 .seta_direita {
     margin-left: .5rem;
     transform: rotate(-90deg);
@@ -766,11 +770,17 @@ main {
 
 .btn {
     width: fit-content;
-    background-color: var(--azul);
-    color: var(--principal);
+    background-color: var(--azul1);
+    color: var(--secundaria);
     height: 1.875rem; /* 30px */	
     padding: 0 .7rem;
     border-radius: 5px;
+}
+
+.img_perfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 /* Campo input com icones no canto */
@@ -795,4 +805,38 @@ main {
 .campo_input_noborder:active {
     outline: none;
     box-shadow: none;
+}
+
+
+/* Pop-Up */
+
+.container_popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background-color: var(--principal);
+    border-radius: 5px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.4);
+    z-index: 4;
+    position: relative;
+}
+
+.btn_fechar_popup {
+    position: absolute;
+    top: .4rem;
+    right: .4rem;
+    cursor: pointer;
+    padding: .2rem;
 }
