@@ -42,10 +42,10 @@
                 </div>
             </div>
             <div class="campo_usuario">
-                <label for="nome_razao_social">Senha:</label>
+                <label for="senha_usuario">Senha:</label>
                 <div class="container_campo_input" id="container_campo_input_senha">
-                    <input type="password" name="nome_razao_social" id="nome_razao_social" class="campo_input_noborder" value="123456">
-                    <img src="../../imagens/visibility_on.png" alt="icone visualizar senha" class="icone_editar" >
+                    <input type="password" name="senha_usuario" id="senha_usuario" class="campo_input_noborder" value="123456" disabled>
+                    <img src="../../imagens/visibility_on.png" alt="icone visualizar senha" class="icone_editar visibilidade" id="view_off">
                 </div>
                 <button class="btn btn_alterar_senha" >Alterar senha</button>
             </div>
@@ -58,21 +58,31 @@
         </button>
     </div>
 </section>
-<section class="container_popup" id="popup_alterar_foto">
+<section class="container_popup" id="container_popup_alterar_foto">
     <div class="popup">
         <button class="btn_fechar_popup" id="btn_fechar_popup_alterar_foto">
-            <img src="../../imagens/icone_fechar.svg" alt="">
+            <img src="../../imagens/icone_fechar.svg" alt="botão fechar popup" class="icone_fechar">
         </button>        
         <div class="popup_header">
             <h2 class="h2_titulo">Alterar foto de perfil</h2>
         </div>
         <div class="popup_main">
             <button class="btn_upload_img">
-                <img src="../../imagens/icone_upload.svg" alt="icone_upload" class="img_upload">
+                <img src="../../imagens/icone_upload.svg" alt="icone_upload" class="img_upload" draggable="false">
             </button>
-            <p class="p_upload">Click ou arraste a imagem</p>
+            <p class="p_upload">Clique ou arraste a imagem</p>
             <p class="p_info">Tipos de arquivo permitidos: (jpeg, jpg, png, gif, webp)</p>
             <p class="p_info">Tamanho máximo: 2 MB</p>
+        </div>
+    </div>
+</section>
+<section class="container_popup" id="container_popup_ver_foto">
+    <div class="popup" id="popup_ver_foto">
+        <button class="btn_fechar_popup" id="btn_fechar_popup_alterar_foto">
+            <img src="../../imagens/icone_fechar.svg" alt="botão fechar popup" id="btn_fechar_popup_ver_foto" class="icone_fechar">
+        </button>   
+        <div id="logo_usuario_config" class="logo_usuario">
+            NU
         </div>
     </div>
 </section>

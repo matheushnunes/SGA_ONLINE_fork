@@ -141,6 +141,7 @@
 
 .img_upload {
     width: 5rem;
+    
 }
 
 .p_upload {
@@ -159,6 +160,31 @@
 .drag {
     background-color: var(--azul);
 }
+
+#popup_ver_foto {
+    padding-top: 3rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+#popup_ver_foto .logo_usuario {
+    width: 80vw;
+    height: auto;
+    max-height: 70vh;
+    max-width: 70vh;
+    border: 0;
+}
+#popup_ver_foto .img_perfil {
+    max-width: 80vw;
+    height: auto;
+    border-radius: 0;
+}
+#popup_ver_foto div#logo_usuario_config {
+    width: 80vw;
+    aspect-ratio: 1/1;
+    font-size: 20rem;
+    font-size: clamp(6rem, 20vw, 20rem);
+}
 @media screen and (max-width: 480px) {
     .main {
         justify-content: center;
@@ -166,5 +192,4 @@
     .container_dados_usuario {
         justify-content: center;
     }
-    
 }

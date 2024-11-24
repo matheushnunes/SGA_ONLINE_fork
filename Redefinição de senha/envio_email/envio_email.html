@@ -18,11 +18,14 @@
                     <p>Informe o e-mail que deseja redefinir a senha:</p>
                     <input class="campo_input" type="email" name="email" id="email" placeholder="Digite o seu e-mail" required>
                 </label>
-            <input type="submit" value="Enviar" class="btn" id="btn_submit" href="../verificacao_email/verificacao.html">
+            <input type="submit" value="Enviar" class="btn" id="btn_submit" href="../verificacao_email/verificacao.html" rel="next">
             </form>
-            <p class="paragrafo"><a href="../../SGA online-login/index.html" target="_self"><img src="../../imagens/seta_baixo.png" alt="seta voltar" class="seta_voltar"> Voltar para página de login</a></p>
+            <p class="paragrafo">
+                <a href="../../SGA online-login/index.html" target="_self" id="btn_voltar">
+                <img src="../../imagens/seta_baixo.png" alt="seta voltar" class="seta_voltar"> Voltar</a>
+            </p>
         </section>
     </main>
-    <script src="envio_email.js"></script>
+    <script type="module" src="envio_email.js"></script>
 </body>
 </html>

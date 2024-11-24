@@ -15,3 +15,8 @@ campo.addEventListener('input',()=>{
         alerta.innerHTML = ""
     }
 })
+
+let btn_reenviar_email = document.querySelector('#btn_reenviar_email')
+btn_reenviar_email.addEventListener('click',()=>{ 
+    window.history.back()
+})

@@ -108,6 +108,11 @@ body {
 
 .paragrafo a{
     color: var(--azul2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
 }
 
 .seta_voltar {

@@ -1,3 +1,4 @@
+import { visibilidadeSenha } from "../../scripts/funcionalidades.js";
 import popup from "../../scripts/popup.js";
 
 export default function configuracao_usuario() {
@@ -24,15 +25,14 @@ export default function configuracao_usuario() {
     
     let btn_mudar_foto = document.querySelector("#btn_mudar_foto")
     btn_mudar_foto.addEventListener('click', () => {
-        popup('abrir')
+        popup('abrir', 0, btn_mudar_foto)
         fechar_menu_editar()
     })
 
     let btn_alterar_senha = document.querySelector(".btn_alterar_senha")
     btn_alterar_senha.addEventListener('click', () => {
-        console.log("alterar senha")
         window.location.href = "../../redefinição de senha/envio_email/envio_email.html"
-        
+        window.localStorage.setItem("from_config_usuario", true)
     })
 
     // fazer upload da imagem dentro do popup:
@@ -50,7 +50,6 @@ export default function configuracao_usuario() {
             img_perfil.classList.add("img_perfil")
             e.appendChild(img_perfil)
             popup("fechar")
-
         })
     }
 
@@ -103,4 +102,63 @@ export default function configuracao_usuario() {
             reader.readAsDataURL(file);
         }
     });
+
+    // Focar no campo do usuário quando clicar no container dele ou no botão de editar
+    let campos_usuario = [...document.querySelectorAll(".container_campo_input")]
+    campos_usuario.forEach(e => {
+        e.addEventListener("click", (el) => {
+            if( !el.target.classList.contains("campo_input_noborder")){
+                let input = e.querySelector("input")
+                if (input.type != "password"){
+                    input.focus()
+                }
+                if (input.type != "email") {
+                    input.setSelectionRange(input.value.length, input.value.length)
+                }
+            }
+        })
+    })
+
+    let campo_senha = document.querySelector("#senha_usuario")
+    let img_visibilidade_senha = document.querySelector(".visibilidade")
+    img_visibilidade_senha.addEventListener("click", ()=> {
+        visibilidadeSenha(campo_senha,img_visibilidade_senha)
+    })
+
+    // Botão voltar:
+    let btn_voltar = document.querySelector(".btn_voltar")
+    btn_voltar.addEventListener('click', () => {
+        window.location.href = "../../principal/principal.html"
+    })
+
+    // Botão de salvar:
+    let btn_salvar = document.querySelector(".btn_salvar")
+    btn_salvar.addEventListener('click', () => {
+        alert("Configurações salvas com sucesso!")
+        window.location.href = "../../principal/principal.html"
+    })
+
+    // Pop Up ver foto:
+    let btn_ver_foto = document.querySelector("#btn_ver_foto")
+    btn_ver_foto.addEventListener('click', () => {
+        popup('abrir',1,btn_ver_foto)
+        fechar_menu_editar()
+    })
+
+    // Botão de remover foto:
+    let btn_remover_foto = document.querySelector("#btn_remover_foto")
+    btn_remover_foto.addEventListener('click', () => {
+        let div_logo_usuario = document.querySelectorAll(".logo_usuario");
+        div_logo_usuario.forEach(e => {
+            // Pega a primeira letra do primeiro nome e a primeira letra do ultimo nome no nome do usuário:
+            let nome_usuario = document.querySelector("#nome_usuario").textContent.trim();
+            let nome_completo = nome_usuario.split(" ");
+            let primeira_letra_primeiro_nome = nome_completo[0][0].toUpperCase();
+            let primeira_letra_ultimo_nome = nome_completo[nome_completo.length-1][0].toUpperCase();
+            e.textContent = primeira_letra_primeiro_nome+primeira_letra_ultimo_nome;
+            e.style.backgroundColor = "aqua"
+        });
+        
+
+    })
 }    

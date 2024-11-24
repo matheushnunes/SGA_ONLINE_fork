@@ -374,7 +374,9 @@ main {
     flex-flow: row wrap;
     justify-content: start;
     align-content: flex-start;
-    margin-right: 0.7rem;
+    margin: 0 0 0 0.7rem !important;
+    padding: 0 !important;
+    background-color: transparent !important;
 }
 .principal.mini {
     width: calc(100% - 36px);
@@ -599,7 +601,6 @@ main {
 
     #menu_usuario {
         padding: 3px 0px 7px 0px;
-        top: 50px;
     }
     #menu_lateral {
         padding: 0px; /* Ajusta o padding do menu lateral */
@@ -783,6 +784,10 @@ main {
     border-radius: 50%;
 }
 
+.visibilidade {
+    cursor: pointer;
+}
+
 /* Campo input com icones no canto */
 .container_campo_input {
     display: flex;
@@ -839,4 +844,8 @@ main {
     right: .4rem;
     cursor: pointer;
     padding: .2rem;
+}
+
+.icone_fechar {
+    width: 1.5rem;
 }
