@@ -7,8 +7,37 @@
                 <p class="p_data_cadastro">Data de cadastro:</p>
                 <p id="data_cadastro"></p>
             </div>
-            <button class="btn_salvar">
-                <img src="../../../imagens/icone_salvar.png" alt="Icone Salvar">
-                <p>Salvar</p>
-            </button>
+        </div>
+        <div class="modulo_main">
+            <div class="container_small_width" id="container_radios"> 
+                <div class="campo_contato radio_contato">
+                    <p>Valor Varejo:</p>
+                    <div class="container_radios small_width">
+                        <input type="number" name="" id="" class="campo_input">
+                    </div>
+                </div>
+                <div class="campo_contato radio_contato">
+                    <p>Valor Atacado:</p>
+                    <div class="container_radios small_width">
+                        <input type="number" name="nome_produto" id="nome_produto" class="campo_input">
+                    </div>
+                </div>
+            </div>
+            <div class="campo_contato normal_width">
+                <label for="nome_produto">Nome do Produto:</label>
+                <input type="text" name="nome_produto" id="nome_produto" class="campo_input">
+            </div>
+            <div class="campo_contato normal_width">
+                <label for="quantidade_em_estoque">Quantidade em Estoque:</label>
+                <input type="text" name="quantidade_em_estoque" id="quantidade_em_estoque" class="campo_input">
+            </div>
+            <div class="campo_contato normal_width">
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" id="descricao" class="textarea" rows="4"></textarea>
+            </div>
+        </div>
+        <button class="btn_salvar">
+            <img src="../../../imagens/icone_salvar.svg" alt="Icone Salvar">
+            <p>Salvar</p>
+        </button>
 </section>
