@@ -4,6 +4,7 @@ import contato from "../modulos/contato/lista_contatos/contato.js";
 import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cadastro_contato.js";
 import configuracao_usuario from "../modulos/configuracao_usuario/configuracao_usuario.js";
 import select2 from "./select.js";
+import produto from "../modulos/produto/produto.js";
 
 $(document).ready(function () {
   $('.campo_select').select2({
@@ -58,7 +59,11 @@ function carregarConteudo(url, elemento, modulo_contato) {
       if (url === "../modulos/configuracao_usuario/configuracao_usuario.html") {
         configuracao_usuario();
       }
-
+      console.log(url)
+      if (url === "../modulos/produto/produto.html") { 
+        console.log ("funciona plis")
+        produto()
+      }
       if (modulo_contato) { // Se for um dos modulos do contato
         btnNav();
       }
@@ -70,6 +75,8 @@ function carregarConteudo(url, elemento, modulo_contato) {
   });
 
 }
+
+
 
 // Função que fecha o menu lateral se a tela tiver menos de um determinado width de largura
 function fecharMenu(width, minWidth) {
