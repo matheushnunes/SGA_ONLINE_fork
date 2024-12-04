@@ -3,7 +3,9 @@
     flex-wrap: wrap;
     gap: 4rem;
 }
-
+.modulo_header h1{
+    margin-bottom: 1rem;
+}
 #modulo_configuracao_usuario {
     padding: 1em;
 }

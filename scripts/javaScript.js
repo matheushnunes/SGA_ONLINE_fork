@@ -59,7 +59,6 @@ function carregarConteudo(url, elemento, modulo_contato) {
       if (url === "../modulos/configuracao_usuario/configuracao_usuario.html") {
         configuracao_usuario();
       }
-      console.log(url)
       if (url === "../modulos/produto/produto.html") { 
         console.log ("funciona plis")
         produto()
@@ -255,6 +254,16 @@ btnUsuario.addEventListener("click",()=>{
         usuario_seta.style.transform = "rotate(0deg)"
         usuario_seta.style.transition = ".1s"
     }
+  })
+
+let btn_configuracao_usuario = document.querySelector("#btn_configuracao_usuario")
+btn_configuracao_usuario.addEventListener("click",()=>{
+  let btn_modulo_ativo = document.querySelector(".modulo_selecionado")
+  btn_modulo_ativo.classList.remove("modulo_selecionado")
+  if (!btn_modulo_ativo.classList.contains("btn") && !btn_modulo_ativo.classList.contains("mini")) {
+    let btn_menu = btn_modulo_ativo.nextElementSibling
+    displayMenu(btn_menu)
+  }
 })
 
 // Fechar o menu quando clicar fora do menu:
