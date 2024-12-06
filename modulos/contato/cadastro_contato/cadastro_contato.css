@@ -67,7 +67,7 @@ a.link_nav_selecionado {
     margin: 0 0 .3rem .3rem
 }
 
-#data_cadastro {
+.data_cadastro {
     background-color: var(--azul-1);
     border: none;
     padding: 0.4rem 0.6rem;

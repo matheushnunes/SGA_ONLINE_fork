@@ -3,12 +3,10 @@ import { btnMenuLateral, carregarConteudo, fecharMenu } from "../../../scripts/j
 
 export default function contato() {
     let input_pesquisa = document.querySelector(".input_pesquisa")
-    /**
-     * Função que fecha o menu lateral se a tela tiver menos de 480px de largura
-     * e muda o nome da coluna de código na tabela
-     */
-
-    
+    /*
+        * Função que fecha o menu lateral se a tela tiver menos de 480px de largura
+        * e muda o nome da coluna de código na tabela
+    */
     // Fecha o menu lateral se a tela tiver menos de 480px de largura no resize
     fecharMenu(document.querySelector(".tabela").offsetWidth,480)
     window.addEventListener('resize', (e) => {

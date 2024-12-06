@@ -6,6 +6,20 @@ import configuracao_usuario from "../modulos/configuracao_usuario/configuracao_u
 import select2 from "./select.js";
 import produto from "../modulos/produto/produto.js";
 
+function mudarLogo(){ // Muda a logo do usuário de acordo com o nome dele
+  let div_logo_usuario = document.querySelectorAll(".logo_usuario");
+  div_logo_usuario.forEach(e => {
+      // Pega a primeira letra do primeiro nome e a primeira letra do ultimo nome no nome do usuário:
+      let nome_usuario = document.querySelector("#nome_usuario").textContent.trim();
+      let nome_completo = nome_usuario.split(" ");
+      let primeira_letra_primeiro_nome = nome_completo[0][0].toUpperCase();
+      let primeira_letra_ultimo_nome = nome_completo[nome_completo.length-1][0].toUpperCase();
+      e.textContent = primeira_letra_primeiro_nome+primeira_letra_ultimo_nome;
+      e.style.backgroundColor = "aqua"
+  });
+}
+mudarLogo()
+
 $(document).ready(function () {
   $('.campo_select').select2({
       placeholder: 'Selecione a coluna',
@@ -23,6 +37,11 @@ btns_modulos.forEach(e =>{
 })
 
 carregarConteudo("dashboard/dashboard.html", document.querySelector(".principal")) // Carrega por padrão assim que a página for carregada o dashboard
+
+let logo_sga_principal = document.querySelector("#logo_sga_principal")
+logo_sga_principal.addEventListener("click",()=>{
+  carregarConteudo("dashboard/dashboard.html", document.querySelector(".principal"))
+}) // Clicar na logo volta para o dashboard
 
 // Função carregar conteúdo html dos módulos
 function carregarConteudo(url, elemento, modulo_contato) {
@@ -60,7 +79,6 @@ function carregarConteudo(url, elemento, modulo_contato) {
         configuracao_usuario();
       }
       if (url === "../modulos/produto/produto.html") { 
-        console.log ("funciona plis")
         produto()
       }
       if (modulo_contato) { // Se for um dos modulos do contato
@@ -152,21 +170,42 @@ btns_menu.forEach((e)=>{
         let modulo = e.currentTarget // Pega o modulo que foi clicado
         let btnMini = modulo.classList.contains("mini") // Verifica se o botão tem a classe "mini"
         let btn = (modulo.classList[0] == 'btn') // Verifica se a opção selecionada é um botão que não tem um menu dropdown
+        let btn_menu_selecionado = modulo.classList.contains("btn_menu_selecionado")
         let widthBody = document.body.offsetWidth // Pega o tamanho do body
         btns_menu.forEach(el=>{
-            if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
-                if(!btnMini && btn) { // Se for um modulo maximizado e for um botão
-                  el.classList.add("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
-                  if(!btn){ // Se não for um botão
-                    displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
-                  } else {
-                    displayMenu("btn")
-                  }
-                } else if (!btnMini) { // Se não for um botão e não estiver minimizado
+          if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
+              if(!btnMini && btn) { // Se for um modulo maximizado e for um botão
+                el.classList.add("modulo_selecionado") // Adicionando a classe selecionado no modulo que foi clicado
+                try {
+                  document.querySelector(".item_hiden").remove()
+                }catch (error) {}
+                if(!btn){ // Se não for um botão
+                  displayMenu(el.nextElementSibling) // Manda como parametro para função o proximo irmão do elemento selecionado
+                } else {
+                  displayMenu("btn")
+                }
+              } else if (!btnMini) { // Se não for um botão e não estiver minimizado
+                if (btn_menu_selecionado) {
+                  el.classList.add("modulo_selecionado")
+                  try {
+                    if (el.nextElementSibling.style.display == "block") {
+                      el.querySelector(".seta_cima_baixo").style.transform = "rotate(0deg)"
+                      let span = document.createElement("span")
+                      span.classList.add("item_hiden")
+                      span.textContent = " / " + document.querySelector(".item_menu_selecionado").textContent
+                      el.querySelector(".span_modulo").appendChild(span)
+                    } else {
+                      el.querySelector(".seta_cima_baixo").style.transform = "rotate(180deg)"
+                      document.querySelector(".item_hiden").remove()
+                    }
+                  } catch (error) {}
+
+                  displayMenu(el.nextElementSibling)
+                } else {
                   el.classList.toggle("modulo_selecionado")
                   displayMenu(el.nextElementSibling)
                 }
-                 else { // Se for um botão minimizado
+              } else { // Se for um botão minimizado
                   if(!btn){ // Se não for um botão
                     modulo.classList.add("modulo_selecionado") // Somente adiciona a classe
                     btnMenuLateral()
@@ -174,20 +213,24 @@ btns_menu.forEach((e)=>{
                   }else {
                     modulo.classList.add("modulo_selecionado") // Se for um botão adiciona a classe
                   }
-                }
-            } else {
-                el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos que não foram clicados 
-            }
+              }
+          } else if (btn) {
+            el.classList.remove("modulo_selecionado") // Retirando a classe selecionado de todos os outros modulos que não foram clicados
+            try {
+              document.querySelector(".btn_menu_selecionado").classList.remove("btn_menu_selecionado")
+            } catch (error) {}
+          }
 
-            if (widthBody <= 480 && btn && !btnMini) {
-              btnMenuLateral()
-            }
+          if (widthBody <= 480 && btn && !btnMini) {
+            btnMenuLateral()
+          }
         })
-        
+  
         document.querySelectorAll(".item_dropdown").forEach(e=>{ // Quando for selecionado um módulo é retirado a marcação de todos os itens do menu
+          if(!btn_menu_selecionado)
             e.classList.remove("item_menu_selecionado")
         }) 
-    })
+    }) 
 })
 
 let itemMenu = document.querySelectorAll(".item_dropdown")
@@ -207,9 +250,19 @@ itens_dropdown.forEach(e=>{
     e.addEventListener("click",e=>{ // Adiciona a função de clicar em todos
         itens_dropdown.forEach(i=>{
             if (i.id == e.currentTarget.id){
-                e.currentTarget.classList.toggle("item_menu_selecionado") // Adiciona ou tira a classe "item_menu_selecionado" somente do item clicado
+              try {
+                let modulo_selecionado = document.querySelectorAll(".modulo_selecionado")
+                modulo_selecionado.forEach(modulo => {
+                  if(e.currentTarget.parentElement.parentElement.firstElementChild != modulo){
+                    modulo.classList.remove("modulo_selecionado")
+                    e.currentTarget.parentElement.parentElement.firstElementChild.classList.add("modulo_selecionado")
+                    e.currentTarget.parentElement.parentElement.firstElementChild.classList.add("btn_menu_selecionado")
+                  }
+                })
+              } catch (error) {}
+              e.currentTarget.classList.add("item_menu_selecionado") // Adiciona ou tira a classe "item_menu_selecionado" somente do item clicado
             } else {
-                i.classList.remove("item_menu_selecionado") // Tira a classe de todos os outros items
+              i.classList.remove("item_menu_selecionado") // Tira a classe de todos os outros items
             }
         })
     })
@@ -278,4 +331,4 @@ document.addEventListener("click",(e)=>{
 // Função visualizar senha:
 
 
-export {carregarConteudo, btnMenuLateral, click_btn_menu,fecharMenu}
+export {carregarConteudo, btnMenuLateral, click_btn_menu,fecharMenu,mudarLogo}

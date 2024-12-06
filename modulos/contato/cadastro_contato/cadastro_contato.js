@@ -1,4 +1,5 @@
 import { carregarConteudo, fecharMenu } from "../../../scripts/javaScript.js"
+import { dataAtual } from "../../../scripts/funcionalidades.js";
 
 function navLink (link) {
     switch (link) {
@@ -43,18 +44,7 @@ function cadastro_contato(link) {
     })
 
     // Mudar o input de data de cadastro para o dia atual:
-
-    let p_data_cadastro = document.querySelector("#data_cadastro")
-    let data = new Date()
-    let dia = data.getDate()
-    let mes = data.getMonth() + 1 // Mes comeca em 0
-    if (dia <= 9) { // Se o dia for menor que 9 adiciona um 0 na frente
-        dia = "0" + dia
-    }
-    if (mes <= 9) { // Se o mes for menor que 9 adiciona um 0 na frente
-        mes = "0" + mes
-    }
-    p_data_cadastro.innerHTML = `${dia}/${mes}/${data.getFullYear()}`
+    dataAtual()
 
     fecharMenu(document.querySelector(".modulo").offsetWidth, 584)
     window.addEventListener('resize', (e) => { 
@@ -62,9 +52,7 @@ function cadastro_contato(link) {
             fecharMenu(document.querySelector(".modulo").offsetWidth, 421)
         } 
     })
-
 }
-
 
 function btnNav() {
     let btn_nav = document.querySelectorAll(".btn_nav")

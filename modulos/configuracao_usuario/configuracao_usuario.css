@@ -184,8 +184,12 @@
 #popup_ver_foto div#logo_usuario_config {
     width: 80vw;
     aspect-ratio: 1/1;
-    font-size: 20rem;
-    font-size: clamp(6rem, 20vw, 20rem);
+    font-size: clamp(6rem, 30vw, 12rem);
+}
+@media screen and (max-height: 550px){
+    #popup_ver_foto div#logo_usuario_config {
+        font-size: clamp(5rem, 20vh, 14rem);
+    }
 }
 @media screen and (max-width: 480px) {
     .main {

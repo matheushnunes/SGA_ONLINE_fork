@@ -1,4 +1,5 @@
 import { visibilidadeSenha } from "../../scripts/funcionalidades.js";
+import { mudarLogo } from "../../scripts/javaScript.js";
 import popup from "../../scripts/popup.js";
 
 export default function configuracao_usuario() {
@@ -146,19 +147,10 @@ export default function configuracao_usuario() {
     })
 
     // Botão de remover foto:
+    mudarLogo() // Atualiza a logo assim que a página for carregada
     let btn_remover_foto = document.querySelector("#btn_remover_foto")
     btn_remover_foto.addEventListener('click', () => {
-        let div_logo_usuario = document.querySelectorAll(".logo_usuario");
-        div_logo_usuario.forEach(e => {
-            // Pega a primeira letra do primeiro nome e a primeira letra do ultimo nome no nome do usuário:
-            let nome_usuario = document.querySelector("#nome_usuario").textContent.trim();
-            let nome_completo = nome_usuario.split(" ");
-            let primeira_letra_primeiro_nome = nome_completo[0][0].toUpperCase();
-            let primeira_letra_ultimo_nome = nome_completo[nome_completo.length-1][0].toUpperCase();
-            e.textContent = primeira_letra_primeiro_nome+primeira_letra_ultimo_nome;
-            e.style.backgroundColor = "aqua"
-        });
-        
-
+       mudarLogo()
+       fechar_menu_editar()
     })
 }    
