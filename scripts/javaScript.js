@@ -108,13 +108,18 @@ fecharMenu(document.body.offsetWidth, 640); // Chama a função no load da pági
 // Configurações menu lateral:
 
 // Função trocar visibilidade do menu conforme for clicado
-function displayMenu(id){
+function displayMenu(id, remove_class){
     if(id && id != "btn") {
       let menu = id
       let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
-      if (menu.style.display == "none") { // Altera a visibilidade do menu clicado
+      if (menu.style.display == "none") { // Se o dropdown estiver fechado
+        menu.parentElement.querySelector(".seta_cima_baixo").style.transform = "rotate(180deg)" // Gira a seta
         menu.style.display = "block"
       } else {
+        menu.parentElement.querySelector(".seta_cima_baixo").style.transform = "rotate(0deg)"
+        if (remove_class) { // Remove a classe "modulo_selecionado" do módulo que estava selecionado
+          document.querySelector(".modulo_selecionado").classList.remove("modulo_selecionado")
+        }
         menu.style.display = "none"
       }
       menus.forEach(e=>{
@@ -129,6 +134,7 @@ function displayMenu(id){
       let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
       menus.forEach(e =>{
         e.style.display = "none" // Some com todos os menus drop-down 
+        document.querySelector(".seta_cima_baixo").style.transform = "rotate(0deg)"
       })
     }
 }
@@ -154,6 +160,9 @@ function btnMenuLateral(target){
         icone_aba.src = "../imagens/icone_fechar_aba.png"
         icone_aba.className = "aba_fechar"
         icone_aba.alt = "Icone_fechar_aba_menu"
+        try {
+            document.querySelector(".item_hiden").remove()
+        } catch (error) {}
         minimizarMenu("abrir")
         if(target == "btn_lateral") { // Se o botão apertado for o botão lateral:
             // Se tiver um modulo selecionado e não for um botão é chamada a função para abrir as opções do modulo 
@@ -170,7 +179,7 @@ btns_menu.forEach((e)=>{
         let modulo = e.currentTarget // Pega o modulo que foi clicado
         let btnMini = modulo.classList.contains("mini") // Verifica se o botão tem a classe "mini"
         let btn = (modulo.classList[0] == 'btn') // Verifica se a opção selecionada é um botão que não tem um menu dropdown
-        let btn_menu_selecionado = modulo.classList.contains("btn_menu_selecionado")
+        let btn_menu_selecionado = modulo.classList.contains("btn_menu_selecionado") // Verifica se o modulo é um dropdown com um item selecionado
         let widthBody = document.body.offsetWidth // Pega o tamanho do body
         btns_menu.forEach(el=>{
           if(el.id == modulo.id){ // Se o elemento for igual o id do modulo clicado
@@ -185,22 +194,20 @@ btns_menu.forEach((e)=>{
                   displayMenu("btn")
                 }
               } else if (!btnMini) { // Se não for um botão e não estiver minimizado
-                if (btn_menu_selecionado) {
+                if (btn_menu_selecionado) { // For um dropdown com um item selecionado
                   el.classList.add("modulo_selecionado")
                   try {
-                    if (el.nextElementSibling.style.display == "block") {
-                      el.querySelector(".seta_cima_baixo").style.transform = "rotate(0deg)"
+                    if (el.nextElementSibling.style.display == "block") { // Se o menu dropdown estiver aberto
+                      displayMenu(el.nextElementSibling)
                       let span = document.createElement("span")
                       span.classList.add("item_hiden")
                       span.textContent = " / " + document.querySelector(".item_menu_selecionado").textContent
                       el.querySelector(".span_modulo").appendChild(span)
                     } else {
-                      el.querySelector(".seta_cima_baixo").style.transform = "rotate(180deg)"
+                      displayMenu(el.nextElementSibling)
                       document.querySelector(".item_hiden").remove()
                     }
                   } catch (error) {}
-
-                  displayMenu(el.nextElementSibling)
                 } else {
                   el.classList.toggle("modulo_selecionado")
                   displayMenu(el.nextElementSibling)
@@ -260,7 +267,7 @@ itens_dropdown.forEach(e=>{
                   }
                 })
               } catch (error) {}
-              e.currentTarget.classList.add("item_menu_selecionado") // Adiciona ou tira a classe "item_menu_selecionado" somente do item clicado
+              e.currentTarget.classList.add("item_menu_selecionado") // Adiciona a classe "item_menu_selecionado" somente no item clicado
             } else {
               i.classList.remove("item_menu_selecionado") // Tira a classe de todos os outros items
             }
@@ -309,13 +316,32 @@ btnUsuario.addEventListener("click",()=>{
     }
   })
 
+// Menu Usuário - Configurações do usuário:
 let btn_configuracao_usuario = document.querySelector("#btn_configuracao_usuario")
 btn_configuracao_usuario.addEventListener("click",()=>{
+  let item_hiden = false
+  let btn_menu_preselecionado = false
   let btn_modulo_ativo = document.querySelector(".modulo_selecionado")
-  btn_modulo_ativo.classList.remove("modulo_selecionado")
-  if (!btn_modulo_ativo.classList.contains("btn") && !btn_modulo_ativo.classList.contains("mini")) {
-    let btn_menu = btn_modulo_ativo.nextElementSibling
-    displayMenu(btn_menu)
+  try {
+    document.querySelector(".item_hiden").remove()
+    item_hiden = true
+  } catch (error) {}
+
+  if(document.querySelector(".btn_menu.modulo_selecionado:not(.btn)")) {
+    btn_menu_preselecionado = true
+  }
+
+  if (
+    (
+      !btn_modulo_ativo.classList.contains("btn") && // Se nao for um botão
+      !btn_modulo_ativo.classList.contains("mini") && // Se nao estiver minimizado
+      !item_hiden // Se nao tiver um item hiden
+    )
+  ) {
+    displayMenu(btn_modulo_ativo.nextElementSibling, true) // Fecha o menu Dropdown
+  }else {
+    displayMenu(btn_modulo_ativo.nextElementSibling.lastElementChild, true)
+    btn_modulo_ativo.classList.remove("modulo_selecionado")
   }
 })
 
