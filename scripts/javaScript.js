@@ -5,6 +5,7 @@ import {cadastro_contato, btnNav} from "../modulos/contato/cadastro_contato/cada
 import configuracao_usuario from "../modulos/configuracao_usuario/configuracao_usuario.js";
 import select2 from "./select.js";
 import produto from "../modulos/produto/produto.js";
+import centro_de_estoque from "../modulos/centro_de_estoque/centro_de_estoque.js";
 
 function mudarLogo(){ // Muda a logo do usuário de acordo com o nome dele
   let div_logo_usuario = document.querySelectorAll(".logo_usuario");
@@ -80,6 +81,9 @@ function carregarConteudo(url, elemento, modulo_contato) {
       }
       if (url === "../modulos/produto/produto.html") { 
         produto()
+      }
+      if (url === "../modulos/centro_de_estoque/centro_de_estoque.html") {
+        centro_de_estoque()
       }
       if (modulo_contato) { // Se for um dos modulos do contato
         btnNav();
@@ -258,13 +262,12 @@ itens_dropdown.forEach(e=>{
         itens_dropdown.forEach(i=>{
             if (i.id == e.currentTarget.id){
               try {
-                let modulo_selecionado = document.querySelectorAll(".modulo_selecionado")
-                modulo_selecionado.forEach(modulo => {
-                  if(e.currentTarget.parentElement.parentElement.firstElementChild != modulo){
-                    modulo.classList.remove("modulo_selecionado")
-                    e.currentTarget.parentElement.parentElement.firstElementChild.classList.add("modulo_selecionado")
-                    e.currentTarget.parentElement.parentElement.firstElementChild.classList.add("btn_menu_selecionado")
-                  }
+                let modulos_selecionados = document.querySelectorAll(".modulo_selecionado") // Pega todos os módulos selecionados
+                let modulo_selecionado_atual = e.currentTarget.parentElement.parentElement.firstElementChild // Pega somente o ultimo módulo selecionado
+                modulos_selecionados.forEach(modulo => {
+                  modulo.classList.remove("modulo_selecionado") // Remove a classe "modulo_selecionado" de todos os módulos selecionados
+                  modulo_selecionado_atual.classList.add("modulo_selecionado") // Adiciona a classe "modulo_selecionado" somente no módulo clicado
+                  modulo_selecionado_atual.classList.add("btn_menu_selecionado") // Adiciona a classe "btn_menu_selecionado" somente no módulo clicado
                 })
               } catch (error) {}
               e.currentTarget.classList.add("item_menu_selecionado") // Adiciona a classe "item_menu_selecionado" somente no item clicado
@@ -330,7 +333,6 @@ btn_configuracao_usuario.addEventListener("click",()=>{
   if(document.querySelector(".btn_menu.modulo_selecionado:not(.btn)")) {
     btn_menu_preselecionado = true
   }
-
   if (
     (
       !btn_modulo_ativo.classList.contains("btn") && // Se nao for um botão
@@ -340,9 +342,9 @@ btn_configuracao_usuario.addEventListener("click",()=>{
   ) {
     displayMenu(btn_modulo_ativo.nextElementSibling, true) // Fecha o menu Dropdown
   }else {
-    displayMenu(btn_modulo_ativo.nextElementSibling.lastElementChild, true)
-    btn_modulo_ativo.classList.remove("modulo_selecionado")
   }
+  btn_modulo_ativo.classList.remove("modulo_selecionado")
+  btn_modulo_ativo.classList.remove("btn_menu_selecionado")
 })
 
 // Fechar o menu quando clicar fora do menu:

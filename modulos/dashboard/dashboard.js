@@ -251,17 +251,26 @@ export default function dashBorad () {
   })
   
   // Alterar tipo do gráfico: 
-  let tipo_grafico_entrada = document.querySelector("#tipo_grafico_entrada")
-  let tipo_grafico_saida = document.querySelector("#tipo_grafico_saida")
-  let tipo_grafico_diferenca = document.querySelector("#tipo_grafico_diferenca")
+
+  $('.tipo_grafico').select2({ // Inicia o select2
+    placeholder: 'Selecione a coluna',
+    width: '80px',
+    minimumResultsForSearch: Infinity,
+  });
   
-  tipo_grafico_entrada.addEventListener('change',()=>{
-    criarGraficoEntrada(tipo_grafico_entrada.value, fontSize)
-  })
-  tipo_grafico_saida.addEventListener('change',()=>{
-    criarGraficoSaida(tipo_grafico_saida.value, fontSize)
-  })
-  tipo_grafico_diferenca.addEventListener('change',()=>{
-    criarGraficoDiferenca(tipo_grafico_diferenca.value, fontSize)
+  $('.tipo_grafico').on('change', function() { // Quando o select for alterado
+    let tipoGrafico = this.id // Pega o id do select
+    let tipo = this.value // Pega o valor selecionado no select
+    switch (tipoGrafico) {
+      case "tipo_grafico_entrada":
+        criarGraficoEntrada(tipo, fontSize)
+        break;
+      case "tipo_grafico_saida":
+        criarGraficoSaida(tipo, fontSize)
+        break;
+      case "tipo_grafico_diferenca":
+        criarGraficoDiferenca(tipo, fontSize)
+        break;
+    }
   })
 }

@@ -1,5 +1,5 @@
 import { carregarConteudo } from "../../scripts/javaScript.js"
-import { dataAtual } from "../../scripts/funcionalidades.js"
+import { dataAtual, mudarPesquisa } from "../../scripts/funcionalidades.js"
 export default function produto () {
     let btn_add = document.querySelector("#btn_adicionar")
     btn_add.addEventListener("click",() => {
@@ -11,5 +11,6 @@ export default function produto () {
         }
      }, 100);
     })
+    mudarPesquisa(document.querySelector(".input_pesquisa"))
 }
 

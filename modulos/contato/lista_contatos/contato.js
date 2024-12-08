@@ -1,5 +1,6 @@
 // Função que minimiza o menu lateral:
 import { btnMenuLateral, carregarConteudo, fecharMenu } from "../../../scripts/javaScript.js"
+import { mudarPesquisa } from "../../../scripts/funcionalidades.js"
 
 export default function contato() {
     let input_pesquisa = document.querySelector(".input_pesquisa")
@@ -15,11 +16,6 @@ export default function contato() {
         } 
     })
 
-    // Adiciona evento de mudança de seleção no select2
-    $('.campo_select').on('select2:select', function (e) {
-        input_pesquisa.placeholder = "Pesquisar por " + e.params.data.text
-    })
-
     // Inicializa o select2
     $(document).ready(function () {
         $('.campo_select').select2({
@@ -28,6 +24,9 @@ export default function contato() {
             minimumResultsForSearch: Infinity,
         });
     });
+
+    // Botão pesquisar:
+    mudarPesquisa(input_pesquisa)
 
     // Botão criar contato:
     let btn_criar_contato = document.querySelector("#btn_criar_contato")
