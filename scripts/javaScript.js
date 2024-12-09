@@ -113,7 +113,7 @@ fecharMenu(document.body.offsetWidth, 640); // Chama a função no load da pági
 
 // Função trocar visibilidade do menu conforme for clicado
 function displayMenu(id, remove_class){
-    if(id && id != "btn") {
+    if(id && id != "btn") { // Se tiver um id e não for o botão
       let menu = id
       let menus = document.querySelectorAll(".dropdown") // Pega todos os menus dropdown da página
       if (menu.style.display == "none") { // Se o dropdown estiver fechado
@@ -160,19 +160,23 @@ function btnMenuLateral(target){
         icone_aba.className = "aba_abrir"
         icone_aba.alt = "Icone_abrir_aba_menu"
         minimizarMenu("fechar")
+        let modulo_pre_selecionado = document.querySelector(".btn_menu.modulo_selecionado:not(.btn):not(.btn_menu_selecionado)") // Seleciona somente o módulo pre-selecionado
+        if (modulo_pre_selecionado) { // Se tiver um módulo pre-selecionado
+          modulo_pre_selecionado.querySelector(".seta_cima_baixo").style.transform = "rotate(0deg)" // Gira a seta
+          modulo_pre_selecionado.classList.remove("modulo_selecionado") // Remove a classe "modulo_selecionado"
+          modulo_pre_selecionado.nextElementSibling.style.display = "none" // Fecha o menu dropdown
+        }
     } else { // Se o menu estiver minimizado 
         icone_aba.src = "../imagens/icone_fechar_aba.png"
         icone_aba.className = "aba_fechar"
         icone_aba.alt = "Icone_fechar_aba_menu"
-        try {
-            document.querySelector(".item_hiden").remove()
-        } catch (error) {}
         minimizarMenu("abrir")
+        document.querySelector(".item_hiden")?.remove() // se o .item_hiden existir ele é removido
         if(target == "btn_lateral") { // Se o botão apertado for o botão lateral:
             // Se tiver um modulo selecionado e não for um botão é chamada a função para abrir as opções do modulo 
             let modulo_selecionado = document.querySelector(".modulo_selecionado")
             if(modulo_selecionado != null && modulo_selecionado.classList[0] == "btn_menu"){
-                displayMenu(modulo_selecionado.nextElementSibling)
+              displayMenu(modulo_selecionado.nextElementSibling)
             }
         }
     }
@@ -323,28 +327,29 @@ btnUsuario.addEventListener("click",()=>{
 let btn_configuracao_usuario = document.querySelector("#btn_configuracao_usuario")
 btn_configuracao_usuario.addEventListener("click",()=>{
   let item_hiden = false
-  let btn_menu_preselecionado = false
   let btn_modulo_ativo = document.querySelector(".modulo_selecionado")
-  try {
+
+  if(document.querySelector(".item_hiden")){ // Se tiver um item do menu hiden
     document.querySelector(".item_hiden").remove()
     item_hiden = true
-  } catch (error) {}
-
-  if(document.querySelector(".btn_menu.modulo_selecionado:not(.btn)")) {
-    btn_menu_preselecionado = true
   }
-  if (
-    (
+
+  if (btn_modulo_ativo) { // Se tiver um modulo ativo
+    if (
       !btn_modulo_ativo.classList.contains("btn") && // Se nao for um botão
       !btn_modulo_ativo.classList.contains("mini") && // Se nao estiver minimizado
       !item_hiden // Se nao tiver um item hiden
-    )
-  ) {
-    displayMenu(btn_modulo_ativo.nextElementSibling, true) // Fecha o menu Dropdown
-  }else {
+    ) {
+      displayMenu(btn_modulo_ativo.nextElementSibling, true) // Fecha o menu Dropdown
+    }
+    btn_modulo_ativo.classList.remove("modulo_selecionado")
+    btn_modulo_ativo.classList.remove("btn_menu_selecionado")
+
+    let setaCimaBaixo = btn_modulo_ativo.querySelector(".seta_cima_baixo");
+    if (setaCimaBaixo) { // Se for um módulo que tiver uma seta
+      setaCimaBaixo.style.transform = "rotate(0deg)"; // Gira a seta para a posição padrão
+    }
   }
-  btn_modulo_ativo.classList.remove("modulo_selecionado")
-  btn_modulo_ativo.classList.remove("btn_menu_selecionado")
 })
 
 // Fechar o menu quando clicar fora do menu:
@@ -355,8 +360,6 @@ document.addEventListener("click",(e)=>{
       usuario_seta.style.transition = ".1s"
     }
 })
-
-// Função visualizar senha:
 
 
 export {carregarConteudo, btnMenuLateral, click_btn_menu,fecharMenu,mudarLogo}
